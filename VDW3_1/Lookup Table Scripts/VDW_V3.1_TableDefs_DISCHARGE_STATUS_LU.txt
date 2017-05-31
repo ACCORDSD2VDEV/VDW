@@ -1,0 +1,47 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_DISCHARGE_STATUS_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'AF', N'Adult Foster Home')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'AL', N'Assisted Living Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'AM', N'Against Medical Advice')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'AW', N'Absent without leave')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'EX', N'Expired')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'HH', N'Home Health')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'HS', N'Hospice')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'HO', N'Home / Self Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'IP', N'Other Acute Inpatient Hospital')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'NH', N'Nursing Home (Includes ICF)')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'OT', N'Other')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'RS', N'Residential Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'RH', N'Rehabilitation Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'SH', N'Still In Hospital')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'SN', N'Skilled Nursing Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DISCHARGE_STATUS_LU] ([Abbreviation], [Description]) VALUES (N'UN', N'Unknown')
+GO

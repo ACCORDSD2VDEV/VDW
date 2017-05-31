@@ -1,0 +1,33 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_ENCTYPE_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_ENCTYPE_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'IP', N'Acute Inpatient Hospital Stay: Inpatient stays, same-day hospital discharges, hospital transfers where the patient was admitted into the hospital. Includes acute inpatient psych and detox hospital stays. [ENCOUNTER_SUBTYPE = AI]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'ED', N'Emergency Department Encounter: Excludes urgent care visits. [ENCOUNTER_SUBTYPE = HA,OC]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'AV', N'Ambulatory Visit: Outpatient clinics, same day surgeries, observation beds, urgent care visits, and other same-day ambulatory hospital encounters. Excludes emergency department encounters). [ENCOUNTER_SUBTYPE = OC, OB, SD, HA, UC, RH, DI, OT]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'TE', N'Telephone Encounters: [ENCOUNTER_SUBTYPE = OT, HH]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'EM', N'E-mail Encounters: [ENCOUNTER_SUBTYPE = OT, HH]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'IS', N'Non-Acute Institutional Stays: Hospice, SNF, rehab, nursing home, residential, overnight non-hospital dialysis and other non-hospital stays. [ENCOUNTER_SUBTYPE = HS, SN, NH, RH,DI, OT]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'OE', N'OE=Other Encounters (not overnight): Hospice visits, home health visits, SNF visits, other non-hospital visits. [ENCOUNTER_SUBTYPE = HS, HH, SN, RH, DI, OT]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'LO', N'Lab Only Encounter: Optional. Lab encounters that cannot be matched to another encounter. Include to link variables from ENCOUNTER table to the PROCEDURES table. [ENCOUNTER_SUBTYPE = OC,OT]')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCTYPE_LU] ([Abbreviation], [Description]) VALUES (N'RO', N'Radiology Only Encounter: Optional. Radiology encounter that cannot be matched to another encounter. Include to link variables from utilization file to procedure file. [ENCOUNTER_SUBTYPE = OC,OT]')
+GO

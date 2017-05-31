@@ -1,0 +1,31 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_PX_CODETYPE_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_PX_CODETYPE_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'09', N'ICD-9-CM')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'10', N'ICD-10-CM')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'11', N'ICD-11-CM')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'C4', N'CPT-4')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'H4', N'HCPCS-4')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'RV', N'Revenue code')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'LO', N'Local homegrown')
+GO
+INSERT [dbo].[CHORDS_VDW31_PX_CODETYPE_LU] ([Abbreviation], [Description]) VALUES (N'OT', N'Other')
+GO

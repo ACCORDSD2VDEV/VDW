@@ -1,0 +1,172 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_DEPARTMENT_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_DEPARTMENT_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ACUP', N'Acupuncture')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ALGY', N'Allergy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'AMBU', N'Ambulance Services')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ANES', N'Anesthesiology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'AUD', N'Audiology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CARD', N'Cardiology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CASR', N'Cast Room')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CHEM', N'Chemical and Alcohol Dependency')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CHIR', N'Chiropractic')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CMHL', N'Community Health')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CRIT', N'Critical Care Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'CRMG', N'Care Management')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'DENT', N'Dental')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'DERM', N'Dermatology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'DIAL', N'Dialysis')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'DME', N'Durable Medical Equipment')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'EDUC', N'Education')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ENDO', N'Endocrinology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ENT', N'Otolaryngology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ER', N'Emergency Room')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'FP', N'Family Practice')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'GEN', N'Genetics')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'GER', N'Gerontology/Geriatrics')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'GI', N'Gastro-Intestinal Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'HAP', N'Health Appraisals')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'HEP', N'Hepatology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'HH', N'Home Health')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'HOSP', N'Hospital Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'HSPC', N'Hospice')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ICF', N'Intermediate Care Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'IM', N'Internal Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'IMUN', N'Immunology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'IND', N'Industrial Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'INF', N'Infectious Disease')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'INFU', N'Infusion Center')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'IR', N'Injection Room')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'LAB', N'Laboratory')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'MH', N'Mental Health')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NATU', N'Naturopathy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NEPH', N'Nephrology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NEUR', N'Neurology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NEWB', N'Newborn')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NRSG', N'Neurosurgery')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NUCL', N'Nuclear Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'NUT', N'Nutrition')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OBGN', N'Obstetrics/Gynecology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OCTH', N'Occupational Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ONC', N'Oncology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OPTH', N'Ophthalmology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OPTO', N'Optometry')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'ORTH', N'Orthopedics')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OST', N'Osteopathy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PAL', N'Palliative Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PATH', N'Pathology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PC', N'Primary Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PEDS', N'Pediatrics')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PERI', N'Perinatology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PHYS', N'Physiatry')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'POD', N'Podiatry')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PSRG', N'Plastic Surgery')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PT', N'Physical Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'PULM', N'Pulmonary Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RAD', N'Radiology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RADT', N'Radiation Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RECT', N'Recreational Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'REHB', N'Rehabilitation')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RESP', N'Respiratory Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RHEU', N'Rheumatology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'RN', N'Registered Nurse')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'SNF', N'Skilled Nursing Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'SPOR', N'Sports Medicine')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'SPTH', N'Speech Therapy')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'SURG', N'General Surgery')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'TRAN', N'Transplant')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'URG', N'Urgent Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'URO', N'Urology')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'OTH', N'Other')
+GO
+INSERT [dbo].[CHORDS_VDW31_DEPARTMENT_LU] ([Abbreviation], [Description]) VALUES (N'UNK', N'Unknown')
+GO
+

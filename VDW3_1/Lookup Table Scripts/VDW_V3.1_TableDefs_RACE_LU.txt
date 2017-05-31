@@ -1,0 +1,29 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_RACE_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_RACE_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'HP', N'Native Hawaiian or Other Pacific Islander')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'IN', N'American Indian/Alaska Native')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'AS', N'Asian')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'BA', N'Black or African American')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'WH', N'White')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'MU', N'More than one race, particular races unknown or not reported')
+GO
+INSERT [dbo].[CHORDS_VDW31_RACE_LU] ([Abbreviation], [Description]) VALUES (N'UN', N'Unknown or Not Reported')
+GO

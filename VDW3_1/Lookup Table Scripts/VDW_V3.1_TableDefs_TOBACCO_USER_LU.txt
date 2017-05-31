@@ -1,0 +1,29 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_TOBACCO_USER_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_TOBACCO_USER_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'Y', N'Yes / Current (everyday tobacco use)')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'N', N'Never (never smoked or used any kind of tobacco and not SHS exposes)')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'U', N'Unknown, missing')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'X', N'Not asked')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'Q', N'Quit / Former')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'P', N'Passive /Environmental / Second-hand (never smoked)')
+GO
+INSERT [dbo].[CHORDS_VDW31_TOBACCO_USER_LU] ([Abbreviation], [Description]) VALUES (N'I', N'Infrequent (current someday smoking or tobacco use)')
+GO

@@ -1,0 +1,55 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_SPECIMEN_SOURCE_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'BLOOD', N'BLOOD')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'SERUM', N'SERUM')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'PLASMA', N'PLASMA')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'SR_PLS', N'serum/plasma')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'PPP', N'Platelet Poor Plasma')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'CSF', N'cerebral spinal fluid')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'URINE', N'URINE')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'STOOL', N'STOOL')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'NSWAB', N'nasal swab. Any specimen source in your data listed as "nose" should be mapped to "nasal swab"')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'NWASH', N'nasal wash')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'NPH', N'nasopharyngeal swab')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'NPWASH', N'nasopharyngeal wash')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'THRT', N'throat, oropharyngeal swab')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'SPUTUM', N'SPUTUM')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'BAL', N'bronchoalveolar lavage (BAL) specimen')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'BALBX', N'BAL biopsy')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'OTHER', N'OTHER')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N' ', N'missing value')
+GO
+INSERT [dbo].[CHORDS_VDW31_SPECIMEN_SOURCE_LU] ([Abbreviation], [Description]) VALUES (N'NS', N'not specified')
+GO
+
+

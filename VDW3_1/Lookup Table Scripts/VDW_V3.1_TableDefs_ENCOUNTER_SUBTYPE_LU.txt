@@ -1,0 +1,41 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'AI', N'Acute Inpatient Stay. Excludes observation bed.')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'HA', N'Hospital Ambulatory. Outpatient care at a hospital excluding same day surgery and observation beds.')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'OC', N'Outpatient Clinic Visit')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'OB', N'Observation Bed')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'SD', N'Same Day Surgery')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'UC', N'Urgent Care')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'DI', N'Dialysis')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'OT', N'Other non-hospital')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'HH', N'Home Health')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'HS', N'Hospice')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'SN', N'Skilled Nursing Facility')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'NH', N'Nursing Home (includes ICF)')
+GO
+INSERT [dbo].[CHORDS_VDW31_ENCOUNTER_SUBTYPE_LU] ([Abbreviation], [Description]) VALUES (N'RH', N'Rehab')
+GO
