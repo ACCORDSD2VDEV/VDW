@@ -1,0 +1,25 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_RX_BASIS_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_RX_BASIS_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_BASIS_LU] ([Abbreviation], [Description]) VALUES (N'01', N'Order to Dispense')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_BASIS_LU] ([Abbreviation], [Description]) VALUES (N'02', N'Order to Administer')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_BASIS_LU] ([Abbreviation], [Description]) VALUES (N'NI', N'No information')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_BASIS_LU] ([Abbreviation], [Description]) VALUES (N'UN', N'Unknown')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_BASIS_LU] ([Abbreviation], [Description]) VALUES (N'OT', N'Other')
+GO

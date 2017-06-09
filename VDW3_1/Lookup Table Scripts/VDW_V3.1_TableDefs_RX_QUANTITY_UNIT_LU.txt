@@ -1,0 +1,50 @@
+USE [VDW Test Holes]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU](
+                [Abbreviation] [nvarchar](50) NOT NULL,
+                [Description] [nvarchar](50) NOT NULL,
+CONSTRAINT [PK_CHORDS_VDW31_RX_QUANTITY_UNIT_LU] PRIMARY KEY CLUSTERED 
+(
+                [Abbreviation] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'PI', N'Pill')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'TA', N'Tablet')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'VI', N'Vial')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'LI', N'Liquid')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'PI', N'Pill')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'SO', N'Solution')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'SU', N'Suspension')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'OI', N'Ointment')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'CR', N'Cream')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'PO', N'Powder')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'PA', N'Patch')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'IN', N'Inhaler')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'KI', N'Kit')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'DE', N'Device')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'NI', N'No information')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'UN', N'Unknown')
+GO
+INSERT [dbo].[CHORDS_VDW31_RX_QUANTITY_UNIT_LU] ([Abbreviation], [Description]) VALUES (N'OT', N'Other')
+GO
+
