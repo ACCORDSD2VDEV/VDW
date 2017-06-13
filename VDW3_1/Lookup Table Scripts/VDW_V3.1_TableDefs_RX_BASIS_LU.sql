@@ -1,0 +1,25 @@
+IF OBJECT_ID('CHORDS_VDW31_RX_BASIS_LU') IS NOT NULL
+BEGIN
+	PRINT 'CHORDS_VDW31_RX_BASIS_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'CHORDS_VDW31_RX_BASIS_LU - Creating';
+	CREATE TABLE [CHORDS_VDW31_RX_BASIS_LU]
+	( 
+				 [ABBREVIATION] nvarchar(2) NOT NULL, 
+				 [DESCRIPTION] nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_CHORDS_VDW31_RX_BASIS_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO [CHORDS_VDW31_RX_BASIS_LU]( 
+		[ABBREVIATION], 
+		[DESCRIPTION] )
+	VALUES( 
+		   N'01', N'Order to Dispense' ), ( 
+		   N'02', N'Order to Administer' ), ( 
+		   N'NI', N'No information' ), ( 
+		   N'UN', N'Unknown' ), ( 
+		   N'OT', N'Other' );
+	PRINT 'CHORDS_VDW31_RX_BASIS_LU - Complete';
+END;

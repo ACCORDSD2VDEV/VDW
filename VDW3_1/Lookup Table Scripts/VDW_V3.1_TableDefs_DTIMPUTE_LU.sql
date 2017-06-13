@@ -1,0 +1,24 @@
+IF OBJECT_ID('CHORDS_VDW31_DTIMPUTE_LU') IS NOT NULL
+BEGIN
+	PRINT 'CHORDS_VDW31_DTIMPUTE_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'CHORDS_VDW31_DTIMPUTE_LU - Creating';
+	CREATE TABLE [CHORDS_VDW31_DTIMPUTE_LU]
+	( 
+				 [ABBREVIATION] nchar NOT NULL, 
+				 [DESCRIPTION] nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_CHORDS_VDW31_DTIMPUTE_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO [CHORDS_VDW31_DTIMPUTE_LU]( 
+		[ABBREVIATION], 
+		[DESCRIPTION] )
+	VALUES( 
+		   N'M', N'Month of date imputed' ), ( 
+		   N'D', N'Day of date imputed' ), ( 
+		   N'B', N'Both month and day imputed' ), ( 
+		   N'N', N'Not imputed' );
+	PRINT 'CHORDS_VDW31_DTIMPUTE_LU - Complete';
+END;

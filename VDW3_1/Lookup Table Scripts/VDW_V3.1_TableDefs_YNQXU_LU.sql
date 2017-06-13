@@ -1,0 +1,25 @@
+IF OBJECT_ID('CHORDS_VDW31_YNQXU_LU') IS NOT NULL
+BEGIN
+	PRINT 'CHORDS_VDW31_YNQXU_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'CHORDS_VDW31_YNQXU_LU - Creating';
+	CREATE TABLE [CHORDS_VDW31_YNQXU_LU]
+	( 
+				 [ABBREVIATION] nchar NOT NULL, 
+				 [DESCRIPTION] nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_CHORDS_VDW31_YNQXU_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO [CHORDS_VDW31_YNQXU_LU]( 
+		[ABBREVIATION], 
+		[DESCRIPTION] )
+	VALUES( 
+		   N'Y', N'Yes' ), ( 
+		   N'N', N'No' ), ( 
+		   N'U', N'Unknown, missing' ), ( 
+		   N'X', N'Not asked' ), ( 
+		   N'Q', N'Quit / Former' );
+	PRINT 'CHORDS_VDW31_YNQXU_LU - Complete';
+END;

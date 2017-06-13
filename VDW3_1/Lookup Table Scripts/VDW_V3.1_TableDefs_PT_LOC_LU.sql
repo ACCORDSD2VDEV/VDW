@@ -1,0 +1,25 @@
+IF OBJECT_ID('CHORDS_VDW31_PT_LOC_LU') IS NOT NULL
+BEGIN
+	PRINT 'CHORDS_VDW31_PT_LOC_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'CHORDS_VDW31_PT_LOC_LU - Creating';
+	CREATE TABLE [CHORDS_VDW31_PT_LOC_LU]
+	( 
+				 [ABBREVIATION] nchar NOT NULL, 
+				 [DESCRIPTION] nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_CHORDS_VDW31_PT_LOC_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO [CHORDS_VDW31_PT_LOC_LU]( 
+		[ABBREVIATION], 
+		[DESCRIPTION] )
+	VALUES( 
+		   N'I', N'Inpatient' ), ( 
+		   N'O', N'Outpatient' ), ( 
+		   N'E', N'Emergency Department' ), ( 
+		   N'H', N'Home' ), ( 
+		   N'U', N'Unknown or missing' );
+	PRINT 'CHORDS_VDW31_PT_LOC_LU - Complete';
+END;
