@@ -36,104 +36,104 @@ BEGIN
 					  TRACT                    nvarchar(6) NULL,
 					  BLOCKGP                  nvarchar(1) NULL,
 					  HOUSES_N                 int NULL,
-					  RA_NHS_WH                decimal(6, 4) NULL,
-					  RA_NHS_BL                decimal(6, 4) NULL,
-					  RA_NHS_AM                decimal(6, 4) NULL,
-					  RA_NHS_AS                decimal(6, 4) NULL,
-					  RA_NHS_HA                decimal(6, 4) NULL,
-					  RA_NHS_OT                decimal(6, 4) NULL,
-					  RA_NHS_ML                decimal(6, 4) NULL,
-					  RA_HIS_WH                decimal(6, 4) NULL,
-					  RA_HIS_BL                decimal(6, 4) NULL,
-					  RA_HIS_AM                decimal(6, 4) NULL,
-					  RA_HIS_AS                decimal(6, 4) NULL,
-					  RA_HIS_HA                decimal(6, 4) NULL,
-					  RA_HIS_OT                decimal(6, 4) NULL,
-					  RA_HIS_ML                decimal(6, 4) NULL,
-					  HOUSES_OCCUPIED          decimal(6, 4) NULL,
-					  HOUSES_OWN               decimal(6, 4) NULL,
-					  HOUSES_RENT              decimal(6, 4) NULL,
-					  HOUSES_UNOCC_FORRENT     decimal(6, 4) NULL,
-					  HOUSES_UNOCC_FORSALE     decimal(6, 4) NULL,
-					  HOUSES_UNOCC_RENTSOLD    decimal(6, 4) NULL,
-					  HOUSES_UNOCC_SEASONAL    decimal(6, 4) NULL,
-					  HOUSES_UNOCC_MIGRANT     decimal(6, 4) NULL,
-					  HOUSES_UNOCC_OTHER       decimal(6, 4) NULL,
-					  EDUCATION1               decimal(6, 4) NULL,
-					  EDUCATION2               decimal(6, 4) NULL,
-					  EDUCATION3               decimal(6, 4) NULL,
-					  EDUCATION4               decimal(6, 4) NULL,
-					  EDUCATION5               decimal(6, 4) NULL,
-					  EDUCATION6               decimal(6, 4) NULL,
-					  EDUCATION7               decimal(6, 4) NULL,
-					  EDUCATION8               decimal(6, 4) NULL,
+					  RA_NHS_WH                decimal(11, 10) NULL,
+					  RA_NHS_BL                decimal(11, 10) NULL,
+					  RA_NHS_AM                decimal(11, 10) NULL,
+					  RA_NHS_AS                decimal(11, 10) NULL,
+					  RA_NHS_HA                decimal(11, 10) NULL,
+					  RA_NHS_OT                decimal(11, 10) NULL,
+					  RA_NHS_ML                decimal(11, 10) NULL,
+					  RA_HIS_WH                decimal(11, 10) NULL,
+					  RA_HIS_BL                decimal(11, 10) NULL,
+					  RA_HIS_AM                decimal(11, 10) NULL,
+					  RA_HIS_AS                decimal(11, 10) NULL,
+					  RA_HIS_HA                decimal(11, 10) NULL,
+					  RA_HIS_OT                decimal(11, 10) NULL,
+					  RA_HIS_ML                decimal(11, 10) NULL,
+					  HOUSES_OCCUPIED          decimal(11, 10) NULL,
+					  HOUSES_OWN               decimal(11, 10) NULL,
+					  HOUSES_RENT              decimal(11, 10) NULL,
+					  HOUSES_UNOCC_FORRENT     decimal(11, 10) NULL,
+					  HOUSES_UNOCC_FORSALE     decimal(11, 10) NULL,
+					  HOUSES_UNOCC_RENTSOLD    decimal(11, 10) NULL,
+					  HOUSES_UNOCC_SEASONAL    decimal(11, 10) NULL,
+					  HOUSES_UNOCC_MIGRANT     decimal(11, 10) NULL,
+					  HOUSES_UNOCC_OTHER       decimal(11, 10) NULL,
+					  EDUCATION1               decimal(11, 10) NULL,
+					  EDUCATION2               decimal(11, 10) NULL,
+					  EDUCATION3               decimal(11, 10) NULL,
+					  EDUCATION4               decimal(11, 10) NULL,
+					  EDUCATION5               decimal(11, 10) NULL,
+					  EDUCATION6               decimal(11, 10) NULL,
+					  EDUCATION7               decimal(11, 10) NULL,
+					  EDUCATION8               decimal(11, 10) NULL,
 					  MEDFAMINCOME             int NULL,
-					  FAMINCOME1               decimal(6, 4) NULL,
-					  FAMINCOME2               decimal(6, 4) NULL,
-					  FAMINCOME3               decimal(6, 4) NULL,
-					  FAMINCOME4               decimal(6, 4) NULL,
-					  FAMINCOME5               decimal(6, 4) NULL,
-					  FAMINCOME6               decimal(6, 4) NULL,
-					  FAMINCOME7               decimal(6, 4) NULL,
-					  FAMINCOME8               decimal(6, 4) NULL,
-					  FAMINCOME9               decimal(6, 4) NULL,
-					  FAMINCOME10              decimal(6, 4) NULL,
-					  FAMINCOME11              decimal(6, 4) NULL,
-					  FAMINCOME12              decimal(6, 4) NULL,
-					  FAMINCOME13              decimal(6, 4) NULL,
-					  FAMINCOME14              decimal(6, 4) NULL,
-					  FAMINCOME15              decimal(6, 4) NULL,
-					  FAMINCOME16              decimal(6, 4) NULL,
+					  FAMINCOME1               decimal(11, 10) NULL,
+					  FAMINCOME2               decimal(11, 10) NULL,
+					  FAMINCOME3               decimal(11, 10) NULL,
+					  FAMINCOME4               decimal(11, 10) NULL,
+					  FAMINCOME5               decimal(11, 10) NULL,
+					  FAMINCOME6               decimal(11, 10) NULL,
+					  FAMINCOME7               decimal(11, 10) NULL,
+					  FAMINCOME8               decimal(11, 10) NULL,
+					  FAMINCOME9               decimal(11, 10) NULL,
+					  FAMINCOME10              decimal(11, 10) NULL,
+					  FAMINCOME11              decimal(11, 10) NULL,
+					  FAMINCOME12              decimal(11, 10) NULL,
+					  FAMINCOME13              decimal(11, 10) NULL,
+					  FAMINCOME14              decimal(11, 10) NULL,
+					  FAMINCOME15              decimal(11, 10) NULL,
+					  FAMINCOME16              decimal(11, 10) NULL,
 					  MEDHOUSINCOME            int NULL,
-					  HOUSINCOME1              decimal(6, 4) NULL,
-					  HOUSINCOME2              decimal(6, 4) NULL,
-					  HOUSINCOME3              decimal(6, 4) NULL,
-					  HOUSINCOME4              decimal(6, 4) NULL,
-					  HOUSINCOME5              decimal(6, 4) NULL,
-					  HOUSINCOME6              decimal(6, 4) NULL,
-					  HOUSINCOME7              decimal(6, 4) NULL,
-					  HOUSINCOME8              decimal(6, 4) NULL,
-					  HOUSINCOME9              decimal(6, 4) NULL,
-					  HOUSINCOME10             decimal(6, 4) NULL,
-					  HOUSINCOME11             decimal(6, 4) NULL,
-					  HOUSINCOME12             decimal(6, 4) NULL,
-					  HOUSINCOME13             decimal(6, 4) NULL,
-					  HOUSINCOME14             decimal(6, 4) NULL,
-					  HOUSINCOME15             decimal(6, 4) NULL,
-					  HOUSINCOME16             decimal(6, 4) NULL,
-					  POV_LT_50                decimal(6, 4) NULL,
-					  POV_50_74                decimal(6, 4) NULL,
-					  POV_75_99                decimal(6, 4) NULL,
-					  POV_100_124              decimal(6, 4) NULL,
-					  POV_125_149              decimal(6, 4) NULL,
-					  POV_150_174              decimal(6, 4) NULL,
-					  POV_175_184              decimal(6, 4) NULL,
-					  POV_185_199              decimal(6, 4) NULL,
-					  POV_GT_200               decimal(6, 4) NULL,
-					  ENGLISH_SPEAKER          decimal(6, 4) NULL,
-					  SPANISH_SPEAKER          decimal(6, 4) NULL,
-					  BORNINUS                 decimal(6, 4) NULL,
-					  MOVEDINLAST12MON         decimal(6, 4) NULL,
-					  MARRIED                  decimal(6, 4) NULL,
-					  DIVORCED                 decimal(6, 4) NULL,
-					  DISABILITY               decimal(6, 4) NULL,
-					  UNEMPLOYMENT             decimal(6, 4) NULL,
-					  UNEMPLOYMENT_MALE        decimal(6, 4) NULL,
-					  INS_MEDICARE             decimal(6, 4) NULL,
-					  INS_MEDICAID             decimal(6, 4) NULL,
-					  HH_NOCAR                 decimal(6, 4) NULL,
-					  HH_PUBLIC_ASSISTANCE     decimal(6, 4) NULL,
-					  HMOWNER_COSTS_MORT       decimal(6, 4) NULL,
-					  HMOWNER_COSTS_NO_MORT    decimal(6, 4) NULL,
+					  HOUSINCOME1              decimal(11, 10) NULL,
+					  HOUSINCOME2              decimal(11, 10) NULL,
+					  HOUSINCOME3              decimal(11, 10) NULL,
+					  HOUSINCOME4              decimal(11, 10) NULL,
+					  HOUSINCOME5              decimal(11, 10) NULL,
+					  HOUSINCOME6              decimal(11, 10) NULL,
+					  HOUSINCOME7              decimal(11, 10) NULL,
+					  HOUSINCOME8              decimal(11, 10) NULL,
+					  HOUSINCOME9              decimal(11, 10) NULL,
+					  HOUSINCOME10             decimal(11, 10) NULL,
+					  HOUSINCOME11             decimal(11, 10) NULL,
+					  HOUSINCOME12             decimal(11, 10) NULL,
+					  HOUSINCOME13             decimal(11, 10) NULL,
+					  HOUSINCOME14             decimal(11, 10) NULL,
+					  HOUSINCOME15             decimal(11, 10) NULL,
+					  HOUSINCOME16             decimal(11, 10) NULL,
+					  POV_LT_50                decimal(11, 10) NULL,
+					  POV_50_74                decimal(11, 10) NULL,
+					  POV_75_99                decimal(11, 10) NULL,
+					  POV_100_124              decimal(11, 10) NULL,
+					  POV_125_149              decimal(11, 10) NULL,
+					  POV_150_174              decimal(11, 10) NULL,
+					  POV_175_184              decimal(11, 10) NULL,
+					  POV_185_199              decimal(11, 10) NULL,
+					  POV_GT_200               decimal(11, 10) NULL,
+					  ENGLISH_SPEAKER          decimal(11, 10) NULL,
+					  SPANISH_SPEAKER          decimal(11, 10) NULL,
+					  BORNINUS                 decimal(11, 10) NULL,
+					  MOVEDINLAST12MON         decimal(11, 10) NULL,
+					  MARRIED                  decimal(11, 10) NULL,
+					  DIVORCED                 decimal(11, 10) NULL,
+					  DISABILITY               decimal(11, 10) NULL,
+					  UNEMPLOYMENT             decimal(11, 10) NULL,
+					  UNEMPLOYMENT_MALE        decimal(11, 10) NULL,
+					  INS_MEDICARE             decimal(11, 10) NULL,
+					  INS_MEDICAID             decimal(11, 10) NULL,
+					  HH_NOCAR                 decimal(11, 10) NULL,
+					  HH_PUBLIC_ASSISTANCE     decimal(11, 10) NULL,
+					  HMOWNER_COSTS_MORT       decimal(11, 10) NULL,
+					  HMOWNER_COSTS_NO_MORT    decimal(11, 10) NULL,
 					  HOMES_MEDVALUE           int NULL,
-					  PCT_CROWDING             decimal(6, 4) NULL,
-					  FEMALE_HEAD_OF_HH        decimal(6, 4) NULL,
-					  MGR_FEMALE               decimal(6, 4) NULL,
-					  MGR_MALE                 decimal(6, 4) NULL,
-					  RESIDENTS_65             decimal(6, 4) NULL,
-					  SAME_RESIDENCE           decimal(6, 4) NULL,
-					  FAMPOVERTY               decimal(6, 4) NULL,
-					  HOUSPOVERTY              decimal(6, 4) NULL,
+					  PCT_CROWDING             decimal(11, 10) NULL,
+					  FEMALE_HEAD_OF_HH        decimal(11, 10) NULL,
+					  MGR_FEMALE               decimal(11, 10) NULL,
+					  MGR_MALE                 decimal(11, 10) NULL,
+					  RESIDENTS_65             decimal(11, 10) NULL,
+					  SAME_RESIDENCE           decimal(11, 10) NULL,
+					  FAMPOVERTY               decimal(11, 10) NULL,
+					  HOUSPOVERTY              decimal(11, 10) NULL,
 					  ZIP                      nvarchar(5) NULL,
 					  CONSTRAINT PK_CENSUS_DEMOG PRIMARY KEY CLUSTERED(CENSUS_YEAR ASC, GEOCODE ASC)
 	 );
@@ -187,8 +187,8 @@ BEGIN
 					  PROVIDER_GENDER        nchar NOT NULL DEFAULT 'U',
 					  PROVIDER_RACE          nvarchar(2) NOT NULL DEFAULT 'UN',
 					  PROVIDER_HISPANIC      nchar NOT NULL DEFAULT 'U',
-					  YEAR_GRADUATED         nvarchar(4),
-					  CONSTRAINT PK_PROVIDER_SPECIALTY PRIMARY KEY CLUSTERED(PROVIDER)
+					  YEAR_GRADUATED         numeric(4),
+					  CONSTRAINT PK_PROVIDER_SPECIALTY PRIMARY KEY CLUSTERED([PROVIDER])
 	 );
 	 PRINT 'PROVIDER_SPECIALTY - Complete';
 END;
@@ -246,20 +246,20 @@ BEGIN
 	 (
 					  PERSON_ID             nvarchar(12) NOT NULL,
 					  MRN                   nvarchar(9) NOT NULL,
-					  BIRTH_DATE            date,
+					  BIRTH_DATE            date NOT NULL,
 					  GENDER                nchar NOT NULL	DEFAULT 'U',
 					  PRIMARY_LANGUAGE      nvarchar(3) NOT NULL	DEFAULT 'unk',
 					  NEEDS_INTERPRETER     nchar NOT NULL	DEFAULT 'U',
-					  RACE1                 nvarchar(2) NOT NULL,
-					  RACE2                 nvarchar(2) NOT NULL,
-					  RACE3                 nvarchar(2) NOT NULL,
-					  RACE4                 nvarchar(2) NOT NULL,
-					  RACE5                 nvarchar(2) NOT NULL,
-					  HISPANIC              nchar NOT NULL,
-					  SEXUAL_ORIENTATION    nvarchar(2) NOT NULL	DEFAULT 'UN',
-					  GENDER_IDENTITY       nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  RACE1                 nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  RACE2                 nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  RACE3                 nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  RACE4                 nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  RACE5                 nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  HISPANIC              nchar NOT NULL DEFAULT 'U',
+					  SEXUAL_ORIENTATION    nvarchar(2) DEFAULT 'UN',
+					  GENDER_IDENTITY       nvarchar(2) DEFAULT 'UN',
 					  CONSTRAINT PK_DEMOGRAPHICS PRIMARY KEY CLUSTERED(PERSON_ID),
-					  CONSTRAINT FK_DEMOGRAPHICS_LANGUAGES_ISO FOREIGN KEY(PRIMARY_LANGUAGE) REFERENCES CHORDS_VDW31_LANGUAGES_ISO_LU([ISO_639-2_CODE])
+					  CONSTRAINT FK_DEMOGRAPHICS_LANGUAGES_ISO FOREIGN KEY(PRIMARY_LANGUAGE) REFERENCES LANGUAGES_ISO_LU([ISO_639-2_CODE])
 	 );
 	 PRINT 'DEMOGRAPHICS - Complete';
 END;
@@ -284,12 +284,12 @@ BEGIN
 					  DRG_VALUE                nvarchar(4),
 					  ENCTYPE                  nvarchar(2) NOT NULL,
 					  ENCOUNTER_SUBTYPE        nvarchar(2) NOT NULL,
-					  FACILITY_CODE            nvarchar(36) NOT NULL,
-					  DISCHARGE_DISPOSITION    nchar,
-					  DISCHARGE_STATUS         nvarchar(2),
-					  ADMITTING_SOURCE         nvarchar(2),
-					  DEPARTMENT               nvarchar(4),
-					  CONSTRAINT PK_ENCOUNTERS PRIMARY KEY(ENC_ID),
+					  FACILITY_CODE            nvarchar(36) NOT NULL	DEFAULT 'UNK',
+					  DISCHARGE_DISPOSITION    nchar NOT NULL	DEFAULT 'U',
+					  DISCHARGE_STATUS         nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  ADMITTING_SOURCE         nvarchar(2)	DEFAULT 'UN',
+					  DEPARTMENT               nvarchar(4)	DEFAULT 'UNK',
+					  CONSTRAINT PK_ENCOUNTERS PRIMARY KEY CLUSTERED(ENC_ID),
 					  CONSTRAINT FK_ENCOUNTERS_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_ENCOUNTERS_PROVIDER_SPECIALTY FOREIGN KEY(PROVIDER) REFERENCES PROVIDER_SPECIALTY([PROVIDER])
 	 );
@@ -306,6 +306,7 @@ BEGIN
 	 PRINT 'DIAGNOSES - Creating';
 	 CREATE TABLE DIAGNOSES
 	 (
+					  DIAGNOSES_ID	  int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  ENC_ID          nvarchar(36) NOT NULL,
 					  DX              nvarchar(10) NOT NULL,
 					  ADATE           date NOT NULL,
@@ -314,15 +315,15 @@ BEGIN
 					  ENCTYPE         nvarchar(2) NOT NULL,
 					  [PROVIDER]      nvarchar(36) NOT NULL,
 					  ORIGDX          nvarchar(10) NOT NULL,
-					  DX_CODETYPE     nvarchar(2) NOT NULL,
-					  PRINCIPAL_DX    nchar NOT NULL,
-					  PRIMARY_DX      nchar NOT NULL,
-					  CONSTRAINT PK_DIAGNOSES PRIMARY KEY CLUSTERED(ENC_ID, DX, ADATE, DIAGPROVIDER),
+					  DX_CODETYPE     nvarchar(2) NOT NULL	DEFAULT 'UN',
+					  PRINCIPAL_DX    nchar NOT NULL	DEFAULT 'X',
+					  PRIMARY_DX      nchar NOT NULL	DEFAULT 'X',
 					  CONSTRAINT FK_DIAGNOSES_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_DIAGNOSES_ENCOUNTERS FOREIGN KEY(ENC_ID) REFERENCES ENCOUNTERS(ENC_ID),
 					  CONSTRAINT FK_DIAGNOSES_PROVIDER_SPECIALTY FOREIGN KEY(DIAGPROVIDER) REFERENCES PROVIDER_SPECIALTY(PROVIDER),
 					  CONSTRAINT FK_DIAGNOSES_PROVIDER_SPECIALTY1 FOREIGN KEY(PROVIDER) REFERENCES PROVIDER_SPECIALTY(PROVIDER)
 	 );
+	 CREATE CLUSTERED INDEX DIAGNOSES_INDEX ON DIAGNOSES (ENC_ID, DX, ADATE, DIAGPROVIDER);
 	 PRINT 'DIAGNOSES - Complete';
 END;
 
@@ -377,6 +378,7 @@ BEGIN
 	 PRINT 'LAB_RESULTS - Creating';
 	 CREATE TABLE LAB_RESULTS
 	 (
+					  LAB_RESULTS_ID INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID          nvarchar(12) NOT NULL,
 					  TEST_TYPE          nvarchar(20) NOT NULL,
 					  LAB_DT             date NOT NULL,
@@ -385,13 +387,13 @@ BEGIN
 					  RESULT_DT          date NOT NULL,
 					  RESULT_TM          time,
 					  LOINC              nvarchar(10),
-					  STAT               nchar NOT NULL,
-					  PT_LOC             nchar NOT NULL,
-					  RESULT_LOC         nchar NOT NULL,
+					  STAT               nchar NOT NULL	DEFAULT 'R',
+					  PT_LOC             nchar NOT NULL	DEFAULT 'U',
+					  RESULT_LOC         nchar NOT NULL	DEFAULT 'L',
 					  LOCAL_CD           nvarchar(25) NOT NULL,
 					  BATTERY_CD         nvarchar(50) NOT NULL,
 					  PX                 nvarchar(6) NOT NULL,
-					  CODETYPE           nchar NOT NULL,
+					  CODETYPE           nchar NOT NULL	DEFAULT 'L',
 					  ORDER_DT           date,
 					  RESULT_C           nvarchar(8) NOT NULL,
 					  RESULT_NUM         numeric(20) NULL,
@@ -401,17 +403,17 @@ BEGIN
 					  MODIFIER_LOW       nvarchar(2),
 					  NORMAL_HIGH_C      nvarchar(8),
 					  MODIFIER_HIGH      nvarchar(2),
-					  ABN_IND            nvarchar(2) NOT NULL,
+					  ABN_IND            nvarchar(2) NOT NULL DEFAULT 'UN',
 					  ORDER_PROV         nvarchar(36),
 					  ORDER_DEPT         nvarchar(4),
 					  FACILITY_CODE      nvarchar(36),
 					  SPECIMEN_ID        nvarchar(36),
 					  SPECIMEN_SOURCE    nvarchar(6),
 					  ROW_ID             nvarchar(8),
-					  CONSTRAINT PK_LAB_RESULTS PRIMARY KEY CLUSTERED(PERSON_ID, TEST_TYPE, LAB_DT, LAB_TM, ORDER_ID),
 					  CONSTRAINT FK_LAB_RESULTS_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_LAB_RESULTS_PROVIDER_SPECIALTY FOREIGN KEY(ORDER_PROV) REFERENCES PROVIDER_SPECIALTY([PROVIDER])
 	 );
+	 CREATE CLUSTERED INDEX LAB_RESULTS_INDEX ON LAB_RESULTS(PERSON_ID, TEST_TYPE, LAB_DT, LAB_TM, ORDER_ID)
 	 PRINT 'LAB_RESULTS - Complete';
 END;
 
@@ -425,17 +427,18 @@ BEGIN
 	 PRINT 'PHARMACY - Creating';
 	 CREATE TABLE PHARMACY
 	 (
+					  PHARMACY_ID int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID    nvarchar(12) NOT NULL,
 					  RXDATE       date NOT NULL,
 					  NDC          nvarchar(11) NOT NULL,
-					  RXSUP        smallint NOT NULL,
+					  RXSUP        numeric(4) NOT NULL,
 					  RXAMT        decimal(16, 10) NOT NULL,
 					  RXMD         nvarchar(36) NOT NULL,
-					  CONSTRAINT PK_PHARMACY PRIMARY KEY(NDC, RXDATE, PERSON_ID),
 					  CONSTRAINT FK_PHARMACY_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_PHARMACY_PROVIDER_SPECIALTY FOREIGN KEY(RXMD) REFERENCES PROVIDER_SPECIALTY([PROVIDER]),
 	 --CONSTRAINT FK_PHARMACY_EVERNDC FOREIGN KEY (NDC) REFERENCES EVERNDC (NDC)
 	 );
+	 CREATE CLUSTERED INDEX PHARMACY_INDEX ON PHARMACY(NDC, RXDATE, PERSON_ID)
 	 PRINT 'PHARMACY - Complete';
 END;
 
@@ -449,9 +452,9 @@ BEGIN
 	 PRINT 'PRESCRIBING - Creating';
 	 CREATE TABLE PRESCRIBING
 	 (
-					  PRESCRIBINGID       nvarchar(32) NOT NULL,
+					  PRESCRIBING_ID      INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID           nvarchar(12) NOT NULL,
-					  ENC_ID              nvarchar(12),
+					  ENC_ID              nvarchar(36),
 					  RXMD                nvarchar(36) NOT NULL,
 					  RX_ORDER_DATE       date NOT NULL,
 					  RX_ORDER_TIME       time,
@@ -467,10 +470,11 @@ BEGIN
 					  RX_BASIS            nvarchar(2) NOT NULL,
 					  RXNORM              nvarchar(8),
 					  GENERIC_MED_NAME    nvarchar(105) NOT NULL,
-					  CONSTRAINT PK_PRESCRIBING PRIMARY KEY CLUSTERED(PRESCRIBINGID),
 					  CONSTRAINT FK_PRESCRIBING_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
+					  CONSTRAINT FK_PRESCRIBING_ENCOUNTERS FOREIGN KEY(ENC_ID) REFERENCES ENCOUNTERS(ENC_ID),
 					  CONSTRAINT FK_PRESCRIBING_PROVIDER_SPECIALTY FOREIGN KEY(RXMD) REFERENCES PROVIDER_SPECIALTY([PROVIDER])
 	 );
+	 CREATE CLUSTERED INDEX PERSCRIBING_INDEX ON PRESCRIBING (PERSON_ID, ENC_ID, RXMD)
 	 PRINT 'PRESCRIBING - Complete';
 END;
 
@@ -484,6 +488,7 @@ BEGIN
 	 PRINT 'PROCEDURES - Creating';
 	 CREATE TABLE [PROCEDURES]
 	 (
+					  PROCEDURES_ID		    int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  ENC_ID                nvarchar(36) NOT NULL,
 					  PROCDATE              date NOT NULL,
 					  PERFORMINGPROVIDER    nvarchar(36) NOT NULL,
@@ -495,16 +500,16 @@ BEGIN
 					  [PROVIDER]            nvarchar(36) NOT NULL,
 					  ADATE                 date NOT NULL,
 					  ENCTYPE               nvarchar(2) NOT NULL,
-					  PXCNT                 numeric(7) NOT NULL,
+					  PXCNT                 numeric(7) NOT NULL DEFAULT 1,
 					  CPTMOD1               nvarchar(2),
 					  CPTMOD2               nvarchar(2),
 					  CPTMOD3               nvarchar(2),
-					  CONSTRAINT PK_PROCEDURES PRIMARY KEY CLUSTERED(ENC_ID, PROCDATE, PERFORMINGPROVIDER, ORIGPX, PX, PX_CODETYPE, ROW_ID),
 					  CONSTRAINT FK_PROCEDURES_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS( PERSON_ID),
 					  CONSTRAINT FK_PROCEDURES_ENCOUNTERS FOREIGN KEY(ENC_ID) REFERENCES ENCOUNTERS(ENC_ID),
 					  CONSTRAINT FK_PROCEDURES_PROVIDER_SPECIALTY FOREIGN KEY(PROVIDER) REFERENCES PROVIDER_SPECIALTY([PROVIDER]),
 					  CONSTRAINT FK_PROCEDURES_PROVIDER_SPECIALTY2 FOREIGN KEY(PERFORMINGPROVIDER) REFERENCES PROVIDER_SPECIALTY([PROVIDER])
 	 );
+	 CREATE CLUSTERED INDEX PROCEDURES_INDEX ON [PROCEDURES](ENC_ID, PROCDATE, PERFORMINGPROVIDER, ORIGPX, PX, PX_CODETYPE, ROW_ID);
 	 PRINT 'PROCEDURES - Complete';
 END;
 
@@ -518,50 +523,52 @@ BEGIN
 	 PRINT 'SOCIAL_HISTORY - Creating';
 	 CREATE TABLE SOCIAL_HISTORY
 	 (
+					  SOCIAL_HISTORY_ID		  int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID               nvarchar(12) NOT NULL,
 					  CONTACT_DATE            date NOT NULL,
 					  ENC_ID                  nvarchar(36) NULL,
-					  TOBACCO_PAK_PER_DY      nvarchar(20),
-					  TOBACCO_USED_YEARS      nvarchar(20),
-					  TOBACCO_COMMENT         nvarchar(255),
+					  TOBACCO_PAK_PER_DY      nvarchar(20) DEFAULT NULL,
+					  TOBACCO_USED_YEARS      nvarchar(20) DEFAULT NULL,
+					  TOBACCO_COMMENT         nvarchar(255) DEFAULT NULL,
 					  UNSPECIFIED_TOBACCO     nchar,
-					  SMOKING_QUIT_DATE       datetime,
-					  SMOKELESS_QUIT_DATE     datetime,
-					  CIGARETTES_YN           nchar NOT NULL,
-					  PIPES_YN                nchar NOT NULL,
-					  CIGARS_YN               nchar NOT NULL,
-					  SNUFF_YN                nchar NOT NULL,
-					  CHEW_YN                 nchar NOT NULL,
+					  SMOKING_QUIT_DATE       datetime DEFAULT NULL,
+					  SMOKELESS_QUIT_DATE     datetime DEFAULT NULL,
+					  CIGARETTES_YN           nchar NOT NULL	DEFAULT 'U',
+					  PIPES_YN                nchar NOT NULL	DEFAULT 'U',
+					  CIGARS_YN               nchar NOT NULL	DEFAULT 'U',
+					  SNUFF_YN                nchar NOT NULL	DEFAULT 'U',
+					  CHEW_YN                 nchar NOT NULL	DEFAULT 'U',
 					  ALCOHOL_OZ_PER_WK       nvarchar(15),
 					  ALCOHOL_COMMENT         nvarchar(255),
 					  IV_DRUG_USER_YN         nchar NOT NULL DEFAULT 'N',
 					  ILLICIT_DRUG_FREQ       nvarchar(5),
 					  ILLICIT_DRUG_COMMENT    nvarchar(255),
-					  FEMALE_PARTNER_YN       nchar NOT NULL,
-					  MALE_PARTNER_YN         nchar NOT NULL,
-					  CONDOM_YN               nchar NOT NULL,
-					  PILL_YN                 nchar NOT NULL,
-					  DIAPHRAGM_YN            nchar NOT NULL,
-					  IUD_YN                  nchar NOT NULL,
-					  SURGICAL_YN             nchar NOT NULL,
-					  SPERMICIDE_YN           nchar NOT NULL,
-					  IMPLANT_YN              nchar NOT NULL,
-					  RHYTHM_YN               nchar NOT NULL,
-					  INJECTION_YN            nchar NOT NULL,
-					  SPONGE_YN               nchar NOT NULL,
-					  BC_INSERTS_YN           nchar NOT NULL,
-					  ABSTINENCE_YN           nchar NOT NULL,
+					  FEMALE_PARTNER_YN       nchar NOT NULL	DEFAULT 'U',
+					  MALE_PARTNER_YN         nchar NOT NULL	DEFAULT 'U',
+					  CONDOM_YN               nchar NOT NULL	DEFAULT 'U',
+					  PILL_YN                 nchar NOT NULL	DEFAULT 'U',
+					  DIAPHRAGM_YN            nchar NOT NULL	DEFAULT 'U',
+					  IUD_YN                  nchar NOT NULL	DEFAULT 'U',
+					  SURGICAL_YN             nchar NOT NULL	DEFAULT 'U',
+					  SPERMICIDE_YN           nchar NOT NULL	DEFAULT 'U',
+					  IMPLANT_YN              nchar NOT NULL	DEFAULT 'U',
+					  RHYTHM_YN               nchar NOT NULL	DEFAULT 'U',
+					  INJECTION_YN            nchar NOT NULL	DEFAULT 'U',
+					  SPONGE_YN               nchar NOT NULL	DEFAULT 'U',
+					  BC_INSERTS_YN           nchar NOT NULL	DEFAULT 'U',
+					  ABSTINENCE_YN           nchar NOT NULL	DEFAULT 'U',
 					  SEX_COMMENT             nvarchar(255),
 					  YEARS_EDUCATION         nvarchar(15),
-					  TOBACCO_USER            nchar NOT NULL,
-					  ALCOHOL_USER            nchar NOT NULL,
-					  ILL_DRUG_USER           nchar NOT NULL,
-					  SEXUALLY_ACTV           nchar NOT NULL,
-					  ONC_SMOKING_STATUS      nchar,
-					  CONSTRAINT PK_SOCIAL_HISTORY PRIMARY KEY CLUSTERED(PERSON_ID, CONTACT_DATE),
+					  TOBACCO_USER            nchar NOT NULL	DEFAULT 'U',
+					  ALCOHOL_USER            nchar NOT NULL	DEFAULT 'U',
+					  ILL_DRUG_USER           nchar NOT NULL	DEFAULT 'U',
+					  SEXUALLY_ACTV           nchar NOT NULL	DEFAULT 'U',
+					  ONC_SMOKING_STATUS      nchar DEFAULT '6',
+					  --CONSTRAINT PK_SOCIAL_HISTORY PRIMARY KEY CLUSTERED(PERSON_ID, CONTACT_DATE),
 					  CONSTRAINT FK_SOCIAL_HISTORY_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_SOCIAL_HISTORY_ENCOUNTERS FOREIGN KEY(ENC_ID) REFERENCES ENCOUNTERS(ENC_ID)
 	 );
+	 CREATE CLUSTERED INDEX SOCIAL_HISTORY_INDEX ON SOCIAL_HISTORY (PERSON_ID, CONTACT_DATE);
 	 PRINT 'SOCIAL_HISTORY - Complete';
 END;
 
@@ -577,6 +584,7 @@ BEGIN
 	 PRINT 'VITAL_SIGNS - Creating';
 	 CREATE TABLE VITAL_SIGNS
 	 (
+					  VITAL_SIGNS_ID   int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID        nvarchar(12) NOT NULL,
 					  MEASURE_DATE     date NOT NULL,
 					  MEASURE_TIME     time NOT NULL,
@@ -597,7 +605,7 @@ BEGIN
 					  RESPIR_RAW       nvarchar(6),
 					  TEMP_RAW         nvarchar(6),
 					  PULSE_RAW        nvarchar(6),
-					  CONSTRAINT PK_VITAL_SIGNS PRIMARY KEY CLUSTERED(PERSON_ID, MEASURE_DATE, MEASURE_TIME),
+	 CREATE CLUSTERED INDEX VITAL_SIGNS_INDEX ON VITAL_SIGNS (PERSON_ID, MEASURE_DATE, MEASURE_TIME);
 					  CONSTRAINT FK_VITAL_SIGNS_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
 					  CONSTRAINT FK_VITAL_SIGNS_ENCOUNTERS FOREIGN KEY(ENC_ID) REFERENCES ENCOUNTERS(ENC_ID)
 	 );
@@ -614,6 +622,7 @@ BEGIN
 	 PRINT 'TUMOR - Creating';
 	 CREATE TABLE TUMOR
 	 (
+					  TUMOR_ID		   int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID        nvarchar(12) NOT NULL,
 					  [SEQUENCE]       nvarchar(2) NOT NULL,
 					  DXDATE           date NOT NULL,
@@ -734,9 +743,10 @@ BEGIN
 					  RECUR_TYPE       nvarchar(2) NOT NULL,
 					  RECUR_FL         nvarchar(2),
 					  [DATA_SOURCE]    nvarchar(4),
-					  CONSTRAINT PK_TUMOR PRIMARY KEY CLUSTERED(PERSON_ID, SEQUENCE),
+					  --CONSTRAINT PK_TUMOR PRIMARY KEY CLUSTERED(PERSON_ID, [SEQUENCE]),
 					  CONSTRAINT FK_TUMOR_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID)
 	 );
+	 CREATE CLUSTERED INDEX TUMOR_INDEX ON TUMOR (PERSON_ID, [SEQUENCE]);
 	 PRINT 'TUMOR - Complete';
 END;
 
@@ -752,11 +762,10 @@ BEGIN
 	 (
 					  PERSON_ID       nvarchar(12) NOT NULL,
 					  LANG_ISO        nvarchar(3) NOT NULL,
-					  LANG_USAGE      nchar,
-					  LANG_PRIMARY    nchar,
+					  LANG_USAGE      nchar	DEFAULT 'U',
+					  LANG_PRIMARY    nchar DEFAULT 'U',
 					  CONSTRAINT PK_LANGUAGES PRIMARY KEY CLUSTERED(PERSON_ID, LANG_ISO),
 					  CONSTRAINT FK_LANGUAGES_DEMOGRAPHICS FOREIGN KEY(PERSON_ID) REFERENCES DEMOGRAPHICS(PERSON_ID),
-					  CONSTRAINT FK_LANGUAGES_CHORDS_VDW31_LANGUAGES_ISO_LU FOREIGN KEY(LANG_ISO) REFERENCES CHORDS_VDW31_LANGUAGES_ISO_LU([ISO_639-2_CODE])
 	 );
 	 PRINT 'LANGUAGES - Complete';
 END;
