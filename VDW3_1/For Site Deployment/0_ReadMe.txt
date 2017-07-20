@@ -26,7 +26,11 @@ Step 3 - 3_Census_Demog
 	SSMS data import wizard.
 
 Step 4 - 4_Foreign_Keys.sql
-	Script file that will add the foreign keys to your VDW Tables.
+	This Script file that will add the foreign keys to your VDW Tables.
+	*Before running step 4, it's recommended you review your ETL Process.  Once the keys are created you may run into a
+	"Chicken and the Egg" situaion loading data.  The Toggle Keys.txt file has some commands to help turn off keys for ETL
+	loading once the keys are added to the database but proactivly reviwing your ETL before adding foreign keys
+	should help cut down on the amount of bugs and issues you may run into.
 
 Step 5 - 5_Index_Creation.sql
 	Script file that will add indexes to your database.  This will help increase performance for queries.

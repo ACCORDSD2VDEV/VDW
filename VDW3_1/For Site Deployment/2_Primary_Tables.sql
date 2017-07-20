@@ -1,22 +1,3 @@
---drop table CENSUS_LOCATION;
---drop table LANGUAGES;
---drop table TUMOR;
---drop table VITAL_SIGNS;
---drop table SOCIAL_HISTORY;
---drop table [PROCEDURES];
---drop table PRESCRIBING;
---drop table PHARMACY;
---drop table LAB_RESULTS;
---drop table ENROLLMENT;
---drop table DIAGNOSES;
---drop table ENCOUNTERS;
---drop table DEMOGRAPHICS;
---drop table CAUSE_OF_DEATH;
---drop table DEATH;
---drop table PROVIDER_SPECIALTY
---drop table EVERNDC;
---drop table CENSUS_DEMOG;
--- CENSUS_DEMOG Table
 IF OBJECT_ID('CENSUS_DEMOG') IS NOT NULL
 BEGIN
 	 PRINT 'CENSUS_DEMOG Already Exists';
@@ -207,7 +188,7 @@ BEGIN
 					  DEATHDT       date,
 					  DTIMPUTE      nchar,
 					  [SOURCE]      nchar NOT NULL,
-					  CONFIDENCE    nchar NOT NULL,
+					  CONFIDENCE    nchar NULL,
 					  CONSTRAINT PKDEATH PRIMARY KEY CLUSTERED(PERSON_ID)
 	 );
 	 PRINT 'DEATH - Complete';
@@ -228,7 +209,7 @@ BEGIN
 					  DX_CODETYPE    nvarchar(2),
 					  CAUSETYPE      nchar,
 					  [SOURCE]       nchar NOT NULL,
-					  CONFIDENCE     nchar NOT NULL,
+					  CONFIDENCE     nchar NULL,
 					  CONSTRAINT PK_CHORDS_CAUSE_OF_DEATH PRIMARY KEY CLUSTERED(PERSON_ID, COD)
 	 );
 	 PRINT 'CAUSE_OF_DEATH - Complete';
@@ -350,7 +331,7 @@ BEGIN
 					  PLAN_INDEMNITY         nchar NOT NULL,
 					  DRUGCOV                nchar NOT NULL,
 					  OUTSIDE_UTILIZATION    nchar NOT NULL,
-					  ENROLLMENT_BASIS       nchar NOT NULL,
+					  ENROLLMENT_BASIS       nchar NULL,
 					  PCC                    nvarchar(4),
 					  PCP                    nvarchar(36),
 					  CONSTRAINT PK_CHORDS_ENROLLMENT PRIMARY KEY CLUSTERED(PERSON_ID, ENR_START),

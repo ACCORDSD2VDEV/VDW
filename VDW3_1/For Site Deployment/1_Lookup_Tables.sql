@@ -174,7 +174,8 @@ BEGIN
 	VALUES( 
 		   N'E', N'Excellent' ), ( 
 		   N'F', N'Fair' ), ( 
-		   N'P', N'Poor' );
+		   N'P', N'Poor' ), (
+		   N'U', N'Unknown');
 	PRINT 'CONFIDENCE_LU - Complete';
 END;
 
@@ -492,7 +493,8 @@ BEGIN
 		   N'G', N'Geographic Basis' ), ( 
 		   N'I', N'Insurance Basis' ), ( 
 		   N'B', N'Both Insurance and Geographic bases' ), ( 
-		   N'P', N'Non-enrollee Patient' );
+		   N'P', N'Non-enrollee Patient' ), (
+		   N'U', N'Unknown');
 	PRINT 'ENROLLMENT_BASIS_LU - Complete';
 END;
 
