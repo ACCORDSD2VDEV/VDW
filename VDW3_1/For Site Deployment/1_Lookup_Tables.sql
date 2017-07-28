@@ -1715,7 +1715,38 @@ BEGIN
 		   'zul', 'Zulu' ), ( 
 		   'zun', 'Zuni' ), ( 
 		   'zxx', 'No linguistic content; Not applicable' ), ( 
-		   'zza', 'Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki' );
+		   'zza', 'Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki' ), (
+		   'aar', 'Afar'), (
+		   'abk', 'Abkhazian'), (
+		   'ace', 'Achinese'), (
+		   'ach', 'Acoli'), (
+		   'ada', 'Adangme'), (
+		   'ady', 'Adyghe; Adygei'), (
+		   'afa', 'Afro-Asiatic languages'), (
+		   'afh', 'Afrihili'), (
+		   'afr', 'Afrikaans'), (
+		   'ain', 'Ainu'), (
+		   'aka', 'Akan'), (
+		   'sqi', 'Albanian'), (
+		   'hye', 'Armenian'), (
+		   'eus', 'Basque'), (
+		   'bod', 'Tibetan'), (
+		   'mya', 'Burmese'), (
+		   'ces', 'Czech'), (
+		   'zho', 'Chinese'), (
+		   'cym', 'Welsh'), (
+		   'deu', 'German'), (
+		   'nld', 'Dutch; Flemish'), (
+		   'ell', 'Greek, Modern (1453-)'), (
+		   'fas', 'Persian'), (
+		   'fra', 'French'), (
+		   'kat', 'Georgian'), (
+		   'isl', 'Icelandic'), (
+		   'mkd', 'Macedonian'), (
+		   'mri', 'Maori'), (
+		   'msa', 'Malay'), (
+		   'ron', 'Romanian; Moldavian; Moldovan'), (
+		   'slk', 'Slovak');
 END;
 
 --GENDER_IDENTITY_LU.sql
