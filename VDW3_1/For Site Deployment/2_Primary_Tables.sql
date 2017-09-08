@@ -401,7 +401,7 @@ BEGIN
 					  NDC          nvarchar(11) NOT NULL,
 					  RXSUP        numeric(4) NOT NULL,
 					  RXAMT        decimal(16, 10) NOT NULL,
-					  RXMD         nvarchar(36) NOT NULL
+					  RXMD         nvarchar(36) NULL
 	 );
 	 PRINT 'PHARMACY - Complete';
 END;
@@ -435,7 +435,6 @@ BEGIN
 					  RXNORM              nvarchar(8),
 					  GENERIC_MED_NAME    nvarchar(105) NOT NULL
 	 );
-	 --CREATE CLUSTERED INDEX CHORDS_PERSCRIBING_INDEX ON PRESCRIBING (PERSON_ID, ENC_ID, RXMD)
 	 PRINT 'PRESCRIBING - Complete';
 END;
 
@@ -466,7 +465,6 @@ BEGIN
 					  CPTMOD2               nvarchar(2),
 					  CPTMOD3               nvarchar(2)
 	 );
-	 --CREATE CLUSTERED INDEX CHORDS_PROCEDURES_INDEX ON [PROCEDURES](ENC_ID, PROCDATE, PERFORMINGPROVIDER, ORIGPX, PX, PX_CODETYPE, ROW_ID);
 	 PRINT 'PROCEDURES - Complete';
 END;
 
