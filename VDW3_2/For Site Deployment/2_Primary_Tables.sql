@@ -10,7 +10,7 @@ BEGIN
 					  CENSUS_YEAR              int NOT NULL,
 					  GEOCODE                  nvarchar(15) NOT NULL,
 					  [BLOCK]                  nvarchar(3) NULL,
-					  CENSUS_DATA_SRC          nvarchar(16) NULL,
+					  CENSUS_DATA_SRC          nvarchar(26) NULL,
 					  CHORDS_GEOLEVEL          nvarchar(10) NULL,
 					  [STATE]                  nvarchar(2) NULL,
 					  COUNTY                   nvarchar(3) NULL,
