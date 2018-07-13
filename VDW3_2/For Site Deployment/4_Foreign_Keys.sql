@@ -9,7 +9,7 @@ ELSE
 BEGIN
     PRINT 'DEMOGRAPHICS - Creating Foreign Keys';
     ---Foreign Keys to required/priority tables
-    
+    --NONE
     ---Foreign keys to lookup tables
     IF OBJECT_ID('LANGUAGES_ISO') IS NOT NULL
     BEGIN
@@ -288,7 +288,7 @@ BEGIN
 	   CONSTRAINT FK_CHORDS_PHARMACY_PROVIDER_SPECIALTY FOREIGN KEY(RXMD) REFERENCES PROVIDER_SPECIALTY([PROVIDER]);
 
     ---Foreign keys to lookup tables
-
+    --NONE
     PRINT 'PHARMACY - Foreign Keys Added';
 END;
 
@@ -639,7 +639,7 @@ BEGIN
     PRINT 'PROVIDER_SPECIALTY - Creating Foreign Keys';
 
     ---Foreign Keys to required/priority tables
-
+    --NONE
     ---Foreign keys to lookup tables
     IF OBJECT_ID('PROVIDER_TYPE_LU') IS NOT NULL
     BEGIN

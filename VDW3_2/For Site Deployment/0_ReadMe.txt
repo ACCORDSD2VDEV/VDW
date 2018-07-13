@@ -1,7 +1,7 @@
-Script General Instructions and Descriptions
+VDW 3.2 DDL Scripts General Instructions and Descriptions
 
 Instructions
-	The scripts contained in this ZIP file can be used to create a CHORDS 3.1 VDW.  It is recommended that you create 
+	The scripts contained in this ZIP file can be used to create a CHORDS 3.2 VDW.  It is recommended that you create 
 	a fresh database to populate your data rather than try to upgrade your existing VDW although you are welcome to pursue 
 	that option so long as the end result will match as if you had started from scratch.
 	
@@ -18,37 +18,41 @@ Step 3 - 3_Census_Demog
 	You have two options to load the data for the CENSUS_DEMOG table.  
 
 	Option 1 is to run the 3_Census_Demog_script.sql script file in SQL Server Management Studio.  
-	This will insert the data into the CENSUS_DEMOG table in your VDW.  You will need to edit the /*DATABSAE NAME*/ 
-	from a comment to the database that the data will be inserted into and the /*DATABASE SCHEMA/TABLE*/ to the schema
-	and/or table that will be used.
+	This will insert the data into the CENSUS_DEMOG table in your VDW.  The default table that the data is inserted to is
+	CENSUS_DEMOG.  If you have a different table name or need to direct the insert to a different schema, use a Find/Replace
+	to change [CENSUS_DEMOG] to the appropriate location.
 
 	Option 2 is to use the 3_Census_Demog_Data.csv file.  You can use this file to import the data into your VDW with
-	SSMS data import wizard.
+	SQL Server Management Studio data import wizard or through a SQL Server Information Services package.
 
 Step 4 - 4_Foreign_Keys.sql
 	This Script file that will add the foreign keys to your VDW Tables.
 	*Before running step 4, it's recommended you review your ETL Process.  Once the keys are created you may run into a
-	"Chicken and the Egg" situaion loading data.  The Toggle Keys.txt file has some commands to help turn off keys for ETL
-	loading once the keys are added to the database but proactivly reviwing your ETL before adding foreign keys
+	"Chicken and the Egg" situation loading data.  The Toggle Keys.txt file has some commands to help turn off keys for ETL
+	loading if the keys are already added to the database. Proactively reviewing your ETL before adding foreign keys
 	should help cut down on the amount of bugs and issues you may run into.
 
 Step 5 - 5_Index_Creation.sql
-	Script file that will add indexes to your database.  This will help increase performance for queries.
-	Adding indexes and may result in larger than necessary databases and slow performance if you are trying to 
-	and delete large amounts of data while debugging your ETL process.  It's recommended you solify your ETL process
-	for the VDW 3.1 first before adding the indexes.
+	Script file that will add indexes to your database.  This will help increase performance for queries.  The indexes are
+	based on the most fields that tables are joined by and data that is accessed from those tables.  Some of the indexes
+	are based on SQL Server execution plan output recomendations from current public heath queries that have been run
+	in the last year. 
+	
+	Adding indexes and may result in slow performance if you are trying to delete large amounts of data while debugging 
+	your ETL process.  It's recommended you solidify your ETL process for the VDW 3.2 and add indexes when you are certain 
+	the data has been loaded correctly.
 
 Tips
 
 1) Reset_Database.txt
 	Included with a fully commented out set of commands to try and prevent accidental execution.
 	This file contains commands to drop tables, truncate tables, and delete all CHORDS Foreign Keys.
-	Run all together they will wipe out all of the data, tables, and keys in the 3.1 VDW so use them with caution
+	Run all together they will wipe out all of the data, tables, and keys in the VDW 3.2 so use them with caution
 
 2) Toggle Keys.txt
 	Commands that can be used to disable key checking and enable key checking.  This can be useful for your ETL process.
 	Note that if you try to delete a whole table that a foreign key is referencing, you would still receive an error.  Also
-	once key checking is turned off, you must turn it back on.  At that time Sql Server will validate the columns data against
+	once key checking is turned off, you must turn it back on.  At that time SQL Server will validate the columns data against
 	the foreign columns values.  If there is a mis-match, an error will be thrown and the key will remain turned off until the
 	un-allowed value is removed/altered.  Finally, these commands apply to whole databases so they will affect all keys in that
 	database.  If you need to keep some keys active, you would need to adapt the commands to run on certain tables.

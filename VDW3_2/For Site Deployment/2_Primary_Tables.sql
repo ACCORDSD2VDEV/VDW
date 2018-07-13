@@ -305,7 +305,7 @@ BEGIN
 					  DDATE                    date,
 					  ENCTYPE                  nvarchar(2) NOT NULL,
 					  ENCOUNTER_SUBTYPE        nvarchar(2) NOT NULL,
-					  [PROVIDER]               nvarchar(36) NOT NULL,
+					  [PROVIDER]               nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  ENC_COUNT                numeric(3),
 					  DRG_VALUE                nvarchar(4),
 					  DRG_VERSION              nchar,
@@ -334,8 +334,8 @@ BEGIN
 					  ENC_ID          nvarchar(36) NOT NULL,
 					  ADATE           date NOT NULL,
 					  ENCTYPE         nvarchar(2) NOT NULL,
-					  [PROVIDER]      nvarchar(36) NOT NULL,
-					  DIAGPROVIDER    nvarchar(36) NOT NULL,
+					  [PROVIDER]      nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
+					  DIAGPROVIDER    nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  DX              nvarchar(10) NOT NULL,
 					  DX_CODETYPE     nvarchar(2) NOT NULL	DEFAULT 'UN',
 					  DX_NAME		  nvarchar(200),
@@ -422,7 +422,7 @@ BEGIN
 					  NORMAL_HIGH_C      nvarchar(10),
 					  MODIFIER_HIGH      nvarchar(2),
 					  ABN_IND            nvarchar(2) DEFAULT 'UN',
-					  ORDER_PROV         nvarchar(36),
+					  ORDER_PROV         nvarchar(36) DEFAULT 'UNKNOWN',
 					  ORDER_DEPT         nvarchar(4),
 					  FACILITY_CODE      nvarchar(36),
 					  SPECIMEN_ID        nvarchar(36),
@@ -448,7 +448,7 @@ BEGIN
 					  NDC          nvarchar(11) NOT NULL,
 					  RXSUP        numeric(4),
 					  RXAMT        decimal(16, 10) NOT NULL,
-					  RXMD         nvarchar(36) NULL
+					  RXMD         nvarchar(36) NOT NULL DEFAULT 'UNKNOWN'
 	 );
 	 PRINT 'PHARMACY - Complete';
 END;
@@ -466,7 +466,7 @@ BEGIN
 					  PRESCRIBING_ID      INT IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID           nvarchar(36) NOT NULL,
 					  ENC_ID              nvarchar(36),
-					  RXMD                nvarchar(36),
+					  RXMD                nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  RX_ORDER_DATE       date,
 					  RX_ORDER_TIME       time,
 					  RX_START_DATE       date,
@@ -497,10 +497,10 @@ BEGIN
 	 (
 					  PROCEDURES_ID		    int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID             nvarchar(36) NOT NULL,
-					  [PROVIDER]            nvarchar(36),
+					  [PROVIDER]            nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  PROCDATE              date NOT NULL,
 					  ENC_ID                nvarchar(36) NOT NULL,
-					  PERFORMINGPROVIDER    nvarchar(36),
+					  PERFORMINGPROVIDER    nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  ADATE                 date NOT NULL,
 					  ENCTYPE               nvarchar(2) NOT NULL,
 					  PX                    nvarchar(10) NOT NULL,
@@ -778,7 +778,7 @@ BEGIN
 					  LATITUDE                 decimal(8, 6) NULL,
 					  LONGITUDE                decimal(9, 6) NULL,
 					  GEOCODE_APP              nvarchar(50) NULL,
-					  COUNTY_GEOCODE		   nvarchar(35) NULL,
+					  COUNTY_GEOCODE		   nvarchar(35) NOT NULL,
 					  ADDRESS_FLAG			   nchar(2)
 					  CONSTRAINT PK_CHORDS_CENSUS_LOCATION PRIMARY KEY CLUSTERED(PERSON_ID, LOC_START)
 	 );
