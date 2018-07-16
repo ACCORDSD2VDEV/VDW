@@ -254,11 +254,11 @@ BEGIN
 	 PRINT 'LINKAGE - Creating';
 	 CREATE TABLE LINKAGE
 	 (
-					  LINKAGE_ID		    int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
-					  LINK_ID               nvarchar(50) NULL,
-					  PERSON_ID             nvarchar(36) NOT NULL,
-					  LINE			    smallint NOT NULL,
-					  LINK_SRC_ID           nvarchar(12)
+					  LINK_ID       nvarchar(50) NOT NULL,
+					  PERSON_ID		nvarchar(36) NOT NULL,
+					  LINE			smallint NOT NULL,
+					  LINK_SRC_ID   nvarchar(12) NOT NULL
+					  CONSTRAINT PK_CHORDS_LINKAGE PRIMARY KEY CLUSTERED(LINK_ID, LINE)
 	 );
 	 PRINT 'LINKAGE - Complete';
 END;
@@ -274,8 +274,6 @@ BEGIN
 	 CREATE TABLE BENEFIT
 	 (
 					  BENEFIT_ID		    int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
-					  LOAD_DATE		    datetime NOT NULL,
-					  REFRESH_DATE		    datetime,
 					  PERSON_ID		    nvarchar(36) NOT NULL,
 					  BENEFIT_TYPE		    nchar(2) NOT NULL,
 					  BENEFIT_CAT		    nchar(2) NOT NULL,
