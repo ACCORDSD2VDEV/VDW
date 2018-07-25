@@ -776,8 +776,8 @@ BEGIN
 					  LATITUDE                 decimal(8, 6) NULL,
 					  LONGITUDE                decimal(9, 6) NULL,
 					  GEOCODE_APP              nvarchar(50) NULL,
-					  COUNTY_GEOCODE		   nvarchar(35) NOT NULL,
-					  ADDRESS_FLAG			   nchar(2)
+					  GEOCODE_COUNTY		   nvarchar(35) NOT NULL,
+					  ADDRESS_TYPE_CODE		   nchar(2)
 					  CONSTRAINT PK_CHORDS_CENSUS_LOCATION PRIMARY KEY CLUSTERED(PERSON_ID, LOC_START)
 	 );
 	 PRINT 'CENSUS_LOCATION - Complete';

@@ -182,22 +182,22 @@ BEGIN
 	PRINT 'CAUSETYPE_LU - Complete';
 END;
 
---ADDRESS_FLAG_LU || Added Summer 2018
-IF OBJECT_ID('ADDRESS_FLAG_LU') IS NOT NULL
+--ADDRESS_TYPE_CODE_LU || Added Summer 2018
+IF OBJECT_ID('ADDRESS_TYPE_CODE_LU') IS NOT NULL
 BEGIN
-	PRINT 'ADDRESS_FLAG_LU Already Exists';
+	PRINT 'ADDRESS_TYPE_CODE_LU Already Exists';
 END;
 ELSE
 BEGIN
-	PRINT 'ADDRESS_FLAG_LU - Creating';
-	CREATE TABLE [ADDRESS_FLAG_LU]
+	PRINT 'ADDRESS_TYPE_CODE_LU - Creating';
+	CREATE TABLE [ADDRESS_TYPE_CODE_LU]
 	( 
 				 [ABBREVIATION] nchar(2) NOT NULL, 
 				 [DESCRIPTION] nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ADDRESS_FLAG_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
+				 CONSTRAINT [PK_ADDRESS_TYPE_CODE_LU] PRIMARY KEY CLUSTERED([ABBREVIATION] ASC)
 	)
 	ON [PRIMARY];
-	INSERT INTO [ADDRESS_FLAG_LU]( 
+	INSERT INTO [ADDRESS_TYPE_CODE_LU]( 
 		[ABBREVIATION], 
 		[DESCRIPTION] )
 	VALUES( 
@@ -209,7 +209,7 @@ BEGIN
 		   'IN', 'Incomplete address' ), ( 
 		   'SL', 'Supported living' ), ( 
 		   'GA', 'Geocoded address (other)' );
-	PRINT 'ADDRESS_FLAG_LU - Complete';
+	PRINT 'ADDRESS_TYPE_CODE_LU - Complete';
 END;
 
 --CODETYPE_LU
@@ -1939,6 +1939,124 @@ BEGIN
 		   N'OT', N'UNKNOWN' );
 		   
 	PRINT 'SEXUAL_ORIENTATION_LU - Complete';
+END;
+
+--PROVIDER_SPECIALTY_LU.sql
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('PROVIDER_SPECIALTY_LU') IS NOT NULL
+BEGIN
+	PRINT 'PROVIDER_SPECIALTY_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PROVIDER_SPECIALTY_LU - Creating';
+	CREATE TABLE [PROVIDER_SPECIALTY_LU]
+	( 
+				 [SPECIALTY] nvarchar(3) NOT NULL, 
+				 [DESCRIPTION] nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_PROVIDER_SPECIALTY_LU] PRIMARY KEY CLUSTERED([SPECIALTY] ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO [PROVIDER_SPECIALTY_LU]( 
+		[SPECIALTY], 
+		[DESCRIPTION] )
+	VALUES( 	
+		   N'ADO', N'Adolescent Medicine' ), ( 
+		   N'AER', N'Aerospace Medicine' ), ( 
+		   N'ALC', N'Chemical Dependency' ), ( 
+		   N'ALL', N'Allergy' ), (  
+		   N'ANC', N'Ancillary Services' ), ( 
+		   N'ANE', N'Anesthesiology' ), ( 
+		   N'ATH', N'Sports Medicine' ), (           
+		   N'AUD', N'Audiology' ), ( 
+		   N'BON', N'Bone And Mineral' ), ( 
+		   N'CAR', N'Cardiology' ), ( 
+		   N'CAV', N'Cardiovascular Surgery' ), (           
+		   N'CHR', N'Chiropractor' ), ( 
+		   N'CLC', N'Clinical Cardiac Electrophysiology' ), (   
+		   N'COL', N'Colon & Rectal Surgery' ), ( 
+		   N'COM', N'Complimentary & Alternative Medicine' ), ( 
+		   N'CON', N'Continuing Care' ), ( 
+		   N'CRI', N'Critical Care' ), ( 
+		   N'DEN', N'Dentistry' ), ( 
+		   N'DER', N'Dermatology' ), ( 
+		   N'DOR', N'D.O.R.' ), ( 
+		   N'EDU', N'Medical Education' ), ( 
+		   N'EME', N'Emergency Medicine' ), ( 
+		   N'EMI', N'EMI' ), ( 
+		   N'END', N'Endocrinology' ), ( 
+		   N'ENT', N'Otolaryngology' ), ( 
+		   N'FAM', N'Family Medicine' ), ( 
+		   N'FLX', N'Flexible' ), ( 
+		   N'GAS', N'Gastroenterology' ), ( 
+		   N'GEN', N'Genetics' ), (                     
+		   N'GER', N'Gerontology' ), (                               
+		   N'HAN', N'Hand Surgery' ), (                       
+		   N'HOM', N'Home Health' ), ( 
+		   N'HOS', N'Hospital' ), ( 
+		   N'HYM', N'Hyperbaric Medicine' ), ( 
+		   N'HYP', N'Hypertension' ), ( 
+		   N'IMG', N'General Internal Medicine' ), ( 
+		   N'INF', N'Infectious Disease' ), ( 
+		   N'LAB', N'Laboratory' ), ( 
+		   N'MEN', N'Mental Health' ), ( 
+		   N'MGM', N'Care Management' ), ( 
+		   N'MID', N'Midlevel' ), ( 
+		   N'MUL', N'Multispecialty' ), ( 
+		   N'NEH', N'Nephrology' ), ( 
+		   N'NEO', N'Neonatology' ), (                      
+		   N'NES', N'Neurosurgery' ), ( 
+		   N'NEU', N'Neurology' ), ( 
+		   N'NOB', N'No Boards' ), (                    
+		   N'NUM', N'Nuclear Medicine' ), (                 
+		   N'NUR', N'Nurse' ), ( 
+		   N'NUT', N'Nutrition' ), ( 
+		   N'OBO', N'Gynecologic Oncology' ), ( 
+		   N'OBS', N'Obstetrics – Gynecology' ), ( 
+		   N'OCM', N'Occupational Health' ), ( 
+		   N'ONC', N'Oncology' ), ( 
+		   N'ONS', N'Surgical Oncology' ), ( 
+		   N'OPH', N'Ophthalmology' ), ( 
+		   N'OPL', N'Optical' ), ( 
+		   N'OPT', N'Optometry' ), ( 
+		   N'ORA', N'Oral Surgery' ), ( 
+		   N'ORD', N'Orthodontia' ), ( 
+		   N'ORT', N'Orthopedics' ), ( 
+		   N'OTO', N'Otolaryngology' ), ( 
+		   N'PAI', N'Pain Management' ), ( 
+		   N'PAT', N'Pathology' ), ( 
+		   N'PED', N'Pediatrics' ), ( 
+		   N'PES', N'Pediatric Subspecialty' ), ( 
+		   N'PEY', N'Perinatology' ), (                       
+		   N'PHA', N'Pharmacy' ), ( 
+		   N'PHT', N'Physical Therapy' ), ( 
+		   N'PHY', N'Physiatry' ), ( 
+		   N'PLA', N'Plastic Surgery' ), ( 
+		   N'POD', N'Podiatry' ), ( 
+		   N'PRE', N'Preventive Medicine' ), (                
+		   N'PRO', N'Prosthodontia' ), ( 
+		   N'PSY', N'Psychiatry' ), ( 
+		   N'PUB', N'Public Health' ), (                      
+		   N'PUL', N'Pulmonary Medicine' ), ( 
+		   N'RAD', N'Radiology' ), ( 
+		   N'REH', N'Rehabilitation Medicine' ), ( 
+		   N'RES', N'Respiratory Therapy' ), ( 
+		   N'RHE', N'Rheumatology' ), ( 
+		   N'ROP', N'Radiation Oncology' ), ( 
+		   N'SLC', N'Sleep Center' ), ( 
+		   N'SOC', N'Social Services' ), ( 
+		   N'SPP', N'Speech Pathology' ), ( 
+		   N'SUR', N'Surgery' ), ( 
+		   N'TEE', N'Teen Clinic' ), ( 
+		   N'TOX', N'Medical Toxicology' ), (       
+		   N'TRN', N'Transportation/Non-Emergency' ), ( 
+		   N'TRS', N'Transplant Surgery' ), ( 
+		   N'UNK', N'Unknown' ), ( 
+		   N'URG', N'Urgent Care' ), (                  
+		   N'URO', N'Urology' ), ( 
+		   N'VAS', N'Vascular Surgery' );
+		   
+	PRINT 'PROVIDER_SPECIALTY_LU - Complete';
 END;
 
 --Colorado_Conties || Deleted Summer 2018

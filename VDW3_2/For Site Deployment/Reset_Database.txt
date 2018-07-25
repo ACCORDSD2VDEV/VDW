@@ -72,9 +72,10 @@
 --drop table GENDER_IDENTITY_LU
 --drop table SEXUAL_ORIENTATION_LU
 --drop table BENEFIT_CAT_LU
---drop table ADDRESS_FLAG_LU
+--drop table ADDRESS_TYPE_CODE_LU
 --drop table DX_ORIGIN_LU
 --drop table BENEFIT_TYPE_LU
+--drop table PROVIDER_SPECIALTY_LU
 --drop table COLORADO_COUNTIES
 --drop table CENSUS_LOCATION;
 --drop table LANGUAGES;
