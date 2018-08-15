@@ -274,12 +274,14 @@ BEGIN
 	 CREATE TABLE BENEFIT
 	 (
 					  BENEFIT_ID		    int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
+					  LOAD_DATE				datetime NOT NULL,
+					  REFRESH_DATE			datetime,
 					  PERSON_ID		    nvarchar(36) NOT NULL,
 					  BENEFIT_TYPE		    nchar(2) NOT NULL,
 					  BENEFIT_CAT		    nchar(2) NOT NULL,
 					  LOCAL_CD		    nvarchar(20),
 					  LOCAL_DESCRIPTION	    nvarchar(50),
-					  BENEIFT_DATE		    datetime,
+					  BENEFIT_DATE		    datetime,
 					  ENC_ID			    nvarchar(36),
 					  [START_DATE]		    datetime,
 					  [END_DATE]		    datetime
