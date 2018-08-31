@@ -480,7 +480,7 @@ BEGIN
 					  RX_INSTRUCTIONS     nvarchar(100),
 					  RX_BASIS            nvarchar(2),
 					  RXNORM              nvarchar(8),
-					  GENERIC_MED_NAME    nvarchar(105) NOT NULL
+					  GENERIC_MED_NAME    nvarchar(105) NOT NULL,
 					  RX_DOSE_ORDERED	  numeric(8),
 					  RX_DOSE_ORDERED_UNIT	nvarchar(20)
 	 );
