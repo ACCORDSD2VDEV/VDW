@@ -336,11 +336,11 @@ BEGIN
 					  ENCTYPE         nvarchar(2) NOT NULL,
 					  [PROVIDER]      nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  DIAGPROVIDER    nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
-					  DX              nvarchar(10) NOT NULL,
+					  DX              nvarchar(18) NOT NULL,
 					  DX_CODETYPE     nvarchar(2) NOT NULL	DEFAULT 'UN',
 					  DX_NAME		  nvarchar(200),
 					  DX_ORIGIN	   	  nvarchar(2) NOT NULL,
-					  ORIGDX          nvarchar(10) NOT NULL,
+					  ORIGDX          nvarchar(18) NOT NULL,
 					  PRINCIPAL_DX    nchar NOT NULL	DEFAULT 'X',
 					  PRIMARY_DX      nchar NOT NULL	DEFAULT 'X'
 	 );
