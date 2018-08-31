@@ -481,6 +481,8 @@ BEGIN
 					  RX_BASIS            nvarchar(2),
 					  RXNORM              nvarchar(8),
 					  GENERIC_MED_NAME    nvarchar(105) NOT NULL
+					  RX_DOSE_ORDERED	  numeric(8),
+					  RX_DOSE_ORDERED_UNIT	nvarchar(20)
 	 );
 	 PRINT 'PRESCRIBING - Complete';
 END;
