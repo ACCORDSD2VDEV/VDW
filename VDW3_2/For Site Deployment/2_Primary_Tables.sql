@@ -1,3 +1,9 @@
+/*****************************************
+CENSUS_DEMOG
+Changes:
+
+/****************************************/
+
 IF OBJECT_ID('CENSUS_DEMOG') IS NOT NULL
 BEGIN
 	 PRINT 'CENSUS_DEMOG Already Exists';
@@ -121,7 +127,11 @@ BEGIN
 	 	 PRINT 'CENSUS_DEMOG - Complete';
 END;
 
--- EVERNDC Table
+/*****************************************
+EVERNDC
+Changes:
+
+/****************************************/
 IF OBJECT_ID('EVERNDC') IS NOT NULL
 BEGIN
 	 PRINT 'EVERNDC Already Exists';
@@ -147,8 +157,11 @@ BEGIN
 	 	 PRINT 'EVERNDC - Complete';
 END;
 
+/*****************************************
+PROVIDER_SPECIALTY
+Changes:
 
--- PROVIDER_SPECIALTY Table
+/****************************************/
 IF OBJECT_ID('PROVIDER_SPECIALTY') IS NOT NULL
 BEGIN
 	 PRINT 'PROVIDER_SPECIALTY Already Exists';
@@ -174,7 +187,11 @@ BEGIN
 	 PRINT 'PROVIDER_SPECIALTY - Complete';
 END;
 
--- DEATH Table
+/*****************************************
+DEATH
+Changes:
+
+/****************************************/
 IF OBJECT_ID('DEATH') IS NOT NULL
 BEGIN
 	 PRINT 'DEATH Already Exists';
@@ -194,7 +211,11 @@ BEGIN
 	 PRINT 'DEATH - Complete';
 END;
 
--- CAUSE_OF_DEATH Table
+/*****************************************
+CAUSE_OF_DEATH
+Changes:
+
+/****************************************/
 IF OBJECT_ID('CAUSE_OF_DEATH') IS NOT NULL
 BEGIN
 	 PRINT 'CAUSE_OF_DEATH Already Exists';
@@ -214,8 +235,11 @@ BEGIN
 	 );
 	 PRINT 'CAUSE_OF_DEATH - Complete';
 END;
+/*****************************************
+DEMOGRAPHICS
+Changes:
 
--- DEMOGRAPHICS Table
+/****************************************/
 IF OBJECT_ID('DEMOGRAPHICS') IS NOT NULL
 BEGIN
 	 PRINT 'DEMOGRAPHICS Already Exists';
@@ -243,8 +267,11 @@ BEGIN
 	 );
 	 PRINT 'DEMOGRAPHICS - Complete';
 END;
+/*****************************************
+LINKAGE
+Changes:
 
--- LINKAGE Table
+/****************************************/
 IF OBJECT_ID('LINKAGE') IS NOT NULL
 BEGIN
 	 PRINT 'LINKAGE Already Exists';
@@ -263,7 +290,11 @@ BEGIN
 	 PRINT 'LINKAGE - Complete';
 END;
 
--- BENEFIT Table
+/*****************************************
+BENEFIT
+Changes:
+
+/****************************************/
 IF OBJECT_ID('BENEFIT') IS NOT NULL
 BEGIN
 	 PRINT 'BENEFIT Already Exists';
@@ -288,8 +319,11 @@ BEGIN
 	 );
 	 PRINT 'BENEFIT - Complete';
 END;
+/*****************************************
+ENCOUNTERS
+Changes:
 
--- ENCOUNTERS Table
+/****************************************/
 IF OBJECT_ID('ENCOUNTERS') IS NOT NULL
 BEGIN
 	 PRINT 'ENCOUNTERS Already Exists';
@@ -319,7 +353,11 @@ BEGIN
 	 PRINT 'ENCOUNTERS - Complete';
 END;
 
--- DIAGNOSES Table
+/*****************************************
+DIAGNOSES
+Changes:
+ - ENDDATE added 11/9/2018
+******************************************/
 IF OBJECT_ID('DIAGNOSES') IS NOT NULL
 BEGIN
 	 PRINT 'DIAGNOSES Already Exists';
@@ -333,6 +371,7 @@ BEGIN
 					  PERSON_ID       nvarchar(36) NOT NULL,
 					  ENC_ID          nvarchar(36) NOT NULL,
 					  ADATE           date NOT NULL,
+					  ENDDATE         date,
 					  ENCTYPE         nvarchar(2) NOT NULL,
 					  [PROVIDER]      nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  DIAGPROVIDER    nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
@@ -347,7 +386,11 @@ BEGIN
 	 PRINT 'DIAGNOSES - Complete';
 END;
 
--- ENROLLMENT Table
+/*****************************************
+ENROLLMENT
+Changes:
+
+******************************************/
 IF OBJECT_ID('ENROLLMENT') IS NOT NULL
 BEGIN
 	 PRINT 'ENROLLMENT Already Exists';
@@ -386,7 +429,11 @@ BEGIN
 	 PRINT 'ENROLLMENT - Complete';
 END;
 
--- LAB_RESULTS Table
+/*****************************************
+LAB_RESULTS
+Changes:
+
+/****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
 BEGIN
 	 PRINT 'LAB_RESULTS Already Exists';
@@ -432,7 +479,11 @@ BEGIN
 	 PRINT 'LAB_RESULTS - Complete';
 END;
 
--- PHARMACY Table
+/*****************************************
+PHARMACY
+Changes:
+
+/****************************************/
 IF OBJECT_ID('PHARMACY') IS NOT NULL
 BEGIN
 	 PRINT 'PHARMACY Already Exists';
@@ -453,7 +504,11 @@ BEGIN
 	 PRINT 'PHARMACY - Complete';
 END;
 
---PRESCRIBING TABLE
+/*****************************************
+PRESCRIBING
+Changes:
+
+/****************************************/
 IF OBJECT_ID('PRESCRIBING') IS NOT NULL
 BEGIN
 	 PRINT 'PRESCRIBING Already Exists';
@@ -487,7 +542,10 @@ BEGIN
 	 PRINT 'PRESCRIBING - Complete';
 END;
 
--- PROCEDURES Table
+/*****************************************
+PROCEDURES
+Changes:
+/****************************************/
 IF OBJECT_ID('PROCEDURES') IS NOT NULL
 BEGIN
 	 PRINT 'PROCEDURES Already Exists';
@@ -516,7 +574,11 @@ BEGIN
 	 PRINT 'PROCEDURES - Complete';
 END;
 
--- SOCIAL_HISTORY Table
+/*****************************************
+SOCIAL_HISTORY
+Changes:
+
+/****************************************/
 IF OBJECT_ID('SOCIAL_HISTORY') IS NOT NULL
 BEGIN
 	 PRINT 'SOCIAL_HISTORY Already Exists';
@@ -570,8 +632,11 @@ BEGIN
 	 );
 	 PRINT 'SOCIAL_HISTORY - Complete';
 END;
+/*****************************************
+VITAL_SIGNS
+Changes:
 
--- VITAL_SIGNS Table
+/****************************************/
 IF OBJECT_ID('VITAL_SIGNS') IS NOT NULL
 BEGIN
 	 PRINT 'VITAL_SIGNS Already Exists';
@@ -605,8 +670,11 @@ BEGIN
 	 );
 	 PRINT 'VITAL_SIGNS - Complete';
 END;
+/*****************************************
+TUMOR
+Changes:
 
--- TUMOR Table
+/****************************************/
 IF OBJECT_ID('TUMOR') IS NOT NULL
 BEGIN
 	 PRINT 'TUMOR Already Exists';
@@ -740,7 +808,11 @@ BEGIN
 	 PRINT 'TUMOR - Complete';
 END;
 
--- TUMOR Table
+/*****************************************
+LANGUAGES
+Changes:
+
+/****************************************/
 IF OBJECT_ID('LANGUAGES') IS NOT NULL
 BEGIN
 	 PRINT 'LANGUAGES Already Exists';
@@ -759,7 +831,11 @@ BEGIN
 	 PRINT 'LANGUAGES - Complete';
 END;
 
--- CENSUS_LOCATION Table
+/*****************************************
+CENSUS_LOCATION
+Changes:
+
+/****************************************/
 IF OBJECT_ID('CENSUS_LOCATION') IS NOT NULL
 BEGIN
 	 PRINT 'CENSUS_LOCATION Already Exists';
