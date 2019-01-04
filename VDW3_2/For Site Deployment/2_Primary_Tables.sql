@@ -1,8 +1,7 @@
 /*****************************************
 CENSUS_DEMOG
 Changes:
-
-/****************************************/
+*****************************************/
 
 IF OBJECT_ID('CENSUS_DEMOG') IS NOT NULL
 BEGIN
@@ -131,7 +130,7 @@ END;
 EVERNDC
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('EVERNDC') IS NOT NULL
 BEGIN
 	 PRINT 'EVERNDC Already Exists';
@@ -161,7 +160,7 @@ END;
 PROVIDER_SPECIALTY
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('PROVIDER_SPECIALTY') IS NOT NULL
 BEGIN
 	 PRINT 'PROVIDER_SPECIALTY Already Exists';
@@ -191,7 +190,7 @@ END;
 DEATH
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('DEATH') IS NOT NULL
 BEGIN
 	 PRINT 'DEATH Already Exists';
@@ -215,7 +214,7 @@ END;
 CAUSE_OF_DEATH
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('CAUSE_OF_DEATH') IS NOT NULL
 BEGIN
 	 PRINT 'CAUSE_OF_DEATH Already Exists';
@@ -239,7 +238,7 @@ END;
 DEMOGRAPHICS
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('DEMOGRAPHICS') IS NOT NULL
 BEGIN
 	 PRINT 'DEMOGRAPHICS Already Exists';
@@ -271,7 +270,7 @@ END;
 LINKAGE
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('LINKAGE') IS NOT NULL
 BEGIN
 	 PRINT 'LINKAGE Already Exists';
@@ -294,7 +293,7 @@ END;
 BENEFIT
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('BENEFIT') IS NOT NULL
 BEGIN
 	 PRINT 'BENEFIT Already Exists';
@@ -323,7 +322,7 @@ END;
 ENCOUNTERS
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('ENCOUNTERS') IS NOT NULL
 BEGIN
 	 PRINT 'ENCOUNTERS Already Exists';
@@ -357,7 +356,7 @@ END;
 DIAGNOSES
 Changes:
  - ENDDATE added 11/9/2018
-******************************************/
+*****************************************/
 IF OBJECT_ID('DIAGNOSES') IS NOT NULL
 BEGIN
 	 PRINT 'DIAGNOSES Already Exists';
@@ -390,7 +389,7 @@ END;
 ENROLLMENT
 Changes:
 
-******************************************/
+*****************************************/
 IF OBJECT_ID('ENROLLMENT') IS NOT NULL
 BEGIN
 	 PRINT 'ENROLLMENT Already Exists';
@@ -433,7 +432,7 @@ END;
 LAB_RESULTS
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
 BEGIN
 	 PRINT 'LAB_RESULTS Already Exists';
@@ -483,7 +482,7 @@ END;
 PHARMACY
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('PHARMACY') IS NOT NULL
 BEGIN
 	 PRINT 'PHARMACY Already Exists';
@@ -508,7 +507,7 @@ END;
 PRESCRIBING
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('PRESCRIBING') IS NOT NULL
 BEGIN
 	 PRINT 'PRESCRIBING Already Exists';
@@ -545,7 +544,7 @@ END;
 /*****************************************
 PROCEDURES
 Changes:
-/****************************************/
+*****************************************/
 IF OBJECT_ID('PROCEDURES') IS NOT NULL
 BEGIN
 	 PRINT 'PROCEDURES Already Exists';
@@ -578,7 +577,7 @@ END;
 SOCIAL_HISTORY
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('SOCIAL_HISTORY') IS NOT NULL
 BEGIN
 	 PRINT 'SOCIAL_HISTORY Already Exists';
@@ -636,7 +635,7 @@ END;
 VITAL_SIGNS
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('VITAL_SIGNS') IS NOT NULL
 BEGIN
 	 PRINT 'VITAL_SIGNS Already Exists';
@@ -674,7 +673,7 @@ END;
 TUMOR
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('TUMOR') IS NOT NULL
 BEGIN
 	 PRINT 'TUMOR Already Exists';
@@ -812,7 +811,7 @@ END;
 LANGUAGES
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('LANGUAGES') IS NOT NULL
 BEGIN
 	 PRINT 'LANGUAGES Already Exists';
@@ -835,7 +834,7 @@ END;
 CENSUS_LOCATION
 Changes:
 
-/****************************************/
+*****************************************/
 IF OBJECT_ID('CENSUS_LOCATION') IS NOT NULL
 BEGIN
 	 PRINT 'CENSUS_LOCATION Already Exists';
