@@ -1,3 +1,8 @@
+IF OBJECT_ID('tempdb..#CHORDSTEMPRESULT') IS NOT NULL
+BEGIN
+	DROP TABLE #CHORDSTEMPRESULT;
+END;
+
 DECLARE @datavalidation TABLE
 (TableName      VARCHAR(250),
  ColumnName     VARCHAR(250),
@@ -191,7 +196,7 @@ VALUES      (
 
 INSERT INTO @datavalidation
 VALUES      (
-       'BENEFIT', 'BENEFIT_ID', 'NO', NULL, 10, NULL, NULL), (
+       'BENEFIT', 'BENEFIT_ID', 'NO', NULL, 10, 0, NULL), (
        'BENEFIT', 'LOAD_DATE', 'NO', NULL, NULL, NULL, 3), (
        'BENEFIT', 'REFRESH_DATE', 'YES', NULL, NULL, NULL, 3), (
        'BENEFIT', 'PERSON_ID', 'NO', 36, NULL, NULL, NULL), (
@@ -575,33 +580,49 @@ BEGIN
     JOIN CHORDS_TABLENAMES b ON b.ORG_NAME = a.TableName
 END;
 
+SELECT * 
+INTO #CHORDSTEMPRESULT FROM (
+    SELECT
+           a.TableName,
+           a.ColumnName,
+           CASE
+               WHEN b.COLUMN_NAME IS NULL
+               THEN 'TABLE OR COLUMN MISSING'
+               WHEN b.COLUMN_NAME IS NOT NULL
+                    AND (ISNULL(NULLIF(a.CharaterLength, b.CHARACTER_MAXIMUM_LENGTH), NULLIF(b.CHARACTER_MAXIMUM_LENGTH, a.CharaterLength)) IS NULL
+    				 AND ISNULL(NULLIF(a.Precision, b.NUMERIC_PRECISION), NULLIF(b.NUMERIC_PRECISION, a.Precision)) IS NULL
+    				 AND ISNULL(NULLIF(a.Scale, b.NUMERIC_SCALE), NULLIF(b.NUMERIC_SCALE, a.Scale)) IS NULL
+    				 AND ISNULL(NULLIF(a.DT_Preceision, b.DATETIME_PRECISION), NULLIF(b.DATETIME_PRECISION, a.DT_Preceision)) IS NULL                      
+                         AND a.IsNullable = b.Is_Nullable)
+               THEN 'OK'
+               ELSE 'CONFIG-MISMATCH'
+           END AS Result,
+           a.Precision ExpectedNumericPrecision,
+           b.NUMERIC_PRECISION ActualNumericPrecision,
+           a.Scale ExpectedNumericScale,
+           b.NUMERIC_SCALE ActualNumericScale,
+           a.CharaterLength ExpectedCharaterLength,
+           b.CHARACTER_MAXIMUM_LENGTH ActualCharacterLength,
+           a.IsNullable ExpectedISNullable,
+           b.IS_NULLABLE ActualExpectedISNullable,
+    	   a.DT_Preceision ExpectedDatePrecision,
+    	   b.DATETIME_PRECISION
+    FROM
+         @datavalidation a
+         LEFT JOIN INFORMATION_SCHEMA.COLUMNS b
+              ON a.TableName = b.TABLE_NAME
+                 AND a.ColumnName = b.COLUMN_NAME
+) A;
+
+--Missing or Misconfigured Columns
 SELECT
-       a.TableName,
-       a.ColumnName,
-       CASE
-           WHEN b.COLUMN_NAME IS NULL
-           THEN 'TABLE OR COLUMN MISSING'
-           WHEN b.COLUMN_NAME IS NOT NULL
-                AND (ISNULL(a.CharaterLength, 0) = ISNULL(b.CHARACTER_MAXIMUM_LENGTH, 0)
-                     AND ISNULL(a.Precision, 0) = ISNULL(b.NUMERIC_PRECISION, 0)
-                     AND ISNULL(a.Scale, 0) = ISNULL(b.NUMERIC_SCALE, 0)
-				 AND ISNULL(a.DT_Preceision, 0) = ISNULL(b.DATETIME_PRECISION, 0)
-                     AND a.IsNullable = b.Is_Nullable)
-           THEN 'OK'
-           ELSE 'CONFIG-MISMATCH'
-       END AS Result,
-       a.Precision ExpectedNumericPrecision,
-       b.NUMERIC_PRECISION ActualNumericPrecision,
-       a.Scale ExpectedNumericScale,
-       b.NUMERIC_SCALE ActualNumericScale,
-       a.CharaterLength ExpectedCharaterLength,
-       b.CHARACTER_MAXIMUM_LENGTH ActualCharacterLength,
-       a.IsNullable ExpectedISNullable,
-       b.IS_NULLABLE ActualExpectedISNullable,
-	   a.DT_Preceision ExpectedDatePrecision,
-	   b.DATETIME_PRECISION
+       *
 FROM
-     @datavalidation a
-     LEFT JOIN INFORMATION_SCHEMA.COLUMNS b
-          ON a.TableName = b.TABLE_NAME
-             AND a.ColumnName = b.COLUMN_NAME;
+     #CHORDSTEMPRESULT Z
+WHERE  Z.Result != 'OK'; 
+
+--Full Results
+SELECT
+       *
+FROM
+     #CHORDSTEMPRESULT Z; 
