@@ -126,7 +126,10 @@ BEGIN
 		   'MD', 'Medicaid' ), (
 		   'OG', 'Other Government' ), (
 		   'SP', 'Self-Pay/Uninsured/Private Pay' ), (
-		   'OT', 'Other Insurance' );
+		   'OT', 'Other Insurance' ), (
+		   'UN', 'Unknown Insurance'), (
+		   'WC', 'Workers Compensation'), (
+		   'NI', 'No Benefit Information Available');
 END;
 
 --BP_TYPE_LU
