@@ -186,6 +186,10 @@ BEGIN
 END;
 
 --ADDRESS_TYPE_CODE_LU || Added Summer 2018
+/*
+CHANGES:
+	Updated CA to CO for Corrections address valid value
+*/
 IF OBJECT_ID('ADDRESS_TYPE_CODE_LU') IS NOT NULL
 BEGIN
 	PRINT 'ADDRESS_TYPE_CODE_LU Already Exists';
@@ -204,7 +208,7 @@ BEGIN
 		[ABBREVIATION], 
 		[DESCRIPTION] )
 	VALUES( 
-		   'CA', 'Corrections address' ), ( 
+		   'CO', 'Corrections address' ), ( 
 		   'DO', 'Dormitory (college)' ), ( 
 		   'HC', 'Healthcare facility' ), ( 
 		   'HL', 'Homeless' ), ( 

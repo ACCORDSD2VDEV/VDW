@@ -431,7 +431,7 @@ END;
 /*****************************************
 LAB_RESULTS
 Changes:
-
+	Updated length of TEST_TYPE from 20 to 21
 *****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
 BEGIN
@@ -448,7 +448,7 @@ BEGIN
 					  RESULT_TM          time,
 					  LAB_DT             date NULL,
 					  LAB_TM             time NULL,
-					  TEST_TYPE          nvarchar(20) NOT NULL,
+					  TEST_TYPE          nvarchar(21) NOT NULL,
 					  LOCAL_CD           nvarchar(25) NOT NULL,
 					  BATTERY_CD         nvarchar(150) NOT NULL,
 					  LOINC              nvarchar(10),
