@@ -1,7 +1,11 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 
---ABN_IND_LU
+/*****************************************
+ABN_IND_LU
+Changes:
+*****************************************/
+
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ABN_IND_LU') IS NOT NULL
 BEGIN
@@ -33,7 +37,10 @@ BEGIN
 	PRINT 'ABN_IND_LU - Complete';
 END;
 
---ADMITTING_SOURCE_LU
+/*****************************************
+ADMITTING_SOURCE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ADMITTING_SOURCE_LU') IS NOT NULL
 BEGIN
@@ -71,7 +78,10 @@ BEGIN
 	PRINT 'ADMITTING_SOURCE_LU - Complete';
 END;
 
---BENEFIT_TYPE_LU || Added Summer 2018
+/*****************************************
+BENEFIT_TYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('BENEFIT_TYPE_LU') IS NOT NULL
 BEGIN
@@ -99,7 +109,10 @@ BEGIN
 		   'NI', 'No benefit information availible' );
 END;
 
---BENEFIT_CAT_LU || Added Summer 2018
+/*****************************************
+BENEFIT_CAT_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('BENEFIT_CAT_LU') IS NOT NULL
 BEGIN
@@ -132,7 +145,10 @@ BEGIN
 		   'NI', 'No Benefit Information Available');
 END;
 
---BP_TYPE_LU
+/*****************************************
+BP_TYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('BP_TYPE_LU') IS NOT NULL
 BEGIN
@@ -158,7 +174,10 @@ BEGIN
 		   N'E', N'Extended' );
 END;
 
---CAUSETYPE_LU
+/*****************************************
+CAUSETYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('CAUSETYPE_LU') IS NOT NULL
 BEGIN
@@ -185,11 +204,11 @@ BEGIN
 	PRINT 'CAUSETYPE_LU - Complete';
 END;
 
---ADDRESS_TYPE_CODE_LU || Added Summer 2018
-/*
-CHANGES:
+/*****************************************
+ADDRESS_TYPE_CODE_LU
+Changes:
 	Updated CA to CO for Corrections address valid value
-*/
+*****************************************/
 IF OBJECT_ID('ADDRESS_TYPE_CODE_LU') IS NOT NULL
 BEGIN
 	PRINT 'ADDRESS_TYPE_CODE_LU Already Exists';
@@ -219,7 +238,10 @@ BEGIN
 	PRINT 'ADDRESS_TYPE_CODE_LU - Complete';
 END;
 
---CODETYPE_LU
+/*****************************************
+CODETYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('CODETYPE_LU') IS NOT NULL
 BEGIN
@@ -247,7 +269,10 @@ BEGIN
 	PRINT 'CODETYPE_LU - Complete';
 END;
 
---CONFIDENCE_LU
+/*****************************************
+CONFIDENCE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('CONFIDENCE_LU') IS NOT NULL
 BEGIN
@@ -274,7 +299,10 @@ BEGIN
 	PRINT 'CONFIDENCE_LU - Complete';
 END;
 
---DEPARTMENT_LU
+/*****************************************
+DEPARTMENT_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DEPARTMENT_LU') IS NOT NULL
 BEGIN
@@ -375,7 +403,10 @@ BEGIN
 	PRINT 'DEPARTMENT_LU - Complete';
 END;
 
---DISCHARGE_DISPOSITION_LU
+/*****************************************
+DISCHARGE_DISPOSITION_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DISCHARGE_DISPOSITION_LU') IS NOT NULL
 BEGIN
@@ -401,7 +432,10 @@ BEGIN
 	PRINT 'DISCHARGE_DISPOSITION_LU - Complete';
 END;
 
---DISCHARGE_STATUS_LU
+/*****************************************
+DISCHARGE_STATUS_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DISCHARGE_STATUS_LU') IS NOT NULL
 BEGIN
@@ -440,7 +474,10 @@ BEGIN
 	PRINT 'DISCHARGE_STATUS_LU - Complete';
 END;
 
---DTIMPUTE_LU.sql
+/*****************************************
+DTIMPUTE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DTIMPUTE_LU') IS NOT NULL
 BEGIN
@@ -467,7 +504,10 @@ BEGIN
 	PRINT 'DTIMPUTE_LU - Complete';
 END;
 
---DX_CODETYPE_LU || Updated Summer 2018
+/*****************************************
+DX_CODETYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DX_CODETYPE_LU') IS NOT NULL
 BEGIN
@@ -499,7 +539,10 @@ BEGIN
 	PRINT 'DX_CODETYPE_LU - Complete';
 END;
 
---DX_ORIGIN_LU || Added Summer 2018
+/*****************************************
+DX_ORIGIN_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('DX_ORIGIN_LU') IS NOT NULL
 BEGIN
@@ -529,7 +572,10 @@ BEGIN
 	PRINT 'DX_ORIGIN_LU - Complete';
 END;
 
---ENCOUNTER_SUBTYPE_LU.sql
+/*****************************************
+ENCOUNTER_SUBTYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ENCOUNTER_SUBTYPE_LU') IS NOT NULL
 BEGIN
@@ -565,7 +611,10 @@ BEGIN
 	PRINT 'ENCOUNTER_SUBTYPE_LU - Complete';
 END;
 
---ENCTYPE_LU
+/*****************************************
+ENCTYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ENCTYPE_LU') IS NOT NULL
 BEGIN
@@ -597,7 +646,10 @@ BEGIN
 	PRINT 'ENCTYPE_LU - Complete';
 END;
 
---ENROLLMENT_BASIS_LU
+/*****************************************
+ENROLLMENT_BASIS_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ENROLLMENT_BASIS_LU') IS NOT NULL
 BEGIN
@@ -625,7 +677,10 @@ BEGIN
 	PRINT 'ENROLLMENT_BASIS_LU - Complete';
 END;
 
---GENDER_LU
+/*****************************************
+GENDER_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('GENDER_LU') IS NOT NULL
 BEGIN
@@ -652,7 +707,10 @@ BEGIN
 	PRINT 'GENDER_LU - Complete';
 END;
 
---LANG_USAGE_LU
+/*****************************************
+LANG_USAGE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('LANG_USAGE_LU') IS NOT NULL
 BEGIN
@@ -679,7 +737,10 @@ BEGIN
 	PRINT 'LANG_USAGE_LU - Complete';
 END;
 
---MODIFIER_LU
+/*****************************************
+MODIFIER_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('MODIFIER_LU') IS NOT NULL
 BEGIN
@@ -708,7 +769,10 @@ BEGIN
 	PRINT 'MODIFIER_LU - Complete';
 END;
 
---ONC_SMOKING_STATUS_LU
+/*****************************************
+ONC_SMOKING_STATUS_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('ONC_SMOKING_STATUS_LU') IS NOT NULL
 BEGIN
@@ -737,7 +801,10 @@ BEGIN
 	PRINT 'ONC_SMOKING_STATUS_LU - Complete';
 END;
 
---POSITION_LU.sql
+/*****************************************
+POSITION_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('POSITION_LU') IS NOT NULL
 BEGIN
@@ -763,7 +830,10 @@ BEGIN
 	PRINT 'POSITION_LU - Complete';
 END;
 
---PRIMARY_DX_LU
+/*****************************************
+PRIMARY_DX_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PRIMARY_DX_LU') IS NOT NULL
 BEGIN
@@ -789,7 +859,10 @@ BEGIN
 	PRINT 'PRIMARY_DX_LU - Complete';
 END;
 
---PRINCIPAL_DX_LU
+/*****************************************
+PRINCIPAL_DX_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PRINCIPAL_DX_LU') IS NOT NULL
 BEGIN
@@ -815,7 +888,10 @@ BEGIN
 	PRINT 'PRINCIPAL_DX_LU - Complete';
 END;
 
---PROVIDER_TYPE_LU
+/*****************************************
+PROVIDER_TYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PROVIDER_TYPE_LU') IS NOT NULL
 BEGIN
@@ -926,7 +1002,10 @@ BEGIN
 	PRINT 'PROVIDER_TYPE_LU - Complete';
 END;
 
---PT_LOC_LU
+/*****************************************
+PT_LOC_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PT_LOC_LU') IS NOT NULL
 BEGIN
@@ -954,7 +1033,10 @@ BEGIN
 	PRINT 'PT_LOC_LU - Complete';
 END;
 
---PX_CODETYPE_LU
+/*****************************************
+PX_CODETYPE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PX_CODETYPE_LU') IS NOT NULL
 BEGIN
@@ -985,7 +1067,10 @@ BEGIN
 	PRINT 'PX_CODETYPE_LU - Complete';
 END;
 
---RACE_LU
+/*****************************************
+RACE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('RACE_LU') IS NOT NULL
 BEGIN
@@ -1015,7 +1100,10 @@ BEGIN
 	PRINT 'RACE_LU - Complete';
 END;
 
---RESULT_LOC_LU
+/*****************************************
+RESULT_LOC_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('RESULT_LOC_LU') IS NOT NULL
 BEGIN
@@ -1040,7 +1128,10 @@ BEGIN
 	PRINT 'RESULT_LOC_LU - Complete';
 END;
 
---RX_BASIS_LU
+/*****************************************
+RX_BASIS_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('RX_BASIS_LU') IS NOT NULL
 BEGIN
@@ -1068,7 +1159,10 @@ BEGIN
 	PRINT 'RX_BASIS_LU - Complete';
 END;
 
---RX_FREQUENCY_LU
+/*****************************************
+RX_FREQUENCY_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('RX_FREQUENCY_LU') IS NOT NULL
 BEGIN
@@ -1103,7 +1197,10 @@ BEGIN
 	PRINT 'RX_FREQUENCY_LU - Complete';
 END;
 
---RX_QUANTITY_UNIT_LU
+/*****************************************
+RX_QUANTITY_UNIT_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('RX_QUANTITY_UNIT_LU') IS NOT NULL
 BEGIN
@@ -1142,7 +1239,10 @@ BEGIN
 	PRINT 'RX_QUANTITY_UNIT_LU - Complete';
 END;
 
---SEXUALLY_ACTV_LU
+/*****************************************
+SEXUALLY_ACTV_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('SEXUALLY_ACTV_LU') IS NOT NULL
 BEGIN
@@ -1170,7 +1270,10 @@ BEGIN
 	PRINT 'SEXUALLY_ACTV_LU - Complete';
 END;
 
---SPECIMEN_SOURCE_LU
+/*****************************************
+SPECIMEN_SOURCE_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('SPECIMEN_SOURCE_LU') IS NOT NULL
 BEGIN
@@ -1212,7 +1315,10 @@ BEGIN
 	PRINT 'SPECIMEN_SOURCE_LU - Complete';
 END;
 
---STAT_LU
+/*****************************************
+STAT_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('STAT_LU') IS NOT NULL
 BEGIN
@@ -1239,7 +1345,10 @@ BEGIN
 	PRINT 'STAT_LU - Complete';
 END;
 
---TOBACCO_USER_LU
+/*****************************************
+TOBACCO_USER_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('TOBACCO_USER_LU') IS NOT NULL
 BEGIN
@@ -1269,7 +1378,10 @@ BEGIN
 	PRINT 'TOBACCO_USER_LU - Complete';
 END;
 
---YNQXU_LU.sql
+/*****************************************
+YNQXU_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('YNQXU_LU') IS NOT NULL
 BEGIN
@@ -1297,7 +1409,10 @@ BEGIN
 	PRINT 'YNQXU_LU - Complete';
 END;
 
---YNU_LU
+/*****************************************
+YNU_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('YNU_LU') IS NOT NULL
 BEGIN
@@ -1323,7 +1438,10 @@ BEGIN
 	PRINT 'YNU_LU - Complete';
 END;
 
---YNXU_LU
+/*****************************************
+YNXU_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('YNXU_LU') IS NOT NULL
 BEGIN
@@ -1350,7 +1468,10 @@ BEGIN
 	PRINT 'YNXU_LU - Complete';
 END;
 
---LANGUAGES_ISO_LU
+/*****************************************
+LANGUAGES_ISO_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('LANGUAGES_ISO_LU') IS NOT NULL
 BEGIN
@@ -1876,7 +1997,10 @@ BEGIN
 		   'slk', 'Slovak');
 END;
 
---GENDER_IDENTITY_LU.sql
+/*****************************************
+GENDER_IDENTITY_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('GENDER_IDENTITY_LU') IS NOT NULL
 BEGIN
@@ -1911,7 +2035,10 @@ BEGIN
 	PRINT 'GENDER_IDENTITY_LU - Complete';
 END;
 
---SEXUAL_ORIENTATION.sql
+/*****************************************
+SEXUAL_ORIENTATION
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('SEXUAL_ORIENTATION_LU') IS NOT NULL
 BEGIN
@@ -1948,7 +2075,10 @@ BEGIN
 	PRINT 'SEXUAL_ORIENTATION_LU - Complete';
 END;
 
---PROVIDER_SPECIALTY_LU.sql
+/*****************************************
+PROVIDER_SPECIALTY_LU
+Changes:
+*****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('PROVIDER_SPECIALTY_LU') IS NOT NULL
 BEGIN
@@ -2065,5 +2195,3 @@ BEGIN
 		   
 	PRINT 'PROVIDER_SPECIALTY_LU - Complete';
 END;
-
---Colorado_Conties || Deleted Summer 2018
