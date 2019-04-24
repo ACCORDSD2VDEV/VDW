@@ -1,27 +1,21 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 
-/*****************************************
-ABN_IND_LU
-Changes:
-*****************************************/
+	CREATE TABLE #CHORDSValueResults
+	( 
+				 TargetTable varchar(250),
+				 TargetColumn varchar(250),
+				 UnexpectedValue varchar(250)
+	)
 
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ABN_IND_LU') IS NOT NULL
-BEGIN
-	PRINT 'ABN_IND_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ABN_IND_LU - Creating';
-	CREATE TABLE ABN_IND_LU
+	CREATE TABLE #ABN_IND_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ABN_IND_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ABN_IND_LU( 
+	
+	INSERT INTO #ABN_IND_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -34,30 +28,15 @@ BEGIN
 		   'IN', 'inconclusive' ), ( 
 		   'UK', 'unknown' ), ( 
 		   'NL', 'normal' );
-	PRINT 'ABN_IND_LU - Complete';
-END;
 
-/*****************************************
-ADMITTING_SOURCE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ADMITTING_SOURCE_LU') IS NOT NULL
-BEGIN
-	PRINT 'ADMITTING_SOURCE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ADMITTING_SOURCE_LU - Creating';
-	CREATE TABLE ADMITTING_SOURCE_LU
+	CREATE TABLE #ADMITTING_SOURCE_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ADMITTING_SOURCE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
 
-	INSERT INTO ADMITTING_SOURCE_LU( 
+	INSERT INTO #ADMITTING_SOURCE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -75,29 +54,15 @@ BEGIN
 		   'RH', 'Rehabilitation Facility' ), ( 
 		   'SN', 'Skilled Nursing Facility' ), ( 
 		   'UN', 'Unknown' );
-	PRINT 'ADMITTING_SOURCE_LU - Complete';
-END;
 
-/*****************************************
-BENEFIT_TYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('BENEFIT_TYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'BENEFIT_TYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'BENEFIT_TYPE_LU - Creating';
-	CREATE TABLE BENEFIT_TYPE_LU
+	CREATE TABLE #BENEFIT_TYPE_LU
 	( 
 				 ABBREVIATION nchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_BENEFIT_TYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO BENEFIT_TYPE_LU( 
+	
+	INSERT INTO #BENEFIT_TYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -107,28 +72,15 @@ BEGIN
 		   'PA', 'Payer on claim with unknown rank or order' ), ( 
 		   'SR', 'Self-reported insurance or benefit' ), (
 		   'NI', 'No benefit information availible' );
-END;
 
-/*****************************************
-BENEFIT_CAT_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('BENEFIT_CAT_LU') IS NOT NULL
-BEGIN
-	PRINT 'BENEFIT_CAT_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'BENEFIT_CAT_LU - Creating';
-	CREATE TABLE BENEFIT_CAT_LU
+	CREATE TABLE #BENEFIT_CAT_LU
 	( 
 				 ABBREVIATION nchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_BENEFIT_CAT_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO BENEFIT_CAT_LU( 
+	
+	INSERT INTO #BENEFIT_CAT_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -143,28 +95,15 @@ BEGIN
 		   'UN', 'Unknown Insurance'), (
 		   'WC', 'Workers Compensation'), (
 		   'NI', 'No Benefit Information Available');
-END;
 
-/*****************************************
-BP_TYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('BP_TYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'BP_TYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'BP_TYPE_LU - Creating';
-	CREATE TABLE BP_TYPE_LU
+	CREATE TABLE #BP_TYPE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_BP_TYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO BP_TYPE_LU( 
+	
+	INSERT INTO #BP_TYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -172,28 +111,15 @@ BEGIN
 		   N'O', N'Orthostatic' ), ( 
 		   N'M', N'Multiple' ), ( 
 		   N'E', N'Extended' );
-END;
 
-/*****************************************
-CAUSETYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('CAUSETYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'CAUSETYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'CAUSETYPE_LU - Creating';
-	CREATE TABLE CAUSETYPE_LU
+	CREATE TABLE #CAUSETYPE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_CAUSETYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO CAUSETYPE_LU( 
+	
+	INSERT INTO #CAUSETYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -201,29 +127,15 @@ BEGIN
 		   'U', 'Underlying' ), ( 
 		   'C', 'Contributory' ), ( 
 		   'O', 'Other' );
-	PRINT 'CAUSETYPE_LU - Complete';
-END;
 
-/*****************************************
-ADDRESS_TYPE_CODE_LU
-Changes:
-	Updated CA to CO for Corrections address valid value
-*****************************************/
-IF OBJECT_ID('ADDRESS_TYPE_CODE_LU') IS NOT NULL
-BEGIN
-	PRINT 'ADDRESS_TYPE_CODE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ADDRESS_TYPE_CODE_LU - Creating';
-	CREATE TABLE ADDRESS_TYPE_CODE_LU
+	CREATE TABLE #ADDRESS_TYPE_CODE_LU
 	( 
 				 ABBREVIATION nchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ADDRESS_TYPE_CODE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ADDRESS_TYPE_CODE_LU( 
+	
+	INSERT INTO #ADDRESS_TYPE_CODE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -235,29 +147,15 @@ BEGIN
 		   'IN', 'Incomplete address' ), ( 
 		   'SL', 'Supported living' ), ( 
 		   'GA', 'Geocoded address (other)' );
-	PRINT 'ADDRESS_TYPE_CODE_LU - Complete';
-END;
 
-/*****************************************
-CODETYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('CODETYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'CODETYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'CODETYPE_LU - Creating';
-	CREATE TABLE CODETYPE_LU
+	CREATE TABLE #CODETYPE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_CODETYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO CODETYPE_LU( 
+	
+	INSERT INTO #CODETYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -266,29 +164,15 @@ BEGIN
 		   'H', 'HCPCS' ), ( 
 		   'L', 'local home-grown' ), ( 
 		   'O', 'other' );
-	PRINT 'CODETYPE_LU - Complete';
-END;
 
-/*****************************************
-CONFIDENCE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('CONFIDENCE_LU') IS NOT NULL
-BEGIN
-	PRINT 'CONFIDENCE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'CONFIDENCE_LU - Creating';
-	CREATE TABLE CONFIDENCE_LU
+	CREATE TABLE #CONFIDENCE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_CONFIDENCE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO CONFIDENCE_LU( 
+	
+	INSERT INTO #CONFIDENCE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -296,29 +180,15 @@ BEGIN
 		   'F', 'Fair' ), ( 
 		   'P', 'Poor' ), (
 		   'U', 'Unknown');
-	PRINT 'CONFIDENCE_LU - Complete';
-END;
 
-/*****************************************
-DEPARTMENT_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DEPARTMENT_LU') IS NOT NULL
-BEGIN
-	PRINT 'DEPARTMENT_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DEPARTMENT_LU - Creating';
-	CREATE TABLE DEPARTMENT_LU
+	CREATE TABLE #DEPARTMENT_LU
 	( 
 				 ABBREVIATION nvarchar(4) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_DEPARTMENT_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
-	)
-	ON [PRIMARY];
-	INSERT INTO DEPARTMENT_LU( 
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	);
+	
+	INSERT INTO #DEPARTMENT_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -400,58 +270,30 @@ BEGIN
 		   'URO', 'Urology' ), ( 
 		   'OTH', 'Other' ), ( 
 		   'UNK', 'Unknown' );
-	PRINT 'DEPARTMENT_LU - Complete';
-END;
 
-/*****************************************
-DISCHARGE_DISPOSITION_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DISCHARGE_DISPOSITION_LU') IS NOT NULL
-BEGIN
-	PRINT 'DISCHARGE_DISPOSITION_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DISCHARGE_DISPOSITION_LU - Creating';
-	CREATE TABLE DISCHARGE_DISPOSITION_LU
+	CREATE TABLE #DISCHARGE_DISPOSITION_LU
 	( 
 				 ABBREVIATION nchar NOT NULL,
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT PK_DISCHARGE_DISPOSITION_LU PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO DISCHARGE_DISPOSITION_LU( 
+	
+	INSERT INTO #DISCHARGE_DISPOSITION_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   'A', 'Alive' ), ( 
 		   'E', 'Expired' ), ( 
 		   'U', 'Unknown' );
-	PRINT 'DISCHARGE_DISPOSITION_LU - Complete';
-END;
 
-/*****************************************
-DISCHARGE_STATUS_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DISCHARGE_STATUS_LU') IS NOT NULL
-BEGIN
-	PRINT 'DISCHARGE_STATUS_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DISCHARGE_STATUS_LU - Creating';
-	CREATE TABLE DISCHARGE_STATUS_LU
+	CREATE TABLE #DISCHARGE_STATUS_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_DISCHARGE_STATUS_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO DISCHARGE_STATUS_LU( 
+	
+	INSERT INTO #DISCHARGE_STATUS_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -471,29 +313,15 @@ BEGIN
 		   'SH', 'Still In Hospital' ), ( 
 		   'SN', 'Skilled Nursing Facility' ), ( 
 		   'UN', 'Unknown' );
-	PRINT 'DISCHARGE_STATUS_LU - Complete';
-END;
 
-/*****************************************
-DTIMPUTE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DTIMPUTE_LU') IS NOT NULL
-BEGIN
-	PRINT 'DTIMPUTE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DTIMPUTE_LU - Creating';
-	CREATE TABLE DTIMPUTE_LU
+	CREATE TABLE #DTIMPUTE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_DTIMPUTE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO DTIMPUTE_LU( 
+	
+	INSERT INTO #DTIMPUTE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -501,29 +329,15 @@ BEGIN
 		   'D', 'Day of date imputed' ), ( 
 		   'B', 'Both month and day imputed' ), ( 
 		   'N', 'Not imputed' );
-	PRINT 'DTIMPUTE_LU - Complete';
-END;
 
-/*****************************************
-DX_CODETYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DX_CODETYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'DX_CODETYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DX_CODETYPE_LU - Creating';
-	CREATE TABLE DX_CODETYPE_LU
+	CREATE TABLE #DX_CODETYPE_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_DX_CODETYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO DX_CODETYPE_LU( 
+	
+	INSERT INTO #DX_CODETYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -536,29 +350,15 @@ BEGIN
 		   'IM', 'IMO' ), ( 
 		   'OT', 'Other' ), ( 
 		   'UN', 'Unknown' );
-	PRINT 'DX_CODETYPE_LU - Complete';
-END;
 
-/*****************************************
-DX_ORIGIN_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('DX_ORIGIN_LU') IS NOT NULL
-BEGIN
-	PRINT 'DX_ORIGIN_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'DX_ORIGIN_LU - Creating';
-	CREATE TABLE DX_ORIGIN_LU
+	CREATE TABLE #DX_ORIGIN_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_DX_ORIGIN_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO DX_ORIGIN_LU( 
+	
+	INSERT INTO #DX_ORIGIN_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -569,29 +369,15 @@ BEGIN
 		   'NI', 'No information' ), ( 
 		   'UN', 'Unknown' ), ( 
 		   'OT', 'Other' );
-	PRINT 'DX_ORIGIN_LU - Complete';
-END;
 
-/*****************************************
-ENCOUNTER_SUBTYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ENCOUNTER_SUBTYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'ENCOUNTER_SUBTYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ENCOUNTER_SUBTYPE_LU - Creating';
-	CREATE TABLE ENCOUNTER_SUBTYPE_LU
+	CREATE TABLE #ENCOUNTER_SUBTYPE_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(100) NOT NULL, 
-				 CONSTRAINT [PK_ENCOUNTER_SUBTYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ENCOUNTER_SUBTYPE_LU( 
+	
+	INSERT INTO #ENCOUNTER_SUBTYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -608,29 +394,15 @@ BEGIN
 		   'SN', 'Skilled Nursing Facility' ), ( 
 		   'NH', 'Nursing Home (includes ICF)' ), ( 
 		   'RH', 'Rehab' );
-	PRINT 'ENCOUNTER_SUBTYPE_LU - Complete';
-END;
 
-/*****************************************
-ENCTYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ENCTYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'ENCTYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ENCTYPE_LU - Creating';
-	CREATE TABLE ENCTYPE_LU
+	CREATE TABLE #ENCTYPE_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(500) NOT NULL, 
-				 CONSTRAINT [PK_ENCTYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ENCTYPE_LU( 
+	
+	INSERT INTO #ENCTYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -643,29 +415,15 @@ BEGIN
 		   'OE', 'OE=Other Encounters (not overnight): Hospice visits, home health visits, SNF visits, other non-hospital visits. [ENCOUNTER_SUBTYPE = HS, HH, SN, RH, DI, OT]' ), ( 
 		   'LO', 'Lab Only Encounter: Optional. Lab encounters that cannot be matched to another encounter. Include to link variables from ENCOUNTER table to the PROCEDURES table. [ENCOUNTER_SUBTYPE = OC,OT]' ), ( 
 		   'RO', 'Radiology Only Encounter: Optional. Radiology encounter that cannot be matched to another encounter. Include to link variables from utilization file to procedure file. [ENCOUNTER_SUBTYPE = OC,OT]' );
-	PRINT 'ENCTYPE_LU - Complete';
-END;
 
-/*****************************************
-ENROLLMENT_BASIS_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ENROLLMENT_BASIS_LU') IS NOT NULL
-BEGIN
-	PRINT 'ENROLLMENT_BASIS_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ENROLLMENT_BASIS_LU - Creating';
-	CREATE TABLE ENROLLMENT_BASIS_LU
+	CREATE TABLE #ENROLLMENT_BASIS_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ENROLLMENT_BASIS_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ENROLLMENT_BASIS_LU( 
+	
+	INSERT INTO #ENROLLMENT_BASIS_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -674,29 +432,15 @@ BEGIN
 		   'B', 'Both Insurance and Geographic bases' ), ( 
 		   'P', 'Non-enrollee Patient' ), (
 		   'U', 'Unknown');
-	PRINT 'ENROLLMENT_BASIS_LU - Complete';
-END;
 
-/*****************************************
-GENDER_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('GENDER_LU') IS NOT NULL
-BEGIN
-	PRINT 'GENDER_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'GENDER_LU - Creating';
-	CREATE TABLE GENDER_LU
+	CREATE TABLE #GENDER_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(25) NOT NULL, 
-				 CONSTRAINT [PK_GENDER_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO GENDER_LU( 
+	
+	INSERT INTO #GENDER_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -704,29 +448,15 @@ BEGIN
 		   'M', 'Male' ), ( 
 		   'U', 'Unknown' ), ( 
 		   'O', 'Other' );
-	PRINT 'GENDER_LU - Complete';
-END;
 
-/*****************************************
-LANG_USAGE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('LANG_USAGE_LU') IS NOT NULL
-BEGIN
-	PRINT 'LANG_USAGE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'LANG_USAGE_LU - Creating';
-	CREATE TABLE LANG_USAGE_LU
+	CREATE TABLE #LANG_USAGE_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_LANG_USAGE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO LANG_USAGE_LU( 
+	
+	INSERT INTO #LANG_USAGE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -734,29 +464,15 @@ BEGIN
 		   'W', 'Written' ), ( 
 		   'B', 'Both spoken and written' ), ( 
 		   'U', 'Unknown' );
-	PRINT 'LANG_USAGE_LU - Complete';
-END;
 
-/*****************************************
-MODIFIER_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('MODIFIER_LU') IS NOT NULL
-BEGIN
-	PRINT 'MODIFIER_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'MODIFIER_LU - Creating';
-	CREATE TABLE MODIFIER_LU
+	CREATE TABLE #MODIFIER_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_MODIFIER_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO MODIFIER_LU( 
+	
+	INSERT INTO #MODIFIER_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -766,29 +482,15 @@ BEGIN
 		   'LE', 'less than or equal to' ), ( 
 		   'GT', 'greater than' ), ( 
 		   'GE', 'greater than or equal to' );
-	PRINT 'MODIFIER_LU - Complete';
-END;
 
-/*****************************************
-ONC_SMOKING_STATUS_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('ONC_SMOKING_STATUS_LU') IS NOT NULL
-BEGIN
-	PRINT 'ONC_SMOKING_STATUS_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'ONC_SMOKING_STATUS_LU - Creating';
-	CREATE TABLE ONC_SMOKING_STATUS_LU
+	CREATE TABLE #ONC_SMOKING_STATUS_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_ONC_SMOKING_STATUS_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO ONC_SMOKING_STATUS_LU( 
+	
+	INSERT INTO #ONC_SMOKING_STATUS_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -798,116 +500,60 @@ BEGIN
 		   '4', 'never smoker' ), ( 
 		   '5', 'smoker, current status unknown' ), ( 
 		   '6', 'unknown if ever smoked' );
-	PRINT 'ONC_SMOKING_STATUS_LU - Complete';
-END;
 
-/*****************************************
-POSITION_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('POSITION_LU') IS NOT NULL
-BEGIN
-	PRINT 'POSITION_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'POSITION_LU - Creating';
-	CREATE TABLE POSITION_LU
+	CREATE TABLE #POSITION_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_POSITION_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO POSITION_LU( 
+	
+	INSERT INTO #POSITION_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   '1', 'Sitting' ), ( 
 		   '2', 'Standing' ), ( 
 		   '3', 'Supine' );
-	PRINT 'POSITION_LU - Complete';
-END;
 
-/*****************************************
-PRIMARY_DX_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PRIMARY_DX_LU') IS NOT NULL
-BEGIN
-	PRINT 'PRIMARY_DX_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PRIMARY_DX_LU - Creating';
-	CREATE TABLE PRIMARY_DX_LU
+	CREATE TABLE #PRIMARY_DX_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PRIMARY_DX_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO PRIMARY_DX_LU( 
+	
+	INSERT INTO #PRIMARY_DX_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   'P', 'Primary Dx' ), ( 
 		   'S', 'Not Primary Dx' ), ( 
 		   'X', 'Primary Dx Status not classifiable' );
-	PRINT 'PRIMARY_DX_LU - Complete';
-END;
 
-/*****************************************
-PRINCIPAL_DX_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PRINCIPAL_DX_LU') IS NOT NULL
-BEGIN
-	PRINT 'PRINCIPAL_DX_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PRINCIPAL_DX_LU - Creating';
-	CREATE TABLE PRINCIPAL_DX_LU
+	CREATE TABLE #PRINCIPAL_DX_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PRINCIPAL_DX_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO PRINCIPAL_DX_LU( 
+	
+	INSERT INTO #PRINCIPAL_DX_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   'P', 'Principal Dx' ), ( 
 		   'N', 'Not Principal Dx' ), ( 
 		   'X', 'Principal Dx Status not classifiable' );
-	PRINT 'PRINCIPAL_DX_LU - Complete';
-END;
 
-/*****************************************
-PROVIDER_TYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PROVIDER_TYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'PROVIDER_TYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PROVIDER_TYPE_LU - Creating';
-	CREATE TABLE PROVIDER_TYPE_LU
+	CREATE TABLE #PROVIDER_TYPE_LU
 	( 
 				 ABBREVIATION nvarchar(3) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PROVIDER_TYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO PROVIDER_TYPE_LU( 
+	
+	INSERT INTO #PROVIDER_TYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -999,29 +645,15 @@ BEGIN
 		   '086', 'ULTRASOUND TECHNICIAN' ), ( 
 		   '888', 'OTHER' ), ( 
 		   '999', 'UNKNOWN' );
-	PRINT 'PROVIDER_TYPE_LU - Complete';
-END;
 
-/*****************************************
-PT_LOC_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PT_LOC_LU') IS NOT NULL
-BEGIN
-	PRINT 'PT_LOC_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PT_LOC_LU - Creating';
-	CREATE TABLE PT_LOC_LU
+	CREATE TABLE #PT_LOC_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PT_LOC_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO PT_LOC_LU( 
+	
+	INSERT INTO #PT_LOC_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1030,29 +662,15 @@ BEGIN
 		   'E', 'Emergency Department' ), ( 
 		   'H', 'Home' ), ( 
 		   'U', 'Unknown or missing' );
-	PRINT 'PT_LOC_LU - Complete';
-END;
 
-/*****************************************
-PX_CODETYPE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PX_CODETYPE_LU') IS NOT NULL
-BEGIN
-	PRINT 'PX_CODETYPE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PX_CODETYPE_LU - Creating';
-	CREATE TABLE PX_CODETYPE_LU
+	CREATE TABLE #PX_CODETYPE_LU
 	( 
 				 ABBREVIATION nchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PX_CODETYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO PX_CODETYPE_LU( 
+	
+	INSERT INTO #PX_CODETYPE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1064,29 +682,15 @@ BEGIN
 		   'RV', 'Revenue code' ), ( 
 		   'LO', 'Local homegrown' ), ( 
 		   'OT', 'Other' );
-	PRINT 'PX_CODETYPE_LU - Complete';
-END;
 
-/*****************************************
-RACE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('RACE_LU') IS NOT NULL
-BEGIN
-	PRINT 'RACE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'RACE_LU - Creating';
-	CREATE TABLE RACE_LU
+	CREATE TABLE #RACE_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(75) NOT NULL, 
-				 CONSTRAINT [PK_RACE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO RACE_LU( 
+	
+	INSERT INTO #RACE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1097,57 +701,29 @@ BEGIN
 		   'WH', 'White' ), ( 
 		   'MU', 'More than one race, particular races unknown or not reported' ), ( 
 		   'UN', 'Unknown or Not Reported' );
-	PRINT 'RACE_LU - Complete';
-END;
 
-/*****************************************
-RESULT_LOC_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('RESULT_LOC_LU') IS NOT NULL
-BEGIN
-	PRINT 'RESULT_LOC_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'RESULT_LOC_LU - Creating';
-	CREATE TABLE RESULT_LOC_LU
+	CREATE TABLE #RESULT_LOC_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_RESULT_LOC_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO RESULT_LOC_LU( 
+	
+	INSERT INTO #RESULT_LOC_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   'L', 'Lab' ), ( 
 		   'P', 'Point of Care' );
-	PRINT 'RESULT_LOC_LU - Complete';
-END;
 
-/*****************************************
-RX_BASIS_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('RX_BASIS_LU') IS NOT NULL
-BEGIN
-	PRINT 'RX_BASIS_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'RX_BASIS_LU - Creating';
-	CREATE TABLE RX_BASIS_LU
+	CREATE TABLE #RX_BASIS_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_RX_BASIS_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO RX_BASIS_LU( 
+	
+	INSERT INTO #RX_BASIS_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1156,29 +732,15 @@ BEGIN
 		   'NI', 'No information' ), ( 
 		   'UN', 'Unknown' ), ( 
 		   'OT', 'Other' );
-	PRINT 'RX_BASIS_LU - Complete';
-END;
 
-/*****************************************
-RX_FREQUENCY_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('RX_FREQUENCY_LU') IS NOT NULL
-BEGIN
-	PRINT 'RX_FREQUENCY_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'RX_FREQUENCY_LU - Creating';
-	CREATE TABLE RX_FREQUENCY_LU
+	CREATE TABLE #RX_FREQUENCY_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_RX_FREQUENCY_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO RX_FREQUENCY_LU( 
+	
+	INSERT INTO #RX_FREQUENCY_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1194,29 +756,15 @@ BEGIN
 		   'NI', 'No information' ), ( 
 		   'UN', 'Unknown' ), ( 
 		   'OT', 'Other' );
-	PRINT 'RX_FREQUENCY_LU - Complete';
-END;
 
-/*****************************************
-RX_QUANTITY_UNIT_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('RX_QUANTITY_UNIT_LU') IS NOT NULL
-BEGIN
-	PRINT 'RX_QUANTITY_UNIT_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'RX_QUANTITY_UNIT_LU - Creating';
-	CREATE TABLE RX_QUANTITY_UNIT_LU
+	CREATE TABLE #RX_QUANTITY_UNIT_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_RX_QUANTITY_UNIT_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO RX_QUANTITY_UNIT_LU( 
+	
+	INSERT INTO #RX_QUANTITY_UNIT_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1236,29 +784,15 @@ BEGIN
 		   'NI', 'No information' ), ( 
 		   'UN', 'Unknown' ), ( 
 		   'OT', 'Other' );
-	PRINT 'RX_QUANTITY_UNIT_LU - Complete';
-END;
 
-/*****************************************
-SEXUALLY_ACTV_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('SEXUALLY_ACTV_LU') IS NOT NULL
-BEGIN
-	PRINT 'SEXUALLY_ACTV_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'SEXUALLY_ACTV_LU - Creating';
-	CREATE TABLE SEXUALLY_ACTV_LU
+	CREATE TABLE #SEXUALLY_ACTV_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_SEXUALLY_ACTV_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO SEXUALLY_ACTV_LU( 
+	
+	INSERT INTO #SEXUALLY_ACTV_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1267,29 +801,15 @@ BEGIN
 		   'U', 'Unknown, missing' ), ( 
 		   'X', 'Not asked' ), ( 
 		   'W', 'Not Currently (Was)' );
-	PRINT 'SEXUALLY_ACTV_LU - Complete';
-END;
 
-/*****************************************
-SPECIMEN_SOURCE_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('SPECIMEN_SOURCE_LU') IS NOT NULL
-BEGIN
-	PRINT 'SPECIMEN_SOURCE_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'SPECIMEN_SOURCE_LU - Creating';
-	CREATE TABLE SPECIMEN_SOURCE_LU
+	CREATE TABLE #SPECIMEN_SOURCE_LU
 	( 
 				 ABBREVIATION nvarchar(6) NOT NULL, 
 				 DESCRIPTION nvarchar(100) NOT NULL, 
-				 CONSTRAINT [PK_SPECIMEN_SOURCE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO SPECIMEN_SOURCE_LU( 
+	
+	INSERT INTO #SPECIMEN_SOURCE_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1312,29 +832,15 @@ BEGIN
 		   'OTHER', 'OTHER' ), ( 
 		   ' ', 'missing value' ), ( 
 		   'NS', 'not specified' );
-	PRINT 'SPECIMEN_SOURCE_LU - Complete';
-END;
 
-/*****************************************
-STAT_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('STAT_LU') IS NOT NULL
-BEGIN
-	PRINT 'STAT_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'STAT_LU - Creating';
-	CREATE TABLE STAT_LU
+	CREATE TABLE #STAT_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_STAT_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO STAT_LU( 
+	
+	INSERT INTO #STAT_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1342,29 +848,15 @@ BEGIN
 		   'S', 'Stat' ), ( 
 		   'R', 'Routine' ), ( 
 		   'U', 'Unknown or missing' );
-	PRINT 'STAT_LU - Complete';
-END;
 
-/*****************************************
-TOBACCO_USER_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('TOBACCO_USER_LU') IS NOT NULL
-BEGIN
-	PRINT 'TOBACCO_USER_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'TOBACCO_USER_LU - Creating';
-	CREATE TABLE TOBACCO_USER_LU
+	CREATE TABLE #TOBACCO_USER_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(75) NOT NULL, 
-				 CONSTRAINT [PK_TOBACCO_USER_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO TOBACCO_USER_LU( 
+	
+	INSERT INTO #TOBACCO_USER_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1375,29 +867,15 @@ BEGIN
 		   'Q', 'Quit / Former' ), ( 
 		   'P', 'Passive /Environmental / Second-hand (never smoked)' ), ( 
 		   'I', 'Infrequent (current someday smoking or tobacco use)' );
-	PRINT 'TOBACCO_USER_LU - Complete';
-END;
 
-/*****************************************
-YNQXU_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('YNQXU_LU') IS NOT NULL
-BEGIN
-	PRINT 'YNQXU_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'YNQXU_LU - Creating';
-	CREATE TABLE YNQXU_LU
+	CREATE TABLE #YNQXU_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_YNQXU_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO YNQXU_LU( 
+	
+	INSERT INTO #YNQXU_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1406,58 +884,30 @@ BEGIN
 		   'U', 'Unknown, missing' ), ( 
 		   'X', 'Not asked' ), ( 
 		   'Q', 'Quit / Former' );
-	PRINT 'YNQXU_LU - Complete';
-END;
 
-/*****************************************
-YNU_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('YNU_LU') IS NOT NULL
-BEGIN
-	PRINT 'YNU_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'YNU_LU - Creating';
-	CREATE TABLE YNU_LU
+	CREATE TABLE #YNU_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_YNU_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO YNU_LU( 
+	
+	INSERT INTO #YNU_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
 		   'Y', 'Yes' ), ( 
 		   'N', 'No' ), ( 
 		   'U', 'Unknown' );
-	PRINT 'YNU_LU - Complete';
-END;
 
-/*****************************************
-YNXU_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('YNXU_LU') IS NOT NULL
-BEGIN
-	PRINT 'YNXU_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'YNXU_LU - Creating';
-	CREATE TABLE YNXU_LU
+	CREATE TABLE #YNXU_LU
 	( 
 				 ABBREVIATION nchar NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT PK_YNXU_LU PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO YNXU_LU( 
+	
+	INSERT INTO #YNXU_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -1465,28 +915,14 @@ BEGIN
 		   'N', 'No' ), ( 
 		   'U', 'Unknown, missing' ), ( 
 		   'X', 'Not asked' );
-	PRINT 'YNXU_LU - Complete';
-END;
 
-/*****************************************
-LANGUAGES_ISO_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('LANGUAGES_ISO_LU') IS NOT NULL
-BEGIN
-	PRINT 'LANGUAGES_ISO_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'LANGUAGES_ISO_LU - Creating';
-	CREATE TABLE LANGUAGES_ISO_LU
+	CREATE TABLE #LANGUAGES_ISO_LU
 	( 
 				 [ISO_639-2_CODE] nvarchar(3) NOT NULL, 
-				 ENGLISH_DESCRIPTION nvarchar(200) NOT NULL, CONSTRAINT [PK_LANGUAGES_ISO_LU] PRIMARY KEY CLUSTERED([ISO_639-2_CODE] ASC)
+				 ENGLISH_DESCRIPTION nvarchar(200) NOT NULL
 	)
-	ON [PRIMARY];
-	INSERT INTO LANGUAGES_ISO_LU( 
+	
+	INSERT INTO #LANGUAGES_ISO_LU( 
 		[ISO_639-2_CODE], 
 		ENGLISH_DESCRIPTION )
 	VALUES( 
@@ -1995,28 +1431,15 @@ BEGIN
 		   'msa', 'Malay'), (
 		   'ron', 'Romanian; Moldavian; Moldovan'), (
 		   'slk', 'Slovak');
-END;
 
-/*****************************************
-GENDER_IDENTITY_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('GENDER_IDENTITY_LU') IS NOT NULL
-BEGIN
-	PRINT 'GENDER_IDENTITY_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'GENDER_IDENTITY_LU - Creating';
-	CREATE TABLE GENDER_IDENTITY_LU
+	CREATE TABLE #GENDER_IDENTITY_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_GENDER_IDENTITY_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO GENDER_IDENTITY_LU( 
+	
+	INSERT INTO #GENDER_IDENTITY_LU( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -2032,29 +1455,14 @@ BEGIN
 		   'UN', 'UNKNOWN' ), ( 
 		   'OT', 'OTHER' );
 		   
-	PRINT 'GENDER_IDENTITY_LU - Complete';
-END;
-
-/*****************************************
-SEXUAL_ORIENTATION
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('SEXUAL_ORIENTATION_LU') IS NOT NULL
-BEGIN
-	PRINT 'SEXUAL_ORIENTATION_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'SEXUAL_ORIENTATION_LU - Creating';
-	CREATE TABLE SEXUAL_ORIENTATION_LU
+	CREATE TABLE #SEXUAL_ORIENTATION_LU
 	( 
 				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_SEXUAL_ORIENTATION_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+				 PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
-	ON [PRIMARY];
-	INSERT INTO SEXUAL_ORIENTATION_LU ( 
+	
+	INSERT INTO #SEXUAL_ORIENTATION_LU ( 
 		ABBREVIATION, 
 		DESCRIPTION )
 	VALUES( 
@@ -2072,29 +1480,13 @@ BEGIN
 		   'UN', 'UNKNOWN' ), ( 
 		   'OT', 'UNKNOWN' );
 		   
-	PRINT 'SEXUAL_ORIENTATION_LU - Complete';
-END;
-
-/*****************************************
-PROVIDER_SPECIALTY_LU
-Changes:
-*****************************************/
-PRINT '-----------------------------------------------------'
-IF OBJECT_ID('PROVIDER_SPECIALTY_LU') IS NOT NULL
-BEGIN
-	PRINT 'PROVIDER_SPECIALTY_LU Already Exists';
-END;
-ELSE
-BEGIN
-	PRINT 'PROVIDER_SPECIALTY_LU - Creating';
-	CREATE TABLE PROVIDER_SPECIALTY_LU
+	CREATE TABLE #PROVIDER_SPECIALTY_LU
 	( 
 				 SPECIALTY nvarchar(3) NOT NULL, 
-				 DESCRIPTION nvarchar(50) NOT NULL, 
-				 CONSTRAINT [PK_PROVIDER_SPECIALTY_LU] PRIMARY KEY CLUSTERED([SPECIALTY] ASC)
+				 DESCRIPTION nvarchar(50) NOT NULL
 	)
-	ON [PRIMARY];
-	INSERT INTO PROVIDER_SPECIALTY_LU( 
+	
+	INSERT INTO #PROVIDER_SPECIALTY_LU( 
 		SPECIALTY, 
 		DESCRIPTION )
 	VALUES( 	
@@ -2192,6 +1584,83 @@ BEGIN
 		   'URG', 'Urgent Care' ), (                  
 		   'URO', 'Urology' ), ( 
 		   'VAS', 'Vascular Surgery' );
-		   
-	PRINT 'PROVIDER_SPECIALTY_LU - Complete';
+
+DECLARE @datavalidation TABLE
+( 
+	PK INT IDENTITY(1,1) PRIMARY KEY,
+	TargetTable varchar(250), 
+	TargetColumn varchar(250), 
+	RefTable varchar(250), 
+	RefColumn varchar(250)
+);
+
+INSERT INTO @datavalidation
+VALUES		(
+			'DEMOGRAPHICS',	'PRIMARY_LANGUAGE',	'LANGUAGES_ISO_LU',	'[ISO_639-2_CODE]'), (
+			'DEMOGRAPHICS',	'GENDER_IDENTITY',	'GENDER_IDENTITY_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'GENDER',	'GENDER_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'RACE1',	'RACE_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'RACE2',	'RACE_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'RACE3',	'RACE_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'RACE4',	'RACE_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'RACE5',	'RACE_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'SEXUAL_ORIENTATION',	'SEXUAL_ORIENTATION_LU'	,'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'NEEDS_INTERPRETER',	'YNU_LU',	'ABBREVIATION'), (
+			'DEMOGRAPHICS',	'HISPANIC',	'YNU_LU',	'ABBREVIATION');
+
+INSERT INTO @datavalidation
+VALUES		(
+			'ENCOUNTERS', 'ADMITTING_SOURCE', 'ADMITTING_SOURCE_LU', 'ABBREVIATION'	), (
+			'ENCOUNTERS', 'DEPARTMENT', 'DEPARTMENT_LU', 'ABBREVIATION'	), (
+			'ENCOUNTERS', 'DISCHARGE_DISPOSITION', 'DISCHARGE_DISPOSITION_LU', 'ABBREVIATION'	), (
+			'ENCOUNTERS', 'DISCHARGE_STATUS', 'DISCHARGE_STATUS_LU', 'ABBREVIATION'	), (
+			'ENCOUNTERS', 'ENCOUNTER_SUBTYPE', 'ENCOUNTER_SUBTYPE_LU', 'ABBREVIATION'	), (
+			'ENCOUNTERS', 'ENCTYPE', 'ENCTYPE_LU', 'ABBREVIATION');
+
+IF OBJECT_ID('CHORDS_TABLENAMES') IS NOT NULL
+BEGIN
+    UPDATE a
+    SET a.TargetTable = b.NEW_NAME
+    FROM @datavalidation a
+    JOIN CHORDS_TABLENAMES b ON b.ORG_NAME = a.TargetTable
 END;
+  
+    DECLARE @SQL NVARCHAR(3000);
+	DECLARE @TargetColumn VARCHAR(250);
+	DECLARE @TargetTable VARCHAR(250);
+	DECLARE @RefColumn VARCHAR(250);
+	DECLARE @RefTable VARCHAR(250);
+
+	DECLARE @max INT;
+	DECLARE @counter INT = 1;
+	
+	SELECT @max = COUNT(*) FROM @datavalidation
+
+	WHILE @counter < @max
+		BEGIN
+			SELECT @TargetTable = TargetTable from @datavalidation where PK = @counter;
+			SELECT  @TargetColumn = TargetColumn from @datavalidation where PK = @counter;
+			SELECT  @RefColumn = RefColumn from @datavalidation where PK = @counter;
+			SELECT  @RefTable = RefTable from @datavalidation where PK = @counter;
+
+			SET @SQL = 
+			'INSERT INTO #CHORDSValueResults  
+			 SELECT ''' + @TargetTable + ''', ''' + @TargetColumn  + ''', c.TargetColumn FROM (
+				SELECT *
+				FROM (
+					SELECT DISTINCT ' + @TargetColumn +' as TargetColumn 
+					FROM
+						' + @TargetTable + '
+					) a
+				LEFT JOIN (
+					SELECT ' + @RefColumn + ' as RefColumn 
+					FROM #' + @RefTable + ' ) b 
+					ON b.RefColumn = a.TargetColumn
+				WHERE b.RefColumn is NULL
+			 ) c
+			 WHERE c.TargetColumn IS NOT NULL;';
+			EXEC sp_executesql @SQL
+			SET @counter = @counter + 1;
+		END;
+
+		select * from #CHORDSValueResults
