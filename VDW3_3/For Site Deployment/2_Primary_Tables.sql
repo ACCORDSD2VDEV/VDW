@@ -431,7 +431,8 @@ END;
 /*****************************************
 LAB_RESULTS
 Changes:
-	Updated length of TEST_TYPE from 20 to 21
+	- Updated length of TEST_TYPE from 20 to 21
+	- Changed datatype for RESULT_NUM from NUMERIC(20) to NUMERIC(20,10)
 *****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
 BEGIN
@@ -459,7 +460,7 @@ BEGIN
 					  CODETYPE           nchar NULL	DEFAULT 'L',
 					  ORDER_ID           nvarchar(36) NOT NULL,
 					  ORDER_DT           date,
-					  RESULT_NUM         numeric(20),
+					  RESULT_NUM         numeric(20, 10),
 					  RESULT_C           nvarchar(20) NOT NULL,
 					  MODIFIER           nvarchar(2) NOT NULL,
 					  RESULT_UNIT        nvarchar(11) NOT NULL,
@@ -480,8 +481,7 @@ END;
 
 /*****************************************
 PHARMACY
-Changes:
-
+Changes: Shortened data type of RXAMT from (16,10) to (16,4)
 *****************************************/
 IF OBJECT_ID('PHARMACY') IS NOT NULL
 BEGIN
@@ -497,7 +497,7 @@ BEGIN
 					  RXDATE       date NOT NULL,
 					  NDC          nvarchar(11) NOT NULL,
 					  RXSUP        numeric(4),
-					  RXAMT        decimal(16, 10) NOT NULL,
+					  RXAMT        decimal(16, 4) NOT NULL,
 					  RXMD         nvarchar(36) NOT NULL DEFAULT 'UNKNOWN'
 	 );
 	 PRINT 'PHARMACY - Complete';

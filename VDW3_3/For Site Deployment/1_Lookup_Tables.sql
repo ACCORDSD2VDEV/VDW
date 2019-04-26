@@ -111,7 +111,7 @@ END;
 
 /*****************************************
 BENEFIT_CAT_LU
-Changes:
+Changes: 'SP' value changed to 'NC'.  Updated description
 *****************************************/
 PRINT '-----------------------------------------------------'
 IF OBJECT_ID('BENEFIT_CAT_LU') IS NOT NULL
@@ -124,7 +124,7 @@ BEGIN
 	CREATE TABLE BENEFIT_CAT_LU
 	( 
 				 ABBREVIATION nchar(2) NOT NULL, 
-				 DESCRIPTION nvarchar(50) NOT NULL, 
+				 DESCRIPTION nvarchar(120) NOT NULL, 
 				 CONSTRAINT [PK_BENEFIT_CAT_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
 	ON [PRIMARY];
@@ -138,7 +138,7 @@ BEGIN
 		   'MC', 'Medicare' ), ( 
 		   'MD', 'Medicaid' ), (
 		   'OG', 'Other Government' ), (
-		   'SP', 'Self-Pay/Uninsured/Private Pay' ), (
+		   'NC', 'No coverage used/not covered by insurance - includes Self-Pay/Uninsured/Private Pay (excluding correctional care). '), (
 		   'OT', 'Other Insurance' ), (
 		   'UN', 'Unknown Insurance'), (
 		   'WC', 'Workers Compensation'), (
