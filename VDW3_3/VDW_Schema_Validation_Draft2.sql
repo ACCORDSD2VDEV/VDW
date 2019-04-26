@@ -1,3 +1,4 @@
+/*TABLEREPLACEMENTINFILE*/
 /*****************************************************************************
 Script for validating the VDW.  It will create a shadow VDW in the temporary
 tables and then pull out the validation data from that and use it to compare
