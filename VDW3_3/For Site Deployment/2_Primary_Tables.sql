@@ -456,7 +456,7 @@ BEGIN
 					  STAT               nchar NULL	DEFAULT 'R',
 					  PT_LOC             nchar NULL	DEFAULT 'U',
 					  RESULT_LOC         nchar NULL	DEFAULT 'L',
-					  PX                 nvarchar(6) NULL,
+					  PX                 nvarchar(10) NULL,
 					  CODETYPE           nchar NULL	DEFAULT 'L',
 					  ORDER_ID           nvarchar(36) NOT NULL,
 					  ORDER_DT           date,
