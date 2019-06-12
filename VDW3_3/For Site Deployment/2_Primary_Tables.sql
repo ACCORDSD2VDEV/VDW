@@ -480,8 +480,95 @@ BEGIN
 END;
 
 /*****************************************
+PRO_SURVEYS
+Changes: 
+	- ADDED Summer 2019
+*****************************************/
+IF OBJECT_ID('PRO_SURVEYS') IS NOT NULL
+BEGIN
+	 PRINT 'PRO_SURVEYS Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PRO_SURVEYS - Creating';
+	CREATE TABLE PRO_SURVEYS
+	(
+		PRO_ID nvarchar(15) NOT NULL PRIMARY KEY CLUSTERED,
+		PRO_SURVEY nvarchar(15) NOT NULL DEFAULT N'OT',
+		PRO_SURVEY_DESCRIPTION nvarchar(80) NULL,
+		PRO_SURVEY_TYPE nvarchar(15) NOT NULL DEFAULT N'OT',
+		PRO_SURVEY_TYPE_DESCRIPTION nvarchar(80) NULL,
+		PRO_SURVEY_TYPE_NOTES nvarchar(255) NULL,
+		PRO_SURVEY_TYPE_LOINC nvarchar(18) NULL
+	);
+	PRINT 'PRO_SURVEYS - Complete';
+END;
+
+/*****************************************
+PRO_QUESTIONS
+Changes: 
+	- ADDED Summer 2019
+*****************************************/
+IF OBJECT_ID('PRO_QUESTIONS') IS NOT NULL
+BEGIN
+	 PRINT 'PRO_QUESTIONS Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PRO_QUESTIONS - Creating';
+	CREATE TABLE PRO_QUESTIONS
+	(
+		PRO_ID nvarchar(15) NOT NULL,
+		QUESTION_ID int NOT NULL,
+		QUESTION_VER int NOT NULL,
+		QUESTION_DATE date NULL,
+		QUESTION_TEXT nvarchar(255) NOT NULL,
+		QUESTION_LOINC nvarchar(18) NULL,
+		QUESTION_DOMAIN nvarchar(36) NULL,
+		CONSTRAINT PK_PRO_QUESTIONS PRIMARY KEY CLUSTERED 
+		(
+			PRO_ID ASC,
+			QUESTION_ID ASC,
+			QUESTION_VER ASC
+		)
+	);
+	PRINT 'PRO_QUESTIONS - Complete';
+END;
+
+/*****************************************
+PRO_RESPONSES
+Changes: 
+	- ADDED Summer 2019
+*****************************************/
+IF OBJECT_ID('PRO_RESPONSES') IS NOT NULL
+BEGIN
+	 PRINT 'PRO_RESPONSES Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PRO_RESPONSES - Creating';
+	CREATE TABLE PRO_RESPONSES
+	(
+		RESPONSE_ID int IDENTITY(1,1) NOT NULL PRIMARY KEY NONCLUSTERED,
+		PRO_ID nvarchar(15) NOT NULL,
+		QUESTION_ID int NOT NULL,
+		QUESTION_VER int NOT NULL,
+		PERSON_ID nvarchar(36) NOT NULL,
+		RESPONSE_DATE date NOT NULL,
+		RESPONSE_TIME time(7) NOT NULL,
+		RESPONSE_TEXT nvarchar(255) NULL,
+		ENC_ID nvarchar(36) NULL,
+		RESPONSE_SOURCE nvarchar(2) NULL,
+		SURVEY_ADMINISTERED_BY nvarchar(2) NULL,
+		SURVEY_MEDIUM nvarchar(2) NULL
+	);
+	PRINT 'PRO_RESPONSES - Complete';
+END;
+
+/*****************************************
 PHARMACY
-Changes: Shortened data type of RXAMT from (16,10) to (16,4)
+Changes: 
+	- Shortened data type of RXAMT from (16,10) to (16,4)
 *****************************************/
 IF OBJECT_ID('PHARMACY') IS NOT NULL
 BEGIN
