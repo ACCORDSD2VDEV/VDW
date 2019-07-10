@@ -254,11 +254,11 @@ BEGIN
 					  GENDER                nchar NOT NULL	DEFAULT 'U',
 					  PRIMARY_LANGUAGE      nvarchar(3) NOT NULL	DEFAULT 'unk',
 					  NEEDS_INTERPRETER     nchar NOT NULL	DEFAULT 'U',
-					  RACE1                 nvarchar(2) NOT NULL	DEFAULT 'UN',
-					  RACE2                 nvarchar(2) DEFAULT 'UN',
-					  RACE3                 nvarchar(2) DEFAULT 'UN',
-					  RACE4                 nvarchar(2) DEFAULT 'UN',
-					  RACE5                 nvarchar(2) DEFAULT 'UN',
+					  RACE1                 nvarchar(2) NOT NULL DEFAULT 'UN',
+					  RACE2                 nvarchar(2) NOT NULL DEFAULT 'UN',
+					  RACE3                 nvarchar(2) NOT NULL DEFAULT 'UN',
+					  RACE4                 nvarchar(2) NOT NULL DEFAULT 'UN',
+					  RACE5                 nvarchar(2) NOT NULL DEFAULT 'UN',
 					  HISPANIC              nchar NOT NULL DEFAULT 'U',
 					  SEXUAL_ORIENTATION    nvarchar(2) NOT NULL DEFAULT 'UN',
 					  GENDER_IDENTITY       nvarchar(2) DEFAULT 'UN',
@@ -432,6 +432,7 @@ END;
 LAB_RESULTS
 Changes:
 	- Updated length of TEST_TYPE from 20 to 21
+	- Updated PX length from 9 to 10
 	- Changed datatype for RESULT_NUM from NUMERIC(20) to NUMERIC(20,10)
 *****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
@@ -520,7 +521,7 @@ BEGIN
 	(
 		PRO_ID nvarchar(15) NOT NULL,
 		QUESTION_ID int NOT NULL,
-		QUESTION_VER int NOT NULL,
+		QUESTION_VER int NOT NULL DEFAULT 1,
 		QUESTION_DATE date NULL,
 		QUESTION_TEXT nvarchar(255) NOT NULL,
 		QUESTION_LOINC nvarchar(18) NULL,
@@ -552,7 +553,7 @@ BEGIN
 		RESPONSE_ID int IDENTITY(1,1) NOT NULL PRIMARY KEY NONCLUSTERED,
 		PRO_ID nvarchar(15) NOT NULL,
 		QUESTION_ID int NOT NULL,
-		QUESTION_VER int NOT NULL,
+		QUESTION_VER int NOT NULL DEFAULT 1,
 		PERSON_ID nvarchar(36) NOT NULL,
 		RESPONSE_DATE date NOT NULL,
 		RESPONSE_TIME time(7) NOT NULL,
