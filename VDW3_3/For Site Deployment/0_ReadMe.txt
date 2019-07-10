@@ -1,7 +1,7 @@
-VDW 3.2 DDL Scripts General Instructions and Descriptions
+VDW 3.3 DDL Scripts General Instructions and Descriptions
 
 Instructions
-	The scripts contained in this ZIP file can be used to create a CHORDS 3.2 VDW.  It is recommended that you create 
+	The scripts contained in this ZIP file can be used to create a CHORDS 3.3 VDW.  It is recommended that you create 
 	a fresh database to populate your data rather than try to upgrade your existing VDW although you are welcome to pursue 
 	that option so long as the end result will match as if you had started from scratch.
 	
@@ -13,6 +13,15 @@ Step 2 - 2_Primary_Tables.sql
 	Script file that will create the tables where the ETL processes will load data.  Even if data will not be 
 	loaded into the tables by the ETL process, it is still recommended that the tables still be created to help 
 	prevent query errors in future queries.
+	
+	With 3.3, there are new PRO tables for certain surveys to be included in the VDW.  To properly query these tables,
+	you must do one of the following:
+	
+	Option 1: Run the 2a_Pro_Surveys.sql and 2b_Pro_Questions.sql scrpts 
+	
+	Option 2: Import the 2a_Pro_Surveys.csv to the PRO_SURVEYS table and 2b_Pro_Questions.csv PRO_QUESTIONS table.  
+	
+	This is nessary so data can be queried in a standard way from these tables as well as the PRO_RESPONSES table.
 
 Step 3 - 3_Census_Demog
 	You have two options to load the data for the CENSUS_DEMOG table.  
@@ -34,20 +43,23 @@ Step 4 - 4_Foreign_Keys.sql
 
 Step 5 - 5_Index_Creation.sql
 	Script file that will add indexes to your database.  This will help increase performance for queries.  The indexes are
-	based on the most fields that tables are joined by and data that is accessed from those tables.  Some of the indexes
-	are based on SQL Server execution plan output recomendations from current public heath queries that have been run
-	in the last year. 
+	based on the most fields that tables are joined by and data that is accessed from those tables.
 	
 	Adding indexes and may result in slow performance if you are trying to delete large amounts of data while debugging 
-	your ETL process.  It's recommended you solidify your ETL process for the VDW 3.2 and add indexes when you are certain 
-	the data has been loaded correctly.
+	your ETL process.  It's recommended you solidify your ETL process for the VDW 3.3 and add indexes when you are certain 
+	the data has been loaded correctly.  After a data refresh, you should rebuild your indexes.
+	
+	The some of the indexes in VDW 3.3 have been removed.  Covering indexes have been removed from the creation scripts.  While
+	some query performance may decrease, this helps reduce the size of the overall VDW.  Since querying of the VDW data
+	happens somewhat infrequently the benefit of creating these covering indexes is very minimal and can be burdensome if
+	disk space becomes a concern.  
 
 Tips
 
 1) Reset_Database.txt
 	Included with a fully commented out set of commands to try and prevent accidental execution.
 	This file contains commands to drop tables, truncate tables, and delete all CHORDS Foreign Keys.
-	Run all together they will wipe out all of the data, tables, and keys in the VDW 3.2 so use them with caution
+	Run all together they will wipe out all of the data, tables, and keys in the VDW 3.3 so use them with caution
 
 2) Toggle Keys.txt
 	Commands that can be used to disable key checking and enable key checking.  This can be useful for your ETL process.
