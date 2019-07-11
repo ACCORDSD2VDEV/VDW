@@ -2195,3 +2195,211 @@ BEGIN
 		   
 	PRINT 'PROVIDER_SPECIALTY_LU - Complete';
 END;
+
+/*****************************************
+PRO_SURVEY_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('PRO_SURVEY_LU') IS NOT NULL
+BEGIN
+	PRINT 'PRO_SURVEY_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PRO_SURVEY_LU - Creating';
+	CREATE TABLE PRO_SURVEY_LU
+	( 
+				 ABBREVIATION nvarchar(15) NOT NULL, 
+				 DESCRIPTION nvarchar(100) NOT NULL, 
+				 CONSTRAINT [PK_PRO_SURVEY_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO PRO_SURVEY_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'PHQ', 'Patient Health Questionnaire' ), ( 
+		   'GAD', 'General Anxiety Disorder' ), ( 
+		   'EPDS', 'Edinburgh Postnatal Depression Scale' ), ( 
+		   'AHC-HRSN', 'Accountable Health Communities Health-Related Social Needs' ), ( 
+		   'PRAPARE', 'Protocol for Responding to and Assessing Patients’ Assets, Risks, and Experiences' ), ( 
+		   'NI', 'No information' ), ( 
+		   'UN', 'Unknown' ), ( 
+		   'OT', 'Other' );
+		   
+	PRINT 'PRO_SURVEY_LU - Complete';
+END;
+
+/*****************************************
+PRO_SURVEY_TYPE_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('PRO_SURVEY_TYPE_LU') IS NOT NULL
+BEGIN
+	PRINT 'PRO_SURVEY_TYPE_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'PRO_SURVEY_TYPE_LU - Creating';
+	CREATE TABLE PRO_SURVEY_TYPE_LU
+	( 
+				 ABBREVIATION nvarchar(15) NOT NULL, 
+				 DESCRIPTION nvarchar(100) NOT NULL, 
+				 CONSTRAINT [PK_PRO_SURVEY_TYPE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO PRO_SURVEY_TYPE_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'PHQ-2', 'Patient Health Questionnaire-2' ), ( 
+		   'PHQ-4', 'Patient Health Questionnaire-4' ), ( 
+		   'PHQ-9', 'Patient Health Questionnaire-9' ), ( 
+		   'PHQ-A', 'Patient Health Questionnaire-9 Modified for Adolescents' ), ( 
+		   'GAD-2', 'Generalized Anxiety Disorder 2-item' ), (
+		   'GAD-7', 'Generalized Anxiety Disorder 7-item' ), ( 
+		   'EPDS', 'Edinburgh Postnatal Depression Scale' ), ( 
+		   'AHC-HRSN', 'Accountable Health Communities Health-Related Social Needs' ), ( 
+		   'PRAPARE', 'Protocol for Responding to and Assessing Patients’ Assets, Risks, and Experiences' ), ( 
+		   'NI', 'No information' ), ( 
+		   'UN', 'Unknown' ), ( 
+		   'OT', 'Other' );
+		   
+	PRINT 'PRO_SURVEY_TYPE_LU - Complete';
+END;
+
+/*****************************************
+QUESTION_DOMAIN_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('QUESTION_DOMAIN_LU') IS NOT NULL
+BEGIN
+	PRINT 'QUESTION_DOMAIN_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'QUESTION_DOMAIN_LU - Creating';
+	CREATE TABLE QUESTION_DOMAIN_LU
+	( 
+				 ABBREVIATION nvarchar(36) NOT NULL, 
+				 DESCRIPTION nvarchar(100) NOT NULL, 
+				 CONSTRAINT [PK_QUESTION_DOMAIN_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO QUESTION_DOMAIN_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'FOOD_INSECURITY', 'Food Insecurity' ), ( 
+		   'HOUSING_INSTABILITY', 'Housing Instability' ), ( 
+		   'BEHAVIORAL_HEALTH', 'Behavioral Health' );
+		   
+	PRINT 'QUESTION_DOMAIN_LU - Complete';
+END;
+
+/*****************************************
+RESPONSE_SOURCE_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('RESPONSE_SOURCE_LU') IS NOT NULL
+BEGIN
+	PRINT 'RESPONSE_SOURCE_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'RESPONSE_SOURCE_LU - Creating';
+	CREATE TABLE RESPONSE_SOURCE_LU
+	( 
+				 ABBREVIATION nvarchar(2) NOT NULL, 
+				 DESCRIPTION nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_RESPONSE_SOURCE_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO RESPONSE_SOURCE_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'PT', 'Patient' ), ( 
+		   'PR', 'Parent' ), ( 
+		   'PX', 'Proxy' ), ( 
+		   'LG', 'Legal Guardian' ), ( 
+		   'NI', 'No information' ), ( 
+		   'UN', 'Unknown' ), ( 
+		   'OT', 'Other' );
+		   
+	PRINT 'RESPONSE_SOURCE_LU - Complete';
+END;
+
+/*****************************************
+SURVEY_ADMINISTERED_BY_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('SURVEY_ADMINISTERED_BY_LU') IS NOT NULL
+BEGIN
+	PRINT 'SURVEY_ADMINISTERED_BY_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'SURVEY_ADMINISTERED_BY_LU - Creating';
+	CREATE TABLE SURVEY_ADMINISTERED_BY_LU
+	( 
+				 ABBREVIATION nvarchar(3) NOT NULL, 
+				 DESCRIPTION nvarchar(50) NOT NULL, 
+				 CONSTRAINT [PK_SURVEY_ADMINISTERED_BY_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO SURVEY_ADMINISTERED_BY_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'MD', 'Physician' ), ( 
+		   'PA', 'Physician Assistant' ), ( 
+		   'RN', 'Nurse' ), ( 
+		   'MA', 'Medical Assistant' ), ( 
+		   'HCP', 'Health Care Partner' ), ( 
+		   'PN', 'Patient Navigator' ), ( 
+		   'NI', 'No information' ), ( 
+		   'UN', 'Unknown' ), ( 
+		   'OT', 'Other' );
+		   
+	PRINT 'SURVEY_ADMINISTERED_BY_LU - Complete';
+END;
+
+/*****************************************
+MEDIUM_LU
+Changes: New Summer 2019
+*****************************************/
+PRINT '-----------------------------------------------------'
+IF OBJECT_ID('MEDIUM_LU') IS NOT NULL
+BEGIN
+	PRINT 'MEDIUM_LU Already Exists';
+END;
+ELSE
+BEGIN
+	PRINT 'MEDIUM_LU - Creating';
+	CREATE TABLE MEDIUM_LU
+	( 
+				 ABBREVIATION nvarchar(2) NOT NULL, 
+				 DESCRIPTION nvarchar(100) NOT NULL, 
+				 CONSTRAINT [PK_MEDIUM_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+	)
+	ON [PRIMARY];
+	INSERT INTO MEDIUM_LU ( 
+		ABBREVIATION, 
+		DESCRIPTION )
+	VALUES( 
+		   'PA', 'Paper' ), ( 
+		   'EC', 'Electronic (includes personal or tablet computer, web kiosks, smartphone)' ), ( 
+		   'PH', 'Telephonic' ), ( 
+		   'IV', 'Telephonic with interactive voice response (IVR) technology' ), ( 
+		   'NI', 'No information' ), ( 
+		   'UN', 'Unknown' ), ( 
+		   'OT', 'Other' );
+		   
+	PRINT 'MEDIUM_LU - Complete';
+END;

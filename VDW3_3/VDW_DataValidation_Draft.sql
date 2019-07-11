@@ -15,23 +15,26 @@ To update the script for partner use:
     constraint statement and any "ON [PRIMARY]" statements.  Don't copy
     any PRINT statements
 
-2) Update the DataValidation table section to add the TargetTable, TargetColumn, 
-    RefTable, RefColumn to create the mapping of values to table.  
+2) Update the DataValidation tables section to add the TargetTable, TargetColumn, 
+    RefTable, RefColumn to create the mapping of values to table.  This can be 
+	done by copying the information from the Foreign_Keys.sql file.  For example:
+	
+	For example, in the statement below you can copy the values from the foreign
+	key creation to the the validation table.  Stars (*) are placed next to the 
+	place wher you can obtain each value.
+	
+	ALTER TABLE PROVIDER_SPECIALTY *TargetTable*
+	   ADD CONSTRAINT FK_CHORDS_PROVIDER_SPECIALTY_RACE_LU FOREIGN KEY(PROVIDER_RACE *TargetColumn*) REFERENCES RACE_LU *RefTable*(ABBREVIATION *RefColumn*);
 *****************************************************************************/
 
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
 
-CREATE TABLE #CHORDSValueResults
-( 
-	TargetTable varchar(250),
-	TargetColumn varchar(250),
-	UnexpectedValue varchar(250)
-);
-
 /*****************************************************************************
 BEGIN TempTable Lookup Value creation
 *****************************************************************************/
+PRINT 'Creating Faux Validation Tables';
+
 CREATE TABLE #ABN_IND_LU
 (
 	ABBREVIATION NVARCHAR(2) NOT NULL,
@@ -91,13 +94,13 @@ CREATE TABLE #BENEFIT_TYPE_LU
 INSERT INTO #BENEFIT_TYPE_LU( 
 	ABBREVIATION, 
 	DESCRIPTION )
-VALUES( 
-	   'CU', 'Current insurance or benefit information' ), (
-	   'EN', 'Enrollment insurance or benefit information' ), ( 
-	   'PR', 'Primary payer on claim or encounter' ), ( 
-	   'PA', 'Payer on claim with unknown rank or order' ), ( 
-	   'SR', 'Self-reported insurance or benefit' ), (
-	   'NI', 'No benefit information availible' );
+	VALUES( 
+		   'CU', 'Current insurance or benefit information' ), (
+		   'EN', 'Enrollment insurance or benefit information' ), ( 
+		   'PR', 'Primary payer on claim or encounter' ), ( 
+		   'PA', 'Payer on claim with unknown rank or order' ), ( 
+		   'SR', 'Self-reported insurance or benefit' ), (
+		   'NI', 'No benefit information availible' );
 
 CREATE TABLE #BENEFIT_CAT_LU
 ( 
@@ -109,18 +112,18 @@ CREATE TABLE #BENEFIT_CAT_LU
 INSERT INTO #BENEFIT_CAT_LU( 
 	ABBREVIATION, 
 	DESCRIPTION )
-VALUES( 
-	   'CC', 'Correctional Care' ), (
-	   'CO', 'Commercial/Private Insurance' ), ( 
-	   'CP', 'Children''s  Healthcare Insurance Program' ), ( 
-	   'MC', 'Medicare' ), ( 
-	   'MD', 'Medicaid' ), (
-	   'OG', 'Other Government' ), (
-	   'SP', 'Self-Pay/Uninsured/Private Pay' ), (
-	   'OT', 'Other Insurance' ), (
-	   'UN', 'Unknown Insurance'), (
-	   'WC', 'Workers Compensation'), (
-	   'NI', 'No Benefit Information Available');
+	VALUES( 
+		   'CC', 'Correctional Care' ), (
+		   'CO', 'Commercial/Private Insurance' ), ( 
+		   'CP', 'Children''s  Healthcare Insurance Program' ), ( 
+		   'MC', 'Medicare' ), ( 
+		   'MD', 'Medicaid' ), (
+		   'OG', 'Other Government' ), (
+		   'NC', 'No coverage used/not covered by insurance - includes Self-Pay/Uninsured/Private Pay (excluding correctional care). '), (
+		   'OT', 'Other Insurance' ), (
+		   'UN', 'Unknown Insurance'), (
+		   'WC', 'Workers Compensation'), (
+		   'NI', 'No Benefit Information Available');
 
 CREATE TABLE #BP_TYPE_LU
 ( 
@@ -164,15 +167,15 @@ CREATE TABLE #ADDRESS_TYPE_CODE_LU
 INSERT INTO #ADDRESS_TYPE_CODE_LU( 
 	ABBREVIATION, 
 	DESCRIPTION )
-VALUES( 
-	   'CO', 'Corrections address' ), ( 
-	   'DO', 'Dormitory (college)' ), ( 
-	   'HC', 'Healthcare facility' ), ( 
-	   'HL', 'Homeless' ), ( 
-	   'HS', 'Human Services' ), (
-	   'IN', 'Incomplete address' ), ( 
-	   'SL', 'Supported living' ), ( 
-	   'GA', 'Geocoded address (other)' );
+	VALUES( 
+		   'CO', 'Corrections address' ), ( 
+		   'DO', 'Dormitory (college)' ), ( 
+		   'HC', 'Healthcare facility' ), ( 
+		   'HL', 'Homeless' ), ( 
+		   'HS', 'Human Services' ), (
+		   'IN', 'Incomplete address' ), ( 
+		   'SL', 'Supported living' ), ( 
+		   'GA', 'Geocoded address (other)' );
 
 CREATE TABLE #CODETYPE_LU
 ( 
@@ -217,85 +220,85 @@ CREATE TABLE #DEPARTMENT_LU
 INSERT INTO #DEPARTMENT_LU( 
 	ABBREVIATION, 
 	DESCRIPTION )
-VALUES( 
-	   'ACUP', 'Acupuncture' ), ( 
-	   'ALGY', 'Allergy' ), ( 
-	   'AMBU', 'Ambulance Services' ), ( 
-	   'ANES', 'Anesthesiology' ), ( 
-	   'AUD', 'Audiology' ), ( 
-	   'CARD', 'Cardiology' ), ( 
-	   'CASR', 'Cast Room' ), ( 
-	   'CHEM', 'Chemical and Alcohol Dependency' ), ( 
-	   'CHIR', 'Chiropractic' ), ( 
-	   'CMHL', 'Community Health' ), ( 
-	   'CRIT', 'Critical Care Medicine' ), ( 
-	   'CRMG', 'Care Management' ), ( 
-	   'DENT', 'Dental' ), ( 
-	   'DERM', 'Dermatology' ), ( 
-	   'DIAL', 'Dialysis' ), ( 
-	   'DME', 'Durable Medical Equipment' ), ( 
-	   'EDUC', 'Education' ), ( 
-	   'ENDO', 'Endocrinology' ), ( 
-	   'ENT', 'Otolaryngology' ), ( 
-	   'ER', 'Emergency Room' ), ( 
-	   'FP', 'Family Practice' ), ( 
-	   'GEN', 'Genetics' ), ( 
-	   'GER', 'Gerontology/Geriatrics' ), ( 
-	   'GI', 'Gastro-Intestinal Medicine' ), ( 
-	   'HAP', 'Health Appraisals' ), ( 
-	   'HEP', 'Hepatology' ), ( 
-	   'HH', 'Home Health' ), ( 
-	   'HOSP', 'Hospital Care' ), ( 
-	   'HSPC', 'Hospice' ), ( 
-	   'ICF', 'Intermediate Care Facility' ), ( 
-	   'IM', 'Internal Medicine' ), ( 
-	   'IMUN', 'Immunology' ), ( 
-	   'IND', 'Industrial Medicine' ), ( 
-	   'INF', 'Infectious Disease' ), ( 
-	   'INFU', 'Infusion Center' ), ( 
-	   'IR', 'Injection Room' ), ( 
-	   'LAB', 'Laboratory' ), ( 
-	   'MH', 'Mental Health' ), ( 
-	   'NATU', 'Naturopathy' ), ( 
-	   'NEPH', 'Nephrology' ), ( 
-	   'NEUR', 'Neurology' ), ( 
-	   'NEWB', 'Newborn' ), ( 
-	   'NRSG', 'Neurosurgery' ), ( 
-	   'NUCL', 'Nuclear Medicine' ), ( 
-	   'NUT', 'Nutrition' ), ( 
-	   'OBGN', 'Obstetrics/Gynecology' ), ( 
-	   'OCTH', 'Occupational Therapy' ), ( 
-	   'ONC', 'Oncology' ), ( 
-	   'OPTH', 'Ophthalmology' ), ( 
-	   'OPTO', 'Optometry' ), ( 
-	   'ORTH', 'Orthopedics' ), ( 
-	   'OST', 'Osteopathy' ), ( 
-	   'PAL', 'Palliative Care' ), ( 
-	   'PATH', 'Pathology' ), ( 
-	   'PC', 'Primary Care' ), ( 
-	   'PEDS', 'Pediatrics' ), ( 
-	   'PERI', 'Perinatology' ), ( 
-	   'PHYS', 'Physiatry' ), ( 
-	   'POD', 'Podiatry' ), ( 
-	   'PSRG', 'Plastic Surgery' ), ( 
-	   'PT', 'Physical Therapy' ), ( 
-	   'PULM', 'Pulmonary Medicine' ), ( 
-	   'RAD', 'Radiology' ), ( 
-	   'RADT', 'Radiation Therapy' ), ( 
-	   'RECT', 'Recreational Therapy' ), ( 
-	   'REHB', 'Rehabilitation' ), ( 
-	   'RESP', 'Respiratory Therapy' ), ( 
-	   'RHEU', 'Rheumatology' ), ( 
-	   'RN', 'Registered Nurse' ), ( 
-	   'SNF', 'Skilled Nursing Facility' ), ( 
-	   'SPOR', 'Sports Medicine' ), ( 
-	   'SPTH', 'Speech Therapy' ), ( 
-	   'SURG', 'General Surgery' ), ( 
-	   'TRAN', 'Transplant' ), ( 
-	   'URG', 'Urgent Care' ), ( 
-	   'URO', 'Urology' ), ( 
-	   'OTH', 'Other' ), ( 
-	   'UNK', 'Unknown' );
+	VALUES( 
+		   'ACUP', 'Acupuncture' ), ( 
+		   'ALGY', 'Allergy' ), ( 
+		   'AMBU', 'Ambulance Services' ), ( 
+		   'ANES', 'Anesthesiology' ), ( 
+		   'AUD', 'Audiology' ), ( 
+		   'CARD', 'Cardiology' ), ( 
+		   'CASR', 'Cast Room' ), ( 
+		   'CHEM', 'Chemical and Alcohol Dependency' ), ( 
+		   'CHIR', 'Chiropractic' ), ( 
+		   'CMHL', 'Community Health' ), ( 
+		   'CRIT', 'Critical Care Medicine' ), ( 
+		   'CRMG', 'Care Management' ), ( 
+		   'DENT', 'Dental' ), ( 
+		   'DERM', 'Dermatology' ), ( 
+		   'DIAL', 'Dialysis' ), ( 
+		   'DME', 'Durable Medical Equipment' ), ( 
+		   'EDUC', 'Education' ), ( 
+		   'ENDO', 'Endocrinology' ), ( 
+		   'ENT', 'Otolaryngology' ), ( 
+		   'ER', 'Emergency Room' ), ( 
+		   'FP', 'Family Practice' ), ( 
+		   'GEN', 'Genetics' ), ( 
+		   'GER', 'Gerontology/Geriatrics' ), ( 
+		   'GI', 'Gastro-Intestinal Medicine' ), ( 
+		   'HAP', 'Health Appraisals' ), ( 
+		   'HEP', 'Hepatology' ), ( 
+		   'HH', 'Home Health' ), ( 
+		   'HOSP', 'Hospital Care' ), ( 
+		   'HSPC', 'Hospice' ), ( 
+		   'ICF', 'Intermediate Care Facility' ), ( 
+		   'IM', 'Internal Medicine' ), ( 
+		   'IMUN', 'Immunology' ), ( 
+		   'IND', 'Industrial Medicine' ), ( 
+		   'INF', 'Infectious Disease' ), ( 
+		   'INFU', 'Infusion Center' ), ( 
+		   'IR', 'Injection Room' ), ( 
+		   'LAB', 'Laboratory' ), ( 
+		   'MH', 'Mental Health' ), ( 
+		   'NATU', 'Naturopathy' ), ( 
+		   'NEPH', 'Nephrology' ), ( 
+		   'NEUR', 'Neurology' ), ( 
+		   'NEWB', 'Newborn' ), ( 
+		   'NRSG', 'Neurosurgery' ), ( 
+		   'NUCL', 'Nuclear Medicine' ), ( 
+		   'NUT', 'Nutrition' ), ( 
+		   'OBGN', 'Obstetrics/Gynecology' ), ( 
+		   'OCTH', 'Occupational Therapy' ), ( 
+		   'ONC', 'Oncology' ), ( 
+		   'OPTH', 'Ophthalmology' ), ( 
+		   'OPTO', 'Optometry' ), ( 
+		   'ORTH', 'Orthopedics' ), ( 
+		   'OST', 'Osteopathy' ), ( 
+		   'PAL', 'Palliative Care' ), ( 
+		   'PATH', 'Pathology' ), ( 
+		   'PC', 'Primary Care' ), ( 
+		   'PEDS', 'Pediatrics' ), ( 
+		   'PERI', 'Perinatology' ), ( 
+		   'PHYS', 'Physiatry' ), ( 
+		   'POD', 'Podiatry' ), ( 
+		   'PSRG', 'Plastic Surgery' ), ( 
+		   'PT', 'Physical Therapy' ), ( 
+		   'PULM', 'Pulmonary Medicine' ), ( 
+		   'RAD', 'Radiology' ), ( 
+		   'RADT', 'Radiation Therapy' ), ( 
+		   'RECT', 'Recreational Therapy' ), ( 
+		   'REHB', 'Rehabilitation' ), ( 
+		   'RESP', 'Respiratory Therapy' ), ( 
+		   'RHEU', 'Rheumatology' ), ( 
+		   'RN', 'Registered Nurse' ), ( 
+		   'SNF', 'Skilled Nursing Facility' ), ( 
+		   'SPOR', 'Sports Medicine' ), ( 
+		   'SPTH', 'Speech Therapy' ), ( 
+		   'SURG', 'General Surgery' ), ( 
+		   'TRAN', 'Transplant' ), ( 
+		   'URG', 'Urgent Care' ), ( 
+		   'URO', 'Urology' ), ( 
+		   'OTH', 'Other' ), ( 
+		   'UNK', 'Unknown' );
 
 CREATE TABLE #DISCHARGE_DISPOSITION_LU
 ( 
@@ -1616,19 +1619,128 @@ END TempTable Lookup Value creation
 *****************************************************************************/
 
 /*****************************************************************************
-BEGIN DataValidation table creation.  Stores the mapping from one temp table 
-to the field in the VDW.
+BEGIN DataIntegValidation table creation.  Stores the mapping from one primary table 
+to another primary table in the VDW. For example that the person_ids in ENCOUNTERS
+appear in DEMOGRAPHICS.  This script can only do single column matches, not multi-
+column matches.
 *****************************************************************************/
+PRINT 'Creating Referential Integrity Validation Values';
 
-DECLARE @datavalidation TABLE
-(PK           INT IDENTITY(1, 1) PRIMARY KEY,
+DECLARE @dataintegvalidation TABLE
+(PK           INT IDENTITY(1, 1),
  TargetTable  VARCHAR(250),
  TargetColumn VARCHAR(250),
  RefTable     VARCHAR(250),
  RefColumn    VARCHAR(250)
 );
 
-INSERT INTO @datavalidation
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'ENCOUNTERS',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'ENCOUNTERS',	'PROVIDER',	'PROVIDER_SPECIALTY',	'PROVIDER');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'BENEFIT',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'BENEFIT',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID');			
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'DIAGNOSES',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'DIAGNOSES',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID'), (
+			'DIAGNOSES',	'DIAGPROVIDER',	'PROVIDER_SPECIALTY',	'PROVIDER'), (
+			'DIAGNOSES',	'PROVIDER',	'PROVIDER_SPECIALTY',	'PROVIDER');
+			
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'ENROLLMENT',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'ENROLLMENT',	'PCP',	'PROVIDER_SPECIALTY',	'PROVIDER');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'LAB_RESULTS',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'LAB_RESULTS',	'ORDER_PROV',	'PROVIDER_SPECIALTY',	'PROVIDER');
+			
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'PHARMACY',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'PHARMACY',	'RXMD',	'PROVIDER_SPECIALTY',	'PROVIDER');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'PRESCRIBING',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'PRESCRIBING',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID'), (
+			'PRESCRIBING',	'RXMD',	'PROVIDER_SPECIALTY',	'PROVIDER');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'PROCEDURES',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'PROCEDURES',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID'), (
+			'PROCEDURES',	'PROVIDER',	'PROVIDER_SPECIALTY',	'PROVIDER'), (
+			'PROCEDURES',	'PERFORMINGPROVIDER',	'PROVIDER_SPECIALTY',	'PROVIDER');
+			
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'SOCIAL_HISTORY',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'SOCIAL_HISTORY',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'VITAL_SIGNS',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'VITAL_SIGNS',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID');
+			
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'PRO_QUESTIONS',	'PRO_ID',	'PRO_SURVEYS',	'PRO_ID');			
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'PRO_RESPONSES',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID'), (
+			'PRO_RESPONSES',	'ENC_ID',	'ENCOUNTERS',	'ENC_ID');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'TUMOR',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');
+			
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'LANGUAGES',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'CENSUS_LOCATION',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');			
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'LINKAGE',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');			
+						
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'DEATH',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');
+
+INSERT INTO @dataintegvalidation
+VALUES		(
+			'CAUSE_OF_DEATH',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');				
+
+/*****************************************************************************
+END DataValueValidation table creation. 
+*****************************************************************************/
+
+/*****************************************************************************
+BEGIN DataValueValidation table creation.  Stores the mapping from one temp table 
+to the field in the VDW. This ensures acceptable values are used in specific fields.
+*****************************************************************************/
+PRINT 'Creating Data Value Validation Values';
+
+DECLARE @datavaluevalidation TABLE
+(PK           INT IDENTITY(1, 1),
+ TargetTable  VARCHAR(250),
+ TargetColumn VARCHAR(250),
+ RefTable     VARCHAR(250),
+ RefColumn    VARCHAR(250)
+);
+
+INSERT INTO @datavaluevalidation
 VALUES		(
 			'DEMOGRAPHICS',	'PRIMARY_LANGUAGE',	'LANGUAGES_ISO_LU',	'[ISO_639-2_CODE]'), (
 			'DEMOGRAPHICS',	'GENDER_IDENTITY',	'GENDER_IDENTITY_LU',	'ABBREVIATION'), (
@@ -1642,7 +1754,7 @@ VALUES		(
 			'DEMOGRAPHICS',	'NEEDS_INTERPRETER',	'YNU_LU',	'ABBREVIATION'), (
 			'DEMOGRAPHICS',	'HISPANIC',	'YNU_LU',	'ABBREVIATION');
 
-INSERT INTO @datavalidation
+INSERT INTO @datavaluevalidation
 VALUES		(
 			'ENCOUNTERS', 'ADMITTING_SOURCE', 'ADMITTING_SOURCE_LU', 'ABBREVIATION'	), (
 			'ENCOUNTERS', 'DEPARTMENT', 'DEPARTMENT_LU', 'ABBREVIATION'	), (
@@ -1650,8 +1762,123 @@ VALUES		(
 			'ENCOUNTERS', 'DISCHARGE_STATUS', 'DISCHARGE_STATUS_LU', 'ABBREVIATION'	), (
 			'ENCOUNTERS', 'ENCOUNTER_SUBTYPE', 'ENCOUNTER_SUBTYPE_LU', 'ABBREVIATION'	), (
 			'ENCOUNTERS', 'ENCTYPE', 'ENCTYPE_LU', 'ABBREVIATION');
+
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'BENEFIT', 'BENEFIT_TYPE', 'BENEFIT_TYPE_LU', 'ABBREVIATION'	), (
+			'BENEFIT', 'BENEFIT_CAT', 'BENEFIT_CAT_LU', 'ABBREVIATION'	);	
+
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'DIAGNOSES', 'DX_CODETYPE', 'DX_CODETYPE_LU', 'ABBREVIATION'	), (
+			'DIAGNOSES', 'PRIMARY_DX', 'PRIMARY_DX_LU', 'ABBREVIATION'	), (
+			'DIAGNOSES', 'PRINCIPAL_DX', 'PRINCIPAL_DX_LU', 'ABBREVIATION'	), (
+			'DIAGNOSES', 'DX_ORIGIN', 'DX_ORIGIN_LU', 'ABBREVIATION'	);
+
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'ENROLLMENT', 'INS_MEDICAID', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_COMMERCIAL', 'PRIMARY_DX_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_PRIVATEPAY', 'PRINCIPAL_DX_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_STATESUBSIDIZED', 'DX_ORIGIN_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_SELFFUNDED', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_HIGHDEDUCTIBLE', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_MEDICARE', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_MEDICARE_A', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_MEDICARE_B', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_MEDICARE_C', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_MEDICARE_D', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'INS_OTHER', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'PLAN_HMO', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'PLAN_POS', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'PLAN_PPO', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'PLAN_INDEMNITY', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'DRUGCOV', 'YNU_LU', 'ABBREVIATION'	), (
+			'ENROLLMENT', 'OUTSIDE_UTILIZATION', 'YNU_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'LAB_RESULTS', 'ABN_IND', 'ABN_IND_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'CODETYPE', 'CODETYPE_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'MODIFIER', 'MODIFIER_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'PT_LOC', 'PT_LOC_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'RESULT_LOC', 'RESULT_LOC_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'SPECIMEN_SOURCE', 'SPECIMEN_SOURCE_LU', 'ABBREVIATION'	), (
+			'LAB_RESULTS', 'STAT', 'STAT_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'PRESCRIBING', 'RX_BASIS', 'RX_BASIS_LU', 'ABBREVIATION'	), (
+			'PRESCRIBING', 'RX_FREQUENCY', 'RX_FREQUENCY_LU', 'ABBREVIATION'	), (
+			'PRESCRIBING', 'RX_QUANTITY_UNIT', 'RX_QUANTITY_UNIT_LU', 'ABBREVIATION'	);			
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'PROCEDURES', 'PX_CODETYPE', 'PX_CODETYPE_LU', 'ABBREVIATION'	);			
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'SOCIAL_HISTORY', 'ONC_SMOKING_STATUS', 'ONC_SMOKING_STATUS_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'SEXUALLY_ACTV', 'SEXUALLY_ACTV_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'TOBACCO_USER', 'TOBACCO_USER_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'ILL_DRUG_USER', 'YNQXU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'IV_DRUG_USER_YN', 'YNQXU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'CIGARETTES_YN', 'YNXU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'PIPES_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'CIGARS_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'SNUFF_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'CHEW_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'FEMALE_PARTNER_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'MALE_PARTNER_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'CONDOM_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'PILL_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'DIAPHRAGM_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'IUD_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'SURGICAL_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'SPERMICIDE_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'IMPLANT_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'RHYTHM_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'INJECTION_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'SPONGE_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'BC_INSERTS_YN', 'YNU_LU', 'ABBREVIATION'	), (
+			'SOCIAL_HISTORY', 'ABSTINENCE_YN', 'YNU_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'VITAL_SIGNS', 'BP_TYPE', 'BP_TYPE_LU', 'ABBREVIATION'	), (
+			'VITAL_SIGNS', 'POSITION', 'POSITION_LU', 'ABBREVIATION'	);			
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'TUMOR', 'RACE1', 'RACE_LU', 'ABBREVIATION'	), (
+			'TUMOR', 'RACE2', 'RACE_LU', 'ABBREVIATION'	), (
+			'TUMOR', 'RACE3', 'RACE_LU', 'ABBREVIATION'	), (
+			'TUMOR', 'RACE4', 'RACE_LU', 'ABBREVIATION'	), (
+			'TUMOR', 'RACE5', 'RACE_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'LANGUAGES', 'LANG_ISO', 'LANGUAGES_ISO_LU', '[ISO_639-2_CODE]'	), (
+			'LANGUAGES', 'LANG_USAGE', 'LANG_USAGE_LU', 'ABBREVIATION'	), (
+			'LANGUAGES', 'LANG_PRIMARY', 'YNU_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'CENSUS_LOCATION', 'ADDRESS_TYPE_CODE', 'ADDRESS_TYPE_CODE_LU', 'ABBREVIATION'	);	
+
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'DEATH', 'CONFIDENCE', 'CONFIDENCE_LU', 'ABBREVIATION'	), (
+			'DEATH', 'DTIMPUTE', 'DTIMPUTE_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(
+			'CAUSE_OF_DEATH', 'CAUSETYPE', 'CAUSETYPE_LU', 'ABBREVIATION'	), (
+			'CAUSE_OF_DEATH', 'CONFIDENCE', 'CONFIDENCE_LU', 'ABBREVIATION'	), (
+			'CAUSE_OF_DEATH', 'DX_CODETYPE', 'DX_CODETYPE_LU', 'ABBREVIATION'	);			
+			
 /*****************************************************************************
-END DataValidation table creation.
+END datavaluevalidation table creation.
 *****************************************************************************/
 
 
@@ -1665,7 +1892,13 @@ BEGIN
     UPDATE a
       SET
           a.TargetTable = b.NEW_NAME
-    FROM   @datavalidation a
+      FROM   @dataintegvalidation a
+           JOIN CHORDS_TABLENAMES b
+                ON b.ORG_NAME = a.TargetTable;
+	UPDATE a
+      SET
+          a.TargetTable = b.NEW_NAME
+      FROM   @datavaluevalidation a
            JOIN CHORDS_TABLENAMES b
                 ON b.ORG_NAME = a.TargetTable;
 END;
@@ -1681,32 +1914,54 @@ that does not exist in the list of acceptable values, the output will be
 dispalyed as an unexpected value.
 *****************************************************************************/
 
+CREATE TABLE #CHORDSDataValueResults
+( 
+	TargetTable varchar(1000) DEFAULT NULL,
+	TargetColumn varchar(500) DEFAULT NULL,
+	UnexpectedValue varchar(500) DEFAULT NULL,
+	Message varchar(500) DEFAULT NULL
+);
+
+CREATE TABLE #CHORDSReferentialIntegrityResults
+( 
+	TargetTable varchar(1000) DEFAULT NULL,
+	TargetColumn varchar(500) DEFAULT NULL,
+	ReferenceTable varchar(500) DEFAULT NULL,
+	ReferenceColumn varchar(500) DEFAULT NULL,
+	ValuesNotFound int,
+	Message varchar(500) DEFAULT NULL
+);
   
 DECLARE @SQL NVARCHAR(3000);
-DECLARE @TargetColumn VARCHAR(250);
-DECLARE @TargetTable VARCHAR(250);
-DECLARE @RefColumn VARCHAR(250);
-DECLARE @RefTable VARCHAR(250);
+DECLARE @TargetColumn VARCHAR(500);
+DECLARE @TargetTable VARCHAR(500);
+DECLARE @RefColumn VARCHAR(500);
+DECLARE @RefTable VARCHAR(500);
 DECLARE @max INT;
 DECLARE @counter INT = 1;
-	
+
+PRINT 'Validating Table Reference Integrity';
+
 SELECT
        @max = COUNT(*)
 FROM
-     @datavalidation;
+     @dataintegvalidation;
 
 WHILE @counter < @max
     BEGIN
-	   SELECT @TargetTable = TargetTable from @datavalidation where PK = @counter;
-	   SELECT  @TargetColumn = TargetColumn from @datavalidation where PK = @counter;
-	   SELECT  @RefColumn = RefColumn from @datavalidation where PK = @counter;
-	   SELECT  @RefTable = RefTable from @datavalidation where PK = @counter;
+	   SELECT @TargetTable = TargetTable from @dataintegvalidation where PK = @counter;
+	   SELECT  @TargetColumn = TargetColumn from @dataintegvalidation where PK = @counter;
+	   SELECT  @RefColumn = RefColumn from @dataintegvalidation where PK = @counter;
+	   SELECT  @RefTable = RefTable from @dataintegvalidation where PK = @counter;
 
 	   SET @SQL = 
-		  'INSERT INTO #CHORDSValueResults  
+		  'INSERT INTO #CHORDSReferentialIntegrityResults  
 		   SELECT ''' + @TargetTable + ''', ''' 
-				+ @TargetColumn  + ''', 
-				c.TargetColumn 
+				+ @TargetColumn  + ''', ''' 
+				+ @RefTable  + ''', ''' 
+				+ @RefColumn + ''',
+				Count(c.TargetColumn),
+				null
 		   FROM (
 				SELECT *
 				FROM (
@@ -1715,20 +1970,81 @@ WHILE @counter < @max
 						' + @TargetTable + '
 					) a
 				LEFT JOIN (
-					SELECT ' + @RefColumn + ' as RefColumn 
+					SELECT DISTINCT ' + @RefColumn + ' as RefColumn 
+					FROM ' + @RefTable + ' ) b 
+					ON b.RefColumn = a.TargetColumn
+				WHERE b.RefColumn is NULL
+		   ) c
+		   WHERE c.TargetColumn IS NOT NULL
+		   HAVING Count(c.TargetColumn) > 0;'
+	   BEGIN TRY
+			--print @SQL;
+			EXEC sp_executesql @SQL;
+	   END TRY
+	   BEGIN CATCH
+			INSERT INTO #CHORDSReferentialIntegrityResults  
+				VALUES (@TargetTable,  @TargetColumn, null, null, null, 'Error Validting Values; ' +  @TargetTable + ', ' + @TargetColumn + ', ' + @RefTable + ', or ' + @RefColumn + ' not found')
+	   END CATCH
+	   SET @counter = @counter + 1;
+    END;
+
+PRINT 'Validating Table Values Integrity';
+SET @counter = 1;
+
+SELECT
+       @max = COUNT(*)
+FROM
+     @datavaluevalidation;
+
+WHILE @counter < @max
+    BEGIN
+	   SELECT @TargetTable = TargetTable from @datavaluevalidation where PK = @counter;
+	   SELECT  @TargetColumn = TargetColumn from @datavaluevalidation where PK = @counter;
+	   SELECT  @RefColumn = RefColumn from @datavaluevalidation where PK = @counter;
+	   SELECT  @RefTable = RefTable from @datavaluevalidation where PK = @counter;
+
+	   SET @SQL = 
+		  'INSERT INTO #CHORDSDataValueResults  
+		   SELECT ''' + @TargetTable + ''', ''' 
+				+ @TargetColumn  + ''', 
+				c.TargetColumn,
+				null
+		   FROM (
+				SELECT *
+				FROM (
+					SELECT DISTINCT ' + @TargetColumn +' as TargetColumn 
+					FROM
+						' + @TargetTable + '
+					) a
+				LEFT JOIN (
+					SELECT DISTINCT ' + @RefColumn + ' as RefColumn 
 					FROM #' + @RefTable + ' ) b 
 					ON b.RefColumn = a.TargetColumn
 				WHERE b.RefColumn is NULL
 		   ) c
 		   WHERE c.TargetColumn IS NOT NULL;';
-	   EXEC sp_executesql @SQL
+	   BEGIN TRY
+	   	   --print @SQL;
+		   EXEC sp_executesql @SQL;
+	   END TRY
+	   BEGIN CATCH
+			INSERT INTO #CHORDSDataValueResults  
+				VALUES (@TargetTable, @TargetColumn, null, 'Error Validting Values; ' +  @TargetTable + ', or ' + @TargetColumn + ' not found')
+	   END CATCH
 	   SET @counter = @counter + 1;
     END;
-    
+
 SELECT
        *
 FROM
-     #CHORDSValueResults;
+     #CHORDSReferentialIntegrityResults
+ORDER BY TargetTable;
+
+SELECT
+       *
+FROM
+     #CHORDSDataValueResults
+ORDER BY TargetTable;
 
 /*****************************************************************************
 END Table value validation.
