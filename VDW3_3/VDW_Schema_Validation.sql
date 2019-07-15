@@ -255,8 +255,7 @@ BEGIN
 					  RACE5                 nvarchar(2) NOT NULL DEFAULT 'UN',
 					  HISPANIC              nchar NOT NULL DEFAULT 'U',
 					  SEXUAL_ORIENTATION    nvarchar(2) NOT NULL DEFAULT 'UN',
-					  GENDER_IDENTITY       nvarchar(2) DEFAULT 'UN',
-					  CONSTRAINT PK_CHORDS_DEMOGRAPHICS PRIMARY KEY CLUSTERED(PERSON_ID)
+					  GENDER_IDENTITY       nvarchar(2) DEFAULT 'UN'
 	);
 	INSERT INTO @TableNameList VALUES  ('DEMOGRAPHICS');
 	
@@ -302,8 +301,7 @@ BEGIN
 					  DISCHARGE_DISPOSITION    nchar	DEFAULT 'U',
 					  DISCHARGE_STATUS         nvarchar(2)  DEFAULT 'UN',
 					  ADMITTING_SOURCE         nvarchar(2)	DEFAULT 'UN',
-					  DEPARTMENT               nvarchar(4)	DEFAULT 'UNK',
-					  CONSTRAINT PK_CHORDS_ENCOUNTERS PRIMARY KEY CLUSTERED(ENC_ID),
+					  DEPARTMENT               nvarchar(4)	DEFAULT 'UNK'
 	);
 	INSERT INTO @TableNameList VALUES  ('ENCOUNTERS');
 	 
@@ -352,8 +350,7 @@ BEGIN
 					  OUTSIDE_UTILIZATION    nchar NOT NULL,
 					  ENROLLMENT_BASIS       nchar NULL,
 					  PCC                    nvarchar(4),
-					  PCP                    nvarchar(36),
-					  CONSTRAINT PK_CHORDS_ENROLLMENT PRIMARY KEY CLUSTERED(PERSON_ID, ENR_START),
+					  PCP                    nvarchar(36)
 	);
 	INSERT INTO @TableNameList VALUES  ('ENROLLMENT');
 	
@@ -694,8 +691,7 @@ BEGIN
 					  PERSON_ID       nvarchar(36) NOT NULL,
 					  LANG_ISO        nvarchar(3) NOT NULL,
 					  LANG_USAGE      nchar	DEFAULT 'U',
-					  LANG_PRIMARY    nchar DEFAULT 'U',
-					  CONSTRAINT PK_CHORDS_LANGUAGES PRIMARY KEY CLUSTERED(PERSON_ID, LANG_ISO)
+					  LANG_PRIMARY    nchar DEFAULT 'U'
 	);
 	INSERT INTO @TableNameList VALUES  ('LANGUAGES');	
     
