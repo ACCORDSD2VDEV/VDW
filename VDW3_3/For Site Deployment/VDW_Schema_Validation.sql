@@ -17,6 +17,7 @@ e.g.: numeric(11, 10) is structurally the same as decimal(11, 10).
 Could add default values to columns but some partners may do default values
 through their own ETL process rather than having SQL Server doing that.
 
+FOR DEVELOPERS:
 To Update the script for partner use:
 
 1) Copy the Create statements for the primary priority tables from the DDL 

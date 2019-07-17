@@ -1,4 +1,4 @@
-SET ANSI_NULLS ON
+﻿SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 
 /*****************************************
@@ -2348,7 +2348,7 @@ BEGIN
 	PRINT 'SURVEY_ADMINISTERED_BY_LU - Creating';
 	CREATE TABLE SURVEY_ADMINISTERED_BY_LU
 	( 
-				 ABBREVIATION nvarchar(3) NOT NULL, 
+				 ABBREVIATION nvarchar(2) NOT NULL, 
 				 DESCRIPTION nvarchar(50) NOT NULL, 
 				 CONSTRAINT [PK_SURVEY_ADMINISTERED_BY_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
 	)
@@ -2361,7 +2361,7 @@ BEGIN
 		   'PA', 'Physician Assistant' ), ( 
 		   'RN', 'Nurse' ), ( 
 		   'MA', 'Medical Assistant' ), ( 
-		   'HCP', 'Health Care Partner' ), ( 
+		   'HC', 'Health Care Partner' ), ( 
 		   'PN', 'Patient Navigator' ), ( 
 		   'NI', 'No information' ), ( 
 		   'UN', 'Unknown' ), ( 

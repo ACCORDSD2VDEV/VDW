@@ -8,6 +8,7 @@ by default will ignore case.
 
 Most of the tables are based on the the DDL Lookup Tables script.  
 
+FOR DEVELOPERS:
 To update the script for partner use:
 
 1) Copy each of the Lookup table creation and insert statements into the
@@ -1614,6 +1615,119 @@ VALUES(
 	   'URO', 'Urology' ), ( 
 	   'VAS', 'Vascular Surgery' );
 
+CREATE TABLE #PRO_SURVEY_LU
+( 
+			 ABBREVIATION nvarchar(15) NOT NULL, 
+			 DESCRIPTION nvarchar(100) NOT NULL
+);
+	
+INSERT INTO #PRO_SURVEY_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'PHQ', 'Patient Health Questionnaire' ), ( 
+	   'GAD', 'General Anxiety Disorder' ), ( 
+	   'EPDS', 'Edinburgh Postnatal Depression Scale' ), ( 
+	   'AHC-HRSN', 'Accountable Health Communities Health-Related Social Needs' ), ( 
+	   'PRAPARE', 'Protocol for Responding to and Assessing Patients’ Assets, Risks, and Experiences' ), ( 
+	   'NI', 'No information' ), ( 
+	   'UN', 'Unknown' ), ( 
+	   'OT', 'Other' );
+	   
+CREATE TABLE #PRO_SURVEY_TYPE_LU
+( 
+			 ABBREVIATION nvarchar(15) NOT NULL, 
+			 DESCRIPTION nvarchar(100) NOT NULL
+);
+
+INSERT INTO #PRO_SURVEY_TYPE_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'PHQ-2', 'Patient Health Questionnaire-2' ), ( 
+	   'PHQ-4', 'Patient Health Questionnaire-4' ), ( 
+	   'PHQ-9', 'Patient Health Questionnaire-9' ), ( 
+	   'PHQ-A', 'Patient Health Questionnaire-9 Modified for Adolescents' ), ( 
+	   'GAD-2', 'Generalized Anxiety Disorder 2-item' ), (
+	   'GAD-7', 'Generalized Anxiety Disorder 7-item' ), ( 
+	   'EPDS', 'Edinburgh Postnatal Depression Scale' ), ( 
+	   'AHC-HRSN', 'Accountable Health Communities Health-Related Social Needs' ), ( 
+	   'PRAPARE', 'Protocol for Responding to and Assessing Patients’ Assets, Risks, and Experiences' ), ( 
+	   'NI', 'No information' ), ( 
+	   'UN', 'Unknown' ), ( 
+	   'OT', 'Other' );
+
+CREATE TABLE #QUESTION_DOMAIN_LU
+( 
+			 ABBREVIATION nvarchar(36) NOT NULL, 
+			 DESCRIPTION nvarchar(100) NOT NULL
+);
+
+INSERT INTO #QUESTION_DOMAIN_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'FOOD_INSECURITY', 'Food Insecurity' ), ( 
+	   'HOUSING_INSTABILITY', 'Housing Instability' ), ( 
+	   'BEHAVIORAL_HEALTH', 'Behavioral Health' );
+	   
+CREATE TABLE #RESPONSE_SOURCE_LU
+( 
+			 ABBREVIATION nvarchar(2) NOT NULL, 
+			 DESCRIPTION nvarchar(50) NOT NULL
+);
+
+INSERT INTO #RESPONSE_SOURCE_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'PT', 'Patient' ), ( 
+	   'PR', 'Parent' ), ( 
+	   'PX', 'Proxy' ), ( 
+	   'LG', 'Legal Guardian' ), ( 
+	   'NI', 'No information' ), ( 
+	   'UN', 'Unknown' ), ( 
+	   'OT', 'Other' );
+	   
+CREATE TABLE #SURVEY_ADMINISTERED_BY_LU
+( 
+			 ABBREVIATION nvarchar(2) NOT NULL, 
+			 DESCRIPTION nvarchar(50) NOT NULL
+);
+
+INSERT INTO #SURVEY_ADMINISTERED_BY_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'MD', 'Physician' ), ( 
+	   'PA', 'Physician Assistant' ), ( 
+	   'RN', 'Nurse' ), ( 
+	   'MA', 'Medical Assistant' ), ( 
+	   'HC', 'Health Care Partner' ), ( 
+	   'PN', 'Patient Navigator' ), ( 
+	   'NI', 'No information' ), ( 
+	   'UN', 'Unknown' ), ( 
+	   'OT', 'Other' );
+
+CREATE TABLE #MEDIUM_LU
+( 
+			 ABBREVIATION nvarchar(2) NOT NULL, 
+			 DESCRIPTION nvarchar(100) NOT NULL, 
+			 CONSTRAINT [PK_MEDIUM_LU] PRIMARY KEY CLUSTERED(ABBREVIATION ASC)
+);
+
+INSERT INTO #MEDIUM_LU ( 
+	ABBREVIATION, 
+	DESCRIPTION )
+VALUES( 
+	   'PA', 'Paper' ), ( 
+	   'EC', 'Electronic (includes personal or tablet computer, web kiosks, smartphone)' ), ( 
+	   'PH', 'Telephonic' ), ( 
+	   'IV', 'Telephonic with interactive voice response (IVR) technology' ), ( 
+	   'NI', 'No information' ), ( 
+	   'UN', 'Unknown' ), ( 
+	   'OT', 'Other' );
+	   
 /*****************************************************************************
 END TempTable Lookup Value creation
 *****************************************************************************/
@@ -1720,7 +1834,7 @@ VALUES		(
 
 INSERT INTO @dataintegvalidation
 VALUES		(
-			'CAUSE_OF_DEATH',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');				
+			'CAUSE_OF_DEATH',	'PERSON_ID',	'DEMOGRAPHICS',	'PERSON_ID');			
 
 /*****************************************************************************
 END DataValueValidation table creation. 
@@ -1875,7 +1989,22 @@ INSERT INTO @datavaluevalidation
 VALUES		(
 			'CAUSE_OF_DEATH', 'CAUSETYPE', 'CAUSETYPE_LU', 'ABBREVIATION'	), (
 			'CAUSE_OF_DEATH', 'CONFIDENCE', 'CONFIDENCE_LU', 'ABBREVIATION'	), (
-			'CAUSE_OF_DEATH', 'DX_CODETYPE', 'DX_CODETYPE_LU', 'ABBREVIATION'	);			
+			'CAUSE_OF_DEATH', 'DX_CODETYPE', 'DX_CODETYPE_LU', 'ABBREVIATION'	);
+			
+INSERT INTO @datavaluevalidation
+VALUES		(			
+			'PRO_SURVEYS', 'PRO_SURVEY', 'PRO_SURVEY_LU', 'ABBREVIATION'	), (
+			'PRO_SURVEYS', 'PRO_SURVEY_TYPE', 'PRO_SURVEY_TYPE_LU', 'ABBREVIATION'	);
+
+INSERT INTO @datavaluevalidation
+VALUES		(			
+			'PRO_QUESTIONS', 'QUESTION_DOMAIN', 'QUESTION_DOMAIN_LU', 'ABBREVIATION'	);
+
+INSERT INTO @datavaluevalidation
+VALUES		(			
+			'PRO_RESPONSES', 'SURVEY_MEDIUM', 'MEDIUM_LU', 'ABBREVIATION'), (
+			'PRO_RESPONSES', 'RESPONSE_SOURCE', 'RESPONSE_SOURCE_LU', 'ABBREVIATION'	), (
+			'PRO_RESPONSES', 'SURVEY_ADMINISTERED_BY', 'SURVEY_ADMINISTERED_BY_LU', 'ABBREVIATION'	);
 			
 /*****************************************************************************
 END datavaluevalidation table creation.
