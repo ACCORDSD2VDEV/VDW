@@ -355,7 +355,7 @@ END;
 /*****************************************
 DIAGNOSES
 Changes:
- - ENDDATE added 11/9/2018
+ - 09/19/2019: Changed ENC_ID and ENCTYPE to allow nulls 
 *****************************************/
 IF OBJECT_ID('DIAGNOSES') IS NOT NULL
 BEGIN
@@ -368,10 +368,10 @@ BEGIN
 	 (
 					  DIAGNOSES_ID	  int IDENTITY(1,1) PRIMARY KEY NONCLUSTERED,
 					  PERSON_ID       nvarchar(36) NOT NULL,
-					  ENC_ID          nvarchar(36) NOT NULL,
+					  ENC_ID          nvarchar(36),
 					  ADATE           date NOT NULL,
 					  ENDDATE         date,
-					  ENCTYPE         nvarchar(2) NOT NULL,
+					  ENCTYPE         nvarchar(2),
 					  [PROVIDER]      nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  DIAGPROVIDER    nvarchar(36) NOT NULL DEFAULT 'UNKNOWN',
 					  DX              nvarchar(18) NOT NULL,
@@ -431,9 +431,7 @@ END;
 /*****************************************
 LAB_RESULTS
 Changes:
-	- Updated length of TEST_TYPE from 20 to 21
-	- Updated PX length from 9 to 10
-	- Changed datatype for RESULT_NUM from NUMERIC(20) to NUMERIC(20,10)
+
 *****************************************/
 IF OBJECT_ID('LAB_RESULTS') IS NOT NULL
 BEGIN
@@ -483,7 +481,7 @@ END;
 /*****************************************
 PRO_SURVEYS
 Changes: 
-	- ADDED Summer 2019
+
 *****************************************/
 IF OBJECT_ID('PRO_SURVEYS') IS NOT NULL
 BEGIN
@@ -508,7 +506,7 @@ END;
 /*****************************************
 PRO_QUESTIONS
 Changes: 
-	- ADDED Summer 2019
+
 *****************************************/
 IF OBJECT_ID('PRO_QUESTIONS') IS NOT NULL
 BEGIN
@@ -539,7 +537,7 @@ END;
 /*****************************************
 PRO_RESPONSES
 Changes: 
-	- ADDED Summer 2019
+
 *****************************************/
 IF OBJECT_ID('PRO_RESPONSES') IS NOT NULL
 BEGIN
@@ -569,7 +567,7 @@ END;
 /*****************************************
 PHARMACY
 Changes: 
-	- Shortened data type of RXAMT from (16,10) to (16,4)
+
 *****************************************/
 IF OBJECT_ID('PHARMACY') IS NOT NULL
 BEGIN
