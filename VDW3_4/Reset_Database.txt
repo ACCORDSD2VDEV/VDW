@@ -1,0 +1,99 @@
+--WHILE(EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE = 'FOREIGN KEY' AND CONSTRAINT_NAME LIKE '%FK_CHORDS%'))
+--BEGIN
+--    DECLARE @sql_alterTable_fk NVARCHAR(2000)
+
+--    SELECT  TOP 1 @sql_alterTable_fk = ('ALTER TABLE ' + TABLE_SCHEMA + '.[' + TABLE_NAME + '] DROP CONSTRAINT [' + CONSTRAINT_NAME + ']')
+--    FROM    INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+--    WHERE   CONSTRAINT_TYPE = 'FOREIGN KEY'
+--            AND CONSTRAINT_NAME LIKE '%FK_CHORDS%'
+
+--    EXEC (@sql_alterTable_fk)
+--END
+
+
+
+--truncate table CENSUS_LOCATION;
+--truncate table LANGUAGES;
+--truncate table TUMOR;
+--truncate table VITAL_SIGNS;
+--truncate table SOCIAL_HISTORY;
+--truncate table [PROCEDURES];
+--truncate table PRESCRIBING;
+--truncate table PHARMACY;
+--truncate table LAB_RESULTS;
+--truncate table ENROLLMENT;
+--truncate table DIAGNOSES;
+--truncate table ENCOUNTERS;
+--truncate table DEMOGRAPHICS;
+--truncate table CAUSE_OF_DEATH;
+--truncate table DEATH;
+--truncate table PROVIDER_SPECIALTY
+--truncate table EVERNDC;
+--truncate table CENSUS_DEMOG;
+--truncate table LINKAGE;
+--truncate table BENEFIT;
+--drop table ABN_IND_LU
+--drop table ADMITTING_SOURCE_LU
+--drop table BP_TYPE_LU
+--drop table CAUSETYPE_LU
+--drop table CODETYPE_LU
+--drop table CONFIDENCE_LU
+--drop table DEPARTMENT_LU
+--drop table DISCHARGE_DISPOSITION_LU
+--drop table DISCHARGE_STATUS_LU
+--drop table DTIMPUTE_LU
+--drop table DX_CODETYPE_LU
+--drop table ENCOUNTER_SUBTYPE_LU
+--drop table ENCTYPE_LU
+--drop table ENROLLMENT_BASIS_LU
+--drop table GENDER_LU
+--drop table LANG_USAGE_LU
+--drop table MODIFIER_LU
+--drop table ONC_SMOKING_STATUS_LU
+--drop table POSITION_LU
+--drop table PRIMARY_DX_LU
+--drop table PRINCIPAL_DX_LU
+--drop table PROVIDER_TYPE_LU
+--drop table PT_LOC_LU
+--drop table PX_CODETYPE_LU
+--drop table RACE_LU
+--drop table RESULT_LOC_LU
+--drop table RX_BASIS_LU
+--drop table RX_FREQUENCY_LU
+--drop table RX_QUANTITY_UNIT_LU
+--drop table SEXUALLY_ACTV_LU
+--drop table SPECIMEN_SOURCE_LU
+--drop table STAT_LU
+--drop table TOBACCO_USER_LU
+--drop table YNQXU_LU
+--drop table YNU_LU
+--drop table YNXU_LU
+--drop table LANGUAGES_ISO_LU
+--drop table GENDER_IDENTITY_LU
+--drop table SEXUAL_ORIENTATION_LU
+--drop table BENEFIT_CAT_LU
+--drop table ADDRESS_TYPE_CODE_LU
+--drop table DX_ORIGIN_LU
+--drop table BENEFIT_TYPE_LU
+--drop table PROVIDER_SPECIALTY_LU
+--drop table COLORADO_COUNTIES
+--drop table CENSUS_LOCATION;
+--drop table LANGUAGES;
+--drop table TUMOR;
+--drop table VITAL_SIGNS;
+--drop table SOCIAL_HISTORY;
+--drop table [PROCEDURES];
+--drop table PRESCRIBING;
+--drop table PHARMACY;
+--drop table LAB_RESULTS;
+--drop table ENROLLMENT;
+--drop table DIAGNOSES;
+--drop table ENCOUNTERS;
+--drop table DEMOGRAPHICS;
+--drop table CAUSE_OF_DEATH;
+--drop table DEATH;
+--drop table PROVIDER_SPECIALTY
+--drop table EVERNDC;
+--drop table CENSUS_DEMOG;
+--drop table LINKAGE;
+--drop table BENEFIT;
